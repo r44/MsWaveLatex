@@ -1,0 +1,88 @@
+\chapter{Methodology}
+\label{c:method}
+
+HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:thm}, the theoretical background and definition of surface plasmon will be included~\cite{maier2007plasmonics}. Chapte~\ref{c:exp} contains description of experiment methods such as atomic force microscopy and scanning electron microscopy. 
+
+%==========================================================================================
+\section{Problem Setup}
+\label{s:probsetup}
+There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server $P$ and a dataset $X_i\subset\mathbb{R}^D$ on each local machine $M_i$.  For each query $q_t$, we want to find its $k_{th}$ nearest neighborhood among these distributed datasets while reducing the transmission cost between $P$ and each $M_i$.
+
+%==========================================================================================
+\section{Overall Framework}
+\label{s:overall}
+In this section, we describe the overall framework of our work.  Then, we will give the details about the framework in the following sections.
+
+There are two main phases in our framework.  For each $X_i$, The first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
+
+The goal of the first phase is to learn a othorogal matrix $W_i$ for each $X_i$ and then send it back to $P$.  We can find that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we could see this phase as a preprocessing procedure for each $X_i$.  We give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
+
+The second phase is the main procedure of our framework.  Note that $P$ have already got $W_i$ for each $X_i$ in the beginning of the second phase. For each comming query $q_t$, we iteratively prune some candidates which are impossible to be the $k$NN of $q_t$ to reduce the search space until there are only $k$ candidates left.
+
+To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we send the return values of a $Select$ function $S_i(q_t,j;\theta_t)$ to $M_i$ where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the Sec \ref{s:selectfun}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  By these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost.
+
+%==========================================================================================
+\section{Prune by Bounds}
+\label{s:prune}
+In this section, we describe how to prune the candidates by a threshold at $P$ and how to find the threshold.
+
+\subsection{Prune the Candidates} % (fold)
+\label{sub:prune_the_candidates}
+
+% subsection prune_the_candidates (end)
+
+\subsection{Find the Threshold} % (fold)
+\label{sub:find_the_threshold}
+
+% subsection find_the_threshold (end)
+
+%==========================================================================================
+\section{Importance Selection Function}
+\label{s:selectfun}
+In this section, we describe the overview of this thesis.
+
+%==========================================================================================
+\section{Orthogonal Transformation}
+\label{s:orthogonal}
+In this section, we describe the overview of this thesis.
+
+%==========================================================================================
+\subsection{Definition of Ortohogonal Transformation}
+\label{ss:ortho_def}
+\newtheorem{Orthogonal}{\bf Definition}
+\begin{Orthogonal}
+A matrix $W \in\mathbb{R}^{D\times D}$ is orthogonal if whose columns and rows are orthogonal vectors, i.e.
+\[
+W^{T}W=WW^{T}=I
+\]
+where $I$ is the identity matrix.
+\end{Orthogonal}
+
+%==========================================================================================
+\subsection{Property of Orthogonal Transformation}
+\label{ss:ortho_prop}
+\newtheorem{ProOfOrthogonal}{\bf Property}
+\begin{ProOfOrthogonal}
+Let $x, y\in\mathbb{R}^{D}$, and $W\in\mathbb{R}^{D\times D}$ be an orthogonal matrix. Then,
+\[
+Dist(x,y)^2=\sum^D_{d=1}{(x[d]-y[d])^2} \\
+=\sum^D_{d=1}{(W_dx-W_dy)^2}=Dist(Wx,Wy)^2
+\]
+where $W_d$ is the $d_{th}$ row of $W$.
+\end{ProOfOrthogonal}
+
+%==========================================================================================
+\section{Enhance the Bounds by the Orthogonal Transformation}
+\label{s:ortho_bounds}
+In this section, we describe the overview of this thesis.
+
+%==========================================================================================
+\section{Learn the Orthogonal Transformation}
+\label{s:ortho_learn}
+In this section, we describe the overview of this thesis.
+
+%==========================================================================================
+
+
+%\bibliographystyle{unsrt}
+%\bibliography{thesisbib}
