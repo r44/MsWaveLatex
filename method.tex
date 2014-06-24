@@ -6,40 +6,74 @@ HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:t
 %==========================================================================================
 \section{Problem Setup}
 \label{s:probsetup}
-There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server $P$ and a dataset $X_i\subset\mathbb{R}^D$ on each local machine $M_i$.  For each query $q_t$, we want to find its $k_{th}$ nearest neighborhood among these distributed datasets while reducing the transmission cost between $P$ and each $M_i$.
+There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server $P$ and a dataset $X_i\subset\mathbb{R}^D$ on each local machine $M_i$.  For each coming query $q_t$, we want to find its $k_{th}$ nearest neighborhood among these distributed datasets while reducing the transmission cost between $P$ and each $M_i$.
 
 %==========================================================================================
 \section{Overall Framework}
 \label{s:overall}
 In this section, we describe the overall framework of our work.  Then, we will give the details about the framework in the following sections.
 
-There are two main phases in our framework.  For each $X_i$, The first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
+There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
 
 The goal of the first phase is to learn a othorogal matrix $W_i$ for each $X_i$ and then send it back to $P$.  We can find that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we could see this phase as a preprocessing procedure for each $X_i$.  We give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
 
 The second phase is the main procedure of our framework.  Note that $P$ have already got $W_i$ for each $X_i$ in the beginning of the second phase. For each comming query $q_t$, we iteratively prune some candidates which are impossible to be the $k$NN of $q_t$ to reduce the search space until there are only $k$ candidates left.
 
-To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we send the return values of a $Select$ function $S_i(q_t,j;\theta_t)$ to $M_i$ where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the Sec \ref{s:selectfun}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  By these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost.
+To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we use a $Select$ function $S_i(q_t,j;\theta_t)$ to generate the values for trasmitting from $P$ to $M_i$, where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the Sec \ref{s:importance_selecting_function}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  With these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost from avoiding to consider the unnecessary candidates.
 
 %==========================================================================================
 \section{Prune by Bounds}
 \label{s:prune}
-In this section, we describe how to prune the candidates by a threshold at $P$ and how to find the threshold.
+In this section, we describe the method to prune the candidates by a threshold $th$.
 
-\subsection{Prune the Candidates} % (fold)
+\subsection{Definition of Bounds} % (fold)
+\label{sub:definition_of_bounds}
+
+First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
+
+\newtheorem{Bounds}{\bf Definition}
+\begin{Bounds}
+$\forall x,y \in \mathbb{R}^D$, a lower bound $LB(x,y)$ and a upper bound $UB(x,y)$ must satisfy the following inequation:
+\[
+LB(x,y)\leq Dist(x,y) \leq UB(x,y)
+\]
+\end{Bounds}
+
+% subsection definition_of_bounds (end)
+
+\subsection{How to Prune the Candidates} % (fold)
 \label{sub:prune_the_candidates}
+
+For the query $q_t$, if we already know $LB(q_t,x)$ and $UB(q_t,x)$ $\forall x\in \cup_i X_i$, we could use the $k_{th}$ largest upper bounds and directly prune those $x$ whose lower bounds are higher than this value $thr$. I.e., we want to prune
+\[
+\{x |LB(q_t,x)>thr, \forall x \in \cup_i X_i\}
+\]
+where $thr$ is the $k_{th}$ largest $UB(q_t,x)$ $\forall x\in \cup_i X_i$.
+
+Here is an example of the pruning procedure.
+
+TODO: Draw the figure about pruning.
+
+We will talk about the details to generate these bounds and find the threshold in the Sec~~haha.
 
 % subsection prune_the_candidates (end)
 
-\subsection{Find the Threshold} % (fold)
+\subsection{How to Find the Threshold} % (fold)
 \label{sub:find_the_threshold}
+The question now is to find the threshold $thr$ for pruning.  Since 
+TODO: Put this section here or after derived the bounds.
+
 
 % subsection find_the_threshold (end)
 
 %==========================================================================================
-\section{Importance Selection Function}
-\label{s:selectfun}
+\section{Importance-Selecting Function} % (fold)
+\label{s:importance_selecting_function}
+At each round $j$ for $q_t$, we need to decide what to send from $P$ to each $M_i$ and then calculate the bounds at $M_i$. 
+
 In this section, we describe the overview of this thesis.
+
+% subsection importance_selecting_function (end)
 
 %==========================================================================================
 \section{Orthogonal Transformation}

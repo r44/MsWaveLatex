@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  23 JUN 2014 17:56
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  23 JUN 2014 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1885,12 +1885,14 @@ LaTeX Warning: Reference `c:exp' on page 9 undefined on input line 4.
 
 
 ]
-\c@Orthogonal=\count279
+\c@Bounds=\count279
  [10]
-\c@ProOfOrthogonal=\count280
-) [11] (./thesis.bbl)
+\c@Orthogonal=\count280
+ [11]
+\c@ProOfOrthogonal=\count281
+) [12] (./thesis.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
- [12
+ [13
 
 
 
@@ -1907,12 +1909,12 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 29384 strings out of 493938
- 560504 string characters out of 6148857
- 650952 words of memory out of 5000000
- 32188 multiletter control sequences out of 15000+600000
+ 29392 strings out of 493938
+ 560609 string characters out of 6148857
+ 651034 words of memory out of 5000000
+ 32196 multiletter control sequences out of 15000+600000
  49216 words of font info for 120 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,18n,60p,1437b,1208s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (28 pages).
+Output written on thesis.pdf (29 pages).
