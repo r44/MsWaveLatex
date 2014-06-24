@@ -23,11 +23,14 @@
 \contentsline {section}{\numberline {4.3}Prune by Bounds}{10}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Definition of Bounds}{10}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}How to Prune the Candidates}{11}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}How to Find the Threshold}{11}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Importance-Selecting Function}{11}{section.4.4}
-\contentsline {section}{\numberline {4.5}Orthogonal Transformation}{11}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Definition of Ortohogonal Transformation}{12}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Property of Orthogonal Transformation}{12}{subsection.4.5.2}
-\contentsline {section}{\numberline {4.6}Enhance the Bounds by the Orthogonal Transformation}{12}{section.4.6}
-\contentsline {section}{\numberline {4.7}Learn the Orthogonal Transformation}{12}{section.4.7}
-\contentsline {chapter}{Bibliography}{13}{section.4.7}
+\contentsline {section}{\numberline {4.4}Details of the Bounds}{11}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Derivation of the Bounds}{12}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Calculation of the Bounds}{13}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}How to Find the Threshold}{13}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Importance-Selecting Function}{14}{section.4.5}
+\contentsline {section}{\numberline {4.6}Orthogonal Transformation}{14}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Definition of Ortohogonal Transformation}{14}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Property of Orthogonal Transformation}{14}{subsection.4.6.2}
+\contentsline {section}{\numberline {4.7}Enhance the Bounds by the Orthogonal Transformation}{14}{section.4.7}
+\contentsline {section}{\numberline {4.8}Learn the Orthogonal Transformation}{15}{section.4.8}
+\contentsline {chapter}{Bibliography}{16}{section.4.8}

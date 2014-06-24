@@ -15,21 +15,25 @@ In this section, we describe the overall framework of our work.  Then, we will g
 
 There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
 
-The goal of the first phase is to learn a othorogal matrix $W_i$ for each $X_i$ and then send it back to $P$.  We can find that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we could see this phase as a preprocessing procedure for each $X_i$.  We give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
+The first phase is an preprocessing procedure for the second phase. Each $M_i$ would learn an othorogal matrix $W_i$ for its $X_i$ and then send it back to $P$.  We can notice that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we only need to do the first phase for once.  we give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
 
-The second phase is the main procedure of our framework.  Note that $P$ have already got $W_i$ for each $X_i$ in the beginning of the second phase. For each comming query $q_t$, we iteratively prune some candidates which are impossible to be the $k$NN of $q_t$ to reduce the search space until there are only $k$ candidates left.
+The second phase is the main procedure of our framework.  Note that $P$ have already got $W_i$ for each $X_i$ in the beginning of the second phase. For each coming query $q_t$, we iteratively prune some candidates which are impossible to be the $k$NN of $q_t$ to reduce the search space until there are only $k$ candidates left.
 
 To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we use a $Select$ function $S_i(q_t,j;\theta_t)$ to generate the values for trasmitting from $P$ to $M_i$, where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the Sec \ref{s:importance_selecting_function}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  With these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost from avoiding to consider the unnecessary candidates.
+
+Since the first phase is an auxiliary step for the second phase, we will illustrate the second phase before the first in the following discussions.  
+
+Note that we could use the square of the Euclidean distance instead of the origin Euclidean distance to find $k$NN as it is non-negative.  So we will use the former one in our framework.
 
 %==========================================================================================
 \section{Prune by Bounds}
 \label{s:prune}
-In this section, we describe the method to prune the candidates by a threshold $th$.
+In this section, we describe the method to prune the candidates by bounds.
 
 \subsection{Definition of Bounds} % (fold)
-\label{sub:definition_of_bounds}
+\label{ss:definition_of_bounds}
 
-First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
+First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the square of the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
 
 \newtheorem{Bounds}{\bf Definition}
 \begin{Bounds}
@@ -42,9 +46,9 @@ LB(x,y)\leq Dist(x,y) \leq UB(x,y)
 % subsection definition_of_bounds (end)
 
 \subsection{How to Prune the Candidates} % (fold)
-\label{sub:prune_the_candidates}
+\label{ss:prune_the_candidates}
 
-For the query $q_t$, if we already know $LB(q_t,x)$ and $UB(q_t,x)$ $\forall x\in \cup_i X_i$, we could use the $k_{th}$ largest upper bounds and directly prune those $x$ whose lower bounds are higher than this value $thr$. I.e., we want to prune
+For the query $q_t$, if we already know $LB(q_t,x)$ and $UB(q_t,x)$ $\forall x\in \cup_i X_i$, we could use the $k_{th}$ smallest upper bounds and directly prune those $x$ whose lower bounds are higher than this value $thr$. I.e., we want to prune
 \[
 \{x |LB(q_t,x)>thr, \forall x \in \cup_i X_i\}
 \]
@@ -58,8 +62,71 @@ We will talk about the details to generate these bounds and find the threshold i
 
 % subsection prune_the_candidates (end)
 
+\section{Details of the Bounds} % (fold)
+\label{s:details_of_the_bounds}
+
+In this section, we talk about the derivation of the bounds and how to calculate them among these local machines.  Then, we give a efficient procedure to find the threshold $thr$ for pruning in these machines.
+
+% subsection details_of_the_bounds (end)
+
+\subsection{Derivation of the Bounds} % (fold)
+\label{ss:derivation_of_the_bounds}
+
+Suppose there are two vectors $x,y\in \mathbb{R}^D$, we know the square of their Euclidean distance is 
+\begin{equation}
+	Dist(x,y)=\sum^D_{d=1}{(x[d]-y[d])^2}
+\end{equation}
+
+However, if we could only observe the first $s$ dimensions of $x$, we could decompose their distance as 
+\begin{equation}\label{eq:Eu_decomp}
+	Dist(x,y)=\sum^D_{d=1}{(x[d]-y[d])^2}\\
+				=\sum^s_{d=1}{(x[d]-y[d])^2} + \sum^D_{d=s+1}{(x[d]-y[d])^2.}	
+\end{equation}
+
+Since the first component of \eqref{eq:Eu_decomp} is already known, all we need to do is to deal with the second term. Therefore, we further expand the second term as following:
+\[
+\sum^D_{d=s+1}{(x[d]-y[d])^2}=\sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2}-\sum^D_{d=s+1}{2\times x[d]\times y[d].}
+\]
+
+By this analysis, we find the final term is the inner product between two partial vector $x[s+1:D]$ and $y[s+1:D]$, which could be approximated by Cauchy–Schwarz inequality
+\begin{equation}\label{eq:Cauchy}
+	\sum^D_{d=s+1}{x[d]\times y[d]} \leq \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}
+\end{equation}
+
+After combing with \eqref{eq:Eu_decomp} and \eqref{eq:Cauchy}, we derive the bounds as 
+{
+\begin{eqnarray}
+\lefteqn{LB(x,y) = \sum^s_{d=1}{(x[d]-y[d])^2}.} \label{eq:single-LB} \\
+\lefteqn{UB(x,y) = \sum^s_{d=1}{(x[d]-y[d])^2}} \notag \\
+& + & \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
+& + & 2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:single-UB}
+\end{eqnarray}
+}
+We could notice that the calculation of the bounds only needs the first $s$ dimensions of $x$ and $\sum^D_{d=s+1}{x[d]^2}$.  Therefore, we only need one more number to get the bounds for the unobserved part $x[s+1:D]$.
+
+% subsection derivation_of_bounds (end)
+
+\subsection{Calculation of the Bounds} % (fold)
+\label{sub:calculation_the_bounds}
+After derivation of the bounds, we describe the procedure of cacluating them in our framework.  
+
+For the query $q_t$, at the first round (i.e. $j=1$), $P$ sends the first $s_1$ dimensions of $q_t$ and $\sum^D_{d=s_1+1}{q_t[d]}^2$ to each $M_i$ .  With these values, each $M_i$ would able to calculate the lower bounds $LB(q_t,x)$ and upper bounds $UB(q_t,x)$ for each $x\in X_i$.  Then, after $P$ getting the $k_{th}$ smallest upper bounds as $thr$, we could run the pruning procedure.
+
+In each following round (i.e. $j>1$), $P$ sends the next $s_j$ dimensions of $q_t$ to each $M_i$ whose instances were not pruned completely.  These $M_i$ will update their bounds as following
+{
+\begin{eqnarray}
+\lefteqn{LB_j(x,y) = LB_{j-1}(x,y)+\sum^{p_j}_{d=p_{j-1}+1}{(x[d]-y[d])^2}.} \label{eq:single-LB} \\
+\lefteqn{UB_j(x,y) = UB_{j-1}(x,y)+\sum^s_{d=1}{(x[d]-y[d])^2}} \notag \\
+& + & \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
+& + & 2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:single-UB}
+\end{eqnarray}
+}
+where $p_j=\sum^j_{i=1}{s_i}$, $LB_j$ and $UB_j$ indicate the lower bounds and upper bounds at the iteration $j$ repectively.
+
+% subsection calculation_the_bounds (end)
+
 \subsection{How to Find the Threshold} % (fold)
-\label{sub:find_the_threshold}
+\label{ss:find_the_threshold}
 The question now is to find the threshold $thr$ for pruning.  Since 
 TODO: Put this section here or after derived the bounds.
 
