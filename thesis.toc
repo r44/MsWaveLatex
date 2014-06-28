@@ -20,17 +20,20 @@
 \contentsline {chapter}{\numberline {4}Methodology}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Problem Setup}{9}{section.4.1}
 \contentsline {section}{\numberline {4.2}Overall Framework}{9}{section.4.2}
-\contentsline {section}{\numberline {4.3}Prune by Bounds}{10}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Definition of Bounds}{10}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}How to Prune the Candidates}{11}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Details of the Bounds}{11}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Derivation of the Bounds}{12}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Calculation of the Bounds}{13}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}How to Find the Threshold}{13}{subsection.4.4.3}
-\contentsline {section}{\numberline {4.5}Importance-Selecting Function}{14}{section.4.5}
-\contentsline {section}{\numberline {4.6}Orthogonal Transformation}{14}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Definition of Ortohogonal Transformation}{14}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Property of Orthogonal Transformation}{14}{subsection.4.6.2}
-\contentsline {section}{\numberline {4.7}Enhance the Bounds by the Orthogonal Transformation}{14}{section.4.7}
-\contentsline {section}{\numberline {4.8}Learn the Orthogonal Transformation}{15}{section.4.8}
-\contentsline {chapter}{Bibliography}{16}{section.4.8}
+\contentsline {section}{\numberline {4.3}Orthogonal Transformation}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Definition of Ortohogonal Transformation}{11}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Property of Orthogonal Transformation}{11}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Enhance the Bounds by the Orthogonal Transformation}{11}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}The Goal of the First Phase}{11}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Relation Between the Norms and the Bounds}{12}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Reduce the Norm with Orthogonal Transformation}{13}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Optimize with Orthogonal Constraints}{13}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Prune by the Bounds}{13}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Definition of the Bounds}{13}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Prune the Candidates with the Bounds}{13}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Derivation of the Bounds}{14}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}Calculation of the Bounds}{15}{subsection.4.5.4}
+\contentsline {subsection}{\numberline {4.5.5}Find the Threshold in Distributed Machines}{15}{subsection.4.5.5}
+\contentsline {section}{\numberline {4.6}Coordinate Descent to Decide the Pivots}{16}{section.4.6}
+\contentsline {section}{\numberline {4.7}Importance-Selecting Function and Overall Framework}{16}{section.4.7}
+\contentsline {chapter}{Bibliography}{17}{section.4.7}

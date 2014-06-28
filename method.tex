@@ -15,23 +15,106 @@ In this section, we describe the overall framework of our work.  Then, we will g
 
 There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
 
-The first phase is an preprocessing procedure for the second phase. Each $M_i$ would learn an othorogal matrix $W_i$ for its $X_i$ and then send it back to $P$.  We can notice that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we only need to do the first phase for once.  we give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
+The first phase is an preprocessing procedure for the second phase. Its goal is to improve the performance of pruning in the second phase.  We will prove in the Sec \ref{ss:derivation_of_the_bounds} that this pruning power is highly correlated to the distribution of the norm of the feature vectors. As a result, each $M_i$ would learn an othorogal matrix $W_i$ for its $X_i$ to fit our desired distribution and then send each $W_i$ back to $P$.  We can notice that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we only need to do the first phase for once.  we give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
 
 The second phase is the main procedure of our framework.  Note that $P$ have already got $W_i$ for each $X_i$ in the beginning of the second phase. For each coming query $q_t$, we iteratively prune some candidates which are impossible to be the $k$NN of $q_t$ to reduce the search space until there are only $k$ candidates left.
 
 To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we use a $Select$ function $S_i(q_t,j;\theta_t)$ to generate the values for trasmitting from $P$ to $M_i$, where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the Sec \ref{s:importance_selecting_function}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  With these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost from avoiding to consider the unnecessary candidates.
 
-Since the first phase is an auxiliary step for the second phase, we will illustrate the second phase before the first in the following discussions.  
-
 Note that we could use the square of the Euclidean distance instead of the origin Euclidean distance to find $k$NN as it is non-negative.  So we will use the former one in our framework.
 
 %==========================================================================================
-\section{Prune by Bounds}
+\section{Orthogonal Transformation}
+\label{s:orthogonal}
+Since the In this section, we describe the overview of this thesis.
+
+%==========================================================================================
+\subsection{Definition of Ortohogonal Transformation}
+\label{ss:ortho_def}
+\newtheorem{Orthogonal}{\bf Definition}
+\begin{Orthogonal}
+A matrix $W \in\mathbb{R}^{D\times D}$ is orthogonal if whose columns and rows are orthogonal vectors, i.e.
+\[
+W^{T}W=WW^{T}=I
+\]
+where $I$ is the identity matrix.
+\end{Orthogonal}
+
+%==========================================================================================
+\subsection{Property of Orthogonal Transformation}
+\label{ss:ortho_prop}
+\newtheorem{ProOfOrthogonal}{\bf Property}
+\begin{ProOfOrthogonal}
+Let $x, y\in\mathbb{R}^{D}$, and $W\in\mathbb{R}^{D\times D}$ be an orthogonal matrix. Then,
+\[
+Dist(x,y)^2=\sum^D_{d=1}{(x[d]-y[d])^2} \\
+=\sum^D_{d=1}{(W_dx-W_dy)^2}=Dist(Wx,Wy)^2
+\]
+where $W_d$ is the $d_{th}$ row of $W$.
+\end{ProOfOrthogonal}
+
+%==========================================================================================
+\section{Enhance the Bounds by the Orthogonal Transformation}
+\label{s:ortho_bounds}
+In the Sec \ref{s:overall}, we mentioned that the first phase is an auxiliary step for the second phase.  After the introduction of the orthogonal transformation, we introduce this powerful tool into the first phase in our framework.
+
+\subsection{The Goal of the First Phase} % (fold)
+\label{ss:the_goal_of_the_first_phase}
+
+Our goal in the first phase is to reduce the ranges of the bounds used in the second phase.  Since we will use a threshold to prune the impossible candidates according to their bounds in the The pruning procedure, the ranges of the bounds would be one of the most influential factor of the pruning power.
+
+
+% TODO: put some graph to compare the long ranges of bounds with the short range.
+
+Suppose that we want to prune all candidates whose lower bounds are upper than a threshold $thr$.  In these figures, we could see that when the ranges of their bounds is short, more candidates would be pruned than those with long ranges of the bounds.  In other words, the shorter the range of the bound, the higher chance this candidate would be pruned if it is not our final answer of $k$NN.
+
+% subsection the_goal_of_the_first_phase (end)
+
+\subsection{Relation Between the Norms and the Bounds} % (fold)
+\label{sub:relation_between_the_norms_and_the_bounds}
+
+To acheive the goal of reducing the length of the ranges of the bounds, we could look into the derivation of the bounds. Suppose there are two vectors $x,y\in \mathbb{R}^D$, but we could only observe the first $s$ dimensions of $x$ and $\sum^D_{d=s+1}{x[d]^2}$, which is the square of two norm of the unobserved part $x[s+1:D]$.  In the Sec \ref{ss:derivation_of_the_bounds}, we give the bounds as 
+{
+\begin{eqnarray*}
+\lefteqn{LB(x,y) = \sum^s_{d=1}{(x[d]-y[d])^2}.} \label{eq:single-LB-tmp} \\
+\lefteqn{UB(x,y) = \sum^s_{d=1}{(x[d]-y[d])^2}} \notag \\
+& + & \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
+& + & 2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:single-UB-tmp}
+\end{eqnarray*}
+}
+
+Therefore, we could get the length of the range by the substraction.
+\[Len = UB(x,y) - LB(x,y) = \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
+ +  2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:len-range}
+\]
+
+Since the term $\sum^D_{d=s+1}{x[d]^2}$ is given, all we could do is to reduce the length with the help of the $\sum^D_{d=s+1}{y[d]^2}$ term.  If we could reduce $\sum^D_{d=s+1}{y[d]^2}$, the term $\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}$ would also decrease and then make $Len$ smaller.  Therefore, our goal now becomes to make the term $\sum^D_{d=s+1}{y[d]^2}$ as small as possible, which is the square norm of the vector $y[s+1:D]$.
+
+%To reduce the length of the ranges $Len$, we hope to make $\sum^D_{d=s+1}{y[d]^2}$ as small as possible.  
+However, since the feature vector $y$ is given from datasets, the value of $\sum^D_{d=s+1}{y[d]^2}$ is already  determined when $s$ is given.  As a result, we introduce the orthogonal transformation to achieve this goal.
+
+% subsection relation_between_the_norms_and_the_bounds (end)
+
+\subsection{Reduce the Norm with Orthogonal Transformation} % (fold)
+\label{sub:reduce_the_norm_with_orthogonal_transformation}
+
+
+
+
+% subsection reduce_the_norm_with_orthogonal_transformation (end)
+
+\subsection{Optimize with Orthogonal Constraints} % (fold)
+\label{ss:optimize_with_orthogonal_constraints}
+
+% subsection optimize_with_orthogonal_constraints (end)
+
+%==========================================================================================
+\section{Prune by the Bounds}
 \label{s:prune}
 In this section, we describe the method to prune the candidates by bounds.
 
-\subsection{Definition of Bounds} % (fold)
-\label{ss:definition_of_bounds}
+\subsection{Definition of the Bounds} % (fold)
+\label{ss:definition_of_the_bounds}
 
 First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the square of the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
 
@@ -45,8 +128,8 @@ LB(x,y)\leq Dist(x,y) \leq UB(x,y)
 
 % subsection definition_of_bounds (end)
 
-\subsection{How to Prune the Candidates} % (fold)
-\label{ss:prune_the_candidates}
+\subsection{Prune the Candidates with the Bounds} % (fold)
+\label{ss:prune_the_candidates_with_the_bounds}
 
 For the query $q_t$, if we already know $LB(q_t,x)$ and $UB(q_t,x)$ $\forall x\in \cup_i X_i$, we could use the $k_{th}$ smallest upper bounds and directly prune those $x$ whose lower bounds are higher than this value $thr$. I.e., we want to prune
 \[
@@ -61,13 +144,6 @@ TODO: Draw the figure about pruning.
 We will talk about the details to generate these bounds and find the threshold in the Sec~~haha.
 
 % subsection prune_the_candidates (end)
-
-\section{Details of the Bounds} % (fold)
-\label{s:details_of_the_bounds}
-
-In this section, we talk about the derivation of the bounds and how to calculate them among these local machines.  Then, we give a efficient procedure to find the threshold $thr$ for pruning in these machines.
-
-% subsection details_of_the_bounds (end)
 
 \subsection{Derivation of the Bounds} % (fold)
 \label{ss:derivation_of_the_bounds}
@@ -125,62 +201,28 @@ where $p_j=\sum^j_{i=1}{s_i}$, $LB_j$ and $UB_j$ indicate the lower bounds and u
 
 % subsection calculation_the_bounds (end)
 
-\subsection{How to Find the Threshold} % (fold)
-\label{ss:find_the_threshold}
+
+\subsection{Find the Threshold in Distributed Machines} % (fold)
+\label{ss:find_the_threshold_in_distributed_machines}
 The question now is to find the threshold $thr$ for pruning.  Since 
 TODO: Put this section here or after derived the bounds.
 
+% subsection find_the_threshold_in_distributed_machines (end)
+%==========================================================================================
+\section{Coordinate Descent to Decide the Pivots} % (fold)
+\label{sub:coordinate_descent_to_decide_the_pivots}
 
-% subsection find_the_threshold (end)
+% subsection coordinate_descent_to_find_the_pivots (end)
+
 
 %==========================================================================================
-\section{Importance-Selecting Function} % (fold)
-\label{s:importance_selecting_function}
+\section{Importance-Selecting Function and Overall Framework} % (fold)
+\label{s:importance_selecting_function_and_overall_framework}
 At each round $j$ for $q_t$, we need to decide what to send from $P$ to each $M_i$ and then calculate the bounds at $M_i$. 
 
-In this section, we describe the overview of this thesis.
+In this section, we describe the overview of our framework.
 
 % subsection importance_selecting_function (end)
-
-%==========================================================================================
-\section{Orthogonal Transformation}
-\label{s:orthogonal}
-In this section, we describe the overview of this thesis.
-
-%==========================================================================================
-\subsection{Definition of Ortohogonal Transformation}
-\label{ss:ortho_def}
-\newtheorem{Orthogonal}{\bf Definition}
-\begin{Orthogonal}
-A matrix $W \in\mathbb{R}^{D\times D}$ is orthogonal if whose columns and rows are orthogonal vectors, i.e.
-\[
-W^{T}W=WW^{T}=I
-\]
-where $I$ is the identity matrix.
-\end{Orthogonal}
-
-%==========================================================================================
-\subsection{Property of Orthogonal Transformation}
-\label{ss:ortho_prop}
-\newtheorem{ProOfOrthogonal}{\bf Property}
-\begin{ProOfOrthogonal}
-Let $x, y\in\mathbb{R}^{D}$, and $W\in\mathbb{R}^{D\times D}$ be an orthogonal matrix. Then,
-\[
-Dist(x,y)^2=\sum^D_{d=1}{(x[d]-y[d])^2} \\
-=\sum^D_{d=1}{(W_dx-W_dy)^2}=Dist(Wx,Wy)^2
-\]
-where $W_d$ is the $d_{th}$ row of $W$.
-\end{ProOfOrthogonal}
-
-%==========================================================================================
-\section{Enhance the Bounds by the Orthogonal Transformation}
-\label{s:ortho_bounds}
-In this section, we describe the overview of this thesis.
-
-%==========================================================================================
-\section{Learn the Orthogonal Transformation}
-\label{s:ortho_learn}
-In this section, we describe the overview of this thesis.
 
 %==========================================================================================
 
