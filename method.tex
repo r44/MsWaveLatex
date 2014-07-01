@@ -45,13 +45,15 @@ where $I$ is the identity matrix.
 \label{ss:ortho_prop}
 \newtheorem{ProOfOrthogonal}{\bf Property}
 \begin{ProOfOrthogonal}
-Let $x, y\in\mathbb{R}^{D}$, and $W\in\mathbb{R}^{D\times D}$ be an orthogonal matrix. Then,
+Let $x, y\in\mathbb{R}^{D\times 1}$, and $W\in\mathbb{R}^{D\times D}$ be an orthogonal matrix. Then,
 \[
-Dist(x,y)^2=\sum^D_{d=1}{(x[d]-y[d])^2} \\
-=\sum^D_{d=1}{(W_dx-W_dy)^2}=Dist(Wx,Wy)^2
+Dist(x,y)=\sum^D_{d=1}{(x[d]-y[d])^2} \\
+=\sum^D_{d=1}{(W[d,:]x-W[d,:]y)^2}=Dist(Wx,Wy)
 \]
-where $W_d$ is the $d_{th}$ row of $W$.
+where $W[d,:]$ is the $d_{th}$ row of $W$.
 \end{ProOfOrthogonal}
+
+We will use this important property in the Sec \ref{sub:reduce_the_norm_with_orthogonal_transformation}.
 
 %==========================================================================================
 \section{Enhance the Bounds by the Orthogonal Transformation}
@@ -70,6 +72,19 @@ Suppose that we want to prune all candidates whose lower bounds are upper than a
 
 % subsection the_goal_of_the_first_phase (end)
 
+\subsection{Definition of the Bounds} % (fold)
+\label{ss:definition_of_the_bounds}
+
+First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the square of the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
+
+\newtheorem{Bounds}{\bf Definition}
+\begin{Bounds}
+$\forall x,y \in \mathbb{R}^D$, a lower bound $LB(x,y)$ and a upper bound $UB(x,y)$ must satisfy the following inequation:
+\[
+LB(x,y)\leq Dist(x,y) \leq UB(x,y)
+\]
+\end{Bounds}
+
 \subsection{Relation Between the Norms and the Bounds} % (fold)
 \label{sub:relation_between_the_norms_and_the_bounds}
 
@@ -84,21 +99,51 @@ To acheive the goal of reducing the length of the ranges of the bounds, we could
 }
 
 Therefore, we could get the length of the range by the substraction.
-\[Len = UB(x,y) - LB(x,y) = \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
+\[
+Len = UB(x,y) - LB(x,y) = \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
  +  2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:len-range}
 \]
 
 Since the term $\sum^D_{d=s+1}{x[d]^2}$ is given, all we could do is to reduce the length with the help of the $\sum^D_{d=s+1}{y[d]^2}$ term.  If we could reduce $\sum^D_{d=s+1}{y[d]^2}$, the term $\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}$ would also decrease and then make $Len$ smaller.  Therefore, our goal now becomes to make the term $\sum^D_{d=s+1}{y[d]^2}$ as small as possible, which is the square norm of the vector $y[s+1:D]$.
 
-%To reduce the length of the ranges $Len$, we hope to make $\sum^D_{d=s+1}{y[d]^2}$ as small as possible.  
-However, since the feature vector $y$ is given from datasets, the value of $\sum^D_{d=s+1}{y[d]^2}$ is already  determined when $s$ is given.  As a result, we introduce the orthogonal transformation to achieve this goal.
+Note that the lower (upper) bounds is non-decreasing (non-increasing) as $s$ becomes larger and $LB(x,y)=UB(x,y)$ when $s=D$.  This means that $LB$ and $UB$ would be exactly equal to $\sum^D_{d=1}{(x[d]-y[d])^2}$ eventually.
+
+To reduce the length of the ranges $Len$ for each $s$, we hope to make $\sum^D_{d=s+1}{y[d]^2}$ as small as possible.  However, since the feature vector $y$ is given from datasets, the value of $\sum^D_{d=s+1}{y[d]^2}$ is already  determined when $s$ is given.  As a result, we introduce the orthogonal transformation to achieve this goal.
 
 % subsection relation_between_the_norms_and_the_bounds (end)
 
+
+\subsection{Equivalent Bounds After Transformation} % (fold)
+\label{sub:equivalent_bounds_after_transformation}
+
+From the Sec \ref{ss:ortho_prop}, we know the distance of two vectors won't be changed after an orthogonal transformation.  Now we use this property to achieve our goal to reduce the length of the ranges $Len$ given $s$.
+
+Given an orthogonal transformation $W\in\mathbb{R}^{D\times D}$, we have $Dist(x,y)=Dist(Wx,Wy)$.  This means that the bounds we derivated before could also be the bounds for $Dist(Wx,Wy)$.  That is,
+\[
+LB(x,y)\leq Dist(x,y)=Dist(\hat{x},\hat{y}) \leq UB(x,y)
+\]
+where $\hat{x}=Wx$.
+
+This also means that we could use the same way to derivate the lower bounds and upper bounds for $Dist(Wx,Wy)$ and these bounds are also the bounds for $Dist(x,y)$.  That is,
+\[
+LB(\hat{x},\hat{y})\leq Dist(x,y)=Dist(\hat{x},\hat{y}) \leq UB(\hat{x},\hat{y})
+\]
+
+So, we could use the bounds $LB(\hat{x},\hat{y}),UB(\hat{x},\hat{y})$ for $Dist(x,y$ and the length of range we want to reduce becomes
+\[
+\hat{Len}(W) = UB(\hat{x},\hat{y}) - LB(\hat{x},\hat{y}) = \sum^D_{d=s+1}{\hat{x}[d]^2}+\sum^D_{d=s+1}{\hat{y}[d]^2} \notag \\
+ +  2 \times \sqrt{\sum^D_{d=s+1}{\hat{x}[d]^2}\times \sum^D_{d=s+1}{\hat{y}[d]^2}.}\label{eq:len-range-hat}
+\]
+which becomes a function of $W$.
+
+As a result, instead of trying to reduce $\sum^D_{d=s+1}{y[d]^2}$ which is impossible as we mentioned in the Sec \ref{sub:relation_between_the_norms_and_the_bounds}, our goal becomes to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ with the help of $W$.
+
+% subsection equivalent_bounds_after_transformation (end)
+
 \subsection{Reduce the Norm with Orthogonal Transformation} % (fold)
-\label{sub:reduce_the_norm_with_orthogonal_transformation}
+\label{ss:reduce_the_norm_with_orthogonal_transformation}
 
-
+For $y\in \mathbb{R}^{D\times 1}$ and $W\in\mathbb{R}^{D\times D}$, given $s$, we want to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ as much as possible.  We can look this problem from a different angle.
 
 
 % subsection reduce_the_norm_with_orthogonal_transformation (end)
@@ -112,19 +157,6 @@ However, since the feature vector $y$ is given from datasets, the value of $\sum
 \section{Prune by the Bounds}
 \label{s:prune}
 In this section, we describe the method to prune the candidates by bounds.
-
-\subsection{Definition of the Bounds} % (fold)
-\label{ss:definition_of_the_bounds}
-
-First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the square of the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
-
-\newtheorem{Bounds}{\bf Definition}
-\begin{Bounds}
-$\forall x,y \in \mathbb{R}^D$, a lower bound $LB(x,y)$ and a upper bound $UB(x,y)$ must satisfy the following inequation:
-\[
-LB(x,y)\leq Dist(x,y) \leq UB(x,y)
-\]
-\end{Bounds}
 
 % subsection definition_of_bounds (end)
 
