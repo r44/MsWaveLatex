@@ -143,13 +143,30 @@ As a result, instead of trying to reduce $\sum^D_{d=s+1}{y[d]^2}$ which is impos
 \subsection{Reduce the Norm with Orthogonal Transformation} % (fold)
 \label{ss:reduce_the_norm_with_orthogonal_transformation}
 
-For $y\in \mathbb{R}^{D\times 1}$ and $W\in\mathbb{R}^{D\times D}$, given $s$, we want to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ as much as possible.  We can look this problem from a different angle.
+For $y\in \mathbb{R}^{D\times 1}$ and $W\in\mathbb{R}^{D\times D}$, given $s$, we want to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ as much as possible.  However, since $s$ is unknown while deciding $W$ in the first phase of our framework, we have to handle all possible values which $s$ could be.  Moreover, since $\sum^D_{d=1}{\hat{y}[d]^2}$ is equal to $\sum^D_{d=s+1}{y[d]^2}$, which is independent with $W$, if the $\sum^D_{d=s+1}{\hat{y}[d]^2}$ decreases with some $W$, the term $\sum^s_{d=1}{\hat{y}[d]^2}$ must increase.  Here, we use a more general strategy to deal with these problems.
+
+We could look the term $\sum^D_{d=s+1}{\hat{y}[d]^2}$ from a different angle.  Actually, this term is the square norm of the latter part of the vector $\hat{y}$. Therefore, although $\sum^D_{d=1}{\hat{y}[d]^2}$ is a constant for $W$, we could reduce the square norm of the latter part by increasing the forward part of it.  In other words, we move the norm of the latter part of $y$ to its forward part.  To accomplish it, we design an objective function and then optimize this function to find our ideal $W$.
+
+\begin{equation}\label{objective}
+	f(W;y)=\sum^D_{d=1}{w_d\times\hat{y}[d]^2}=\sum^D_{d=1}{w_d\times(W[d,:]y[d])^2}
+\end{equation}
+where $w_d=d,  \forall d=1:D$.
+
+Because $w_d$ would give the larger penalty as $d$ increases, the elements in the latter part of $\hat{y}$ would be forced to become small while minimizing this objective function.  This is exactly our goal to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$.  Therefore, our question becomes how to optimize this objective function with the constraints that $W$ must be an orthogonal matrix.
 
 
 % subsection reduce_the_norm_with_orthogonal_transformation (end)
 
 \subsection{Optimize with Orthogonal Constraints} % (fold)
 \label{ss:optimize_with_orthogonal_constraints}
+haha
+\begin{equation}\label{objective-F}
+	F_i(W)=\sum_{x \in X_i}{f(W;x)}\\
+	=\sum_{x \in X_i}{ \sum^D_{d=1} {w_d\times\hat{x}[d]^2} }\\
+	=\sum_{x \in X_i}{ \sum^D_{d=1} {w_d\times(W[d,:]x[d])^2} }
+\end{equation}
+haha
+%http://optman.blogs.rice.edu/
 
 % subsection optimize_with_orthogonal_constraints (end)
 

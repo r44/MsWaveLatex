@@ -29,12 +29,12 @@
 \contentsline {subsection}{\numberline {4.4.3}Relation Between the Norms and the Bounds}{12}{subsection.4.4.3}
 \contentsline {subsection}{\numberline {4.4.4}Equivalent Bounds After Transformation}{13}{subsection.4.4.4}
 \contentsline {subsection}{\numberline {4.4.5}Reduce the Norm with Orthogonal Transformation}{14}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Optimize with Orthogonal Constraints}{14}{subsection.4.4.6}
-\contentsline {section}{\numberline {4.5}Prune by the Bounds}{14}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Prune the Candidates with the Bounds}{14}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Derivation of the Bounds}{15}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Calculation of the Bounds}{16}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.4.6}Optimize with Orthogonal Constraints}{15}{subsection.4.4.6}
+\contentsline {section}{\numberline {4.5}Prune by the Bounds}{15}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Prune the Candidates with the Bounds}{15}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Derivation of the Bounds}{16}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Calculation of the Bounds}{17}{subsection.4.5.3}
 \contentsline {subsection}{\numberline {4.5.4}Find the Threshold in Distributed Machines}{17}{subsection.4.5.4}
-\contentsline {section}{\numberline {4.6}Coordinate Descent to Decide the Pivots}{17}{section.4.6}
-\contentsline {section}{\numberline {4.7}Importance-Selecting Function and Overall Framework}{17}{section.4.7}
-\contentsline {chapter}{Bibliography}{18}{section.4.7}
+\contentsline {section}{\numberline {4.6}Coordinate Descent to Decide the Pivots}{18}{section.4.6}
+\contentsline {section}{\numberline {4.7}Importance-Selecting Function and Overall Framework}{18}{section.4.7}
+\contentsline {chapter}{Bibliography}{19}{section.4.7}
