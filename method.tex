@@ -1,7 +1,7 @@
 \chapter{Methodology}
 \label{c:method}
 
-HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:thm}, the theoretical background and definition of surface plasmon will be included~\cite{maier2007plasmonics}. Chapte~\ref{c:exp} contains description of experiment methods such as atomic force microscopy and scanning electron microscopy. 
+HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:thm}, the theoretical background and definition of surface plasmon will be included~\cite{LeeWave}. Chapte~\ref{c:exp} contains description of experiment methods such as atomic force microscopy and scanning electron microscopy. 
 
 %==========================================================================================
 \section{Problem Setup}
@@ -9,8 +9,8 @@ HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:t
 There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server $P$ and a dataset $X_i\subset\mathbb{R}^D$ on each local machine $M_i$.  For each coming query $q_t$, we want to find its $k_{th}$ nearest neighborhood among these distributed datasets while reducing the transmission cost between $P$ and each $M_i$.
 
 %==========================================================================================
-\section{Overall Framework}
-\label{s:overall}
+\section{Overview of Our Framework}
+\label{s:overview}
 In this section, we describe the overall framework of our work.  Then, we will give the details about the framework in the following sections.
 
 There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
@@ -212,7 +212,7 @@ Here is an example of the pruning procedure.
 
 TODO: Draw the figure about pruning.
 
-We will talk about the details to generate these bounds and find the threshold in the Sec~~haha.
+We will talk about the details to generate these bounds and find the threshold in the Sec \ref{ss:find_the_threshold_in_distributed_machines}.
 
 % subsection prune_the_candidates (end)
 
@@ -273,12 +273,26 @@ where $p_j=\sum^j_{i=1}{s_i}$, $LB_j$ and $UB_j$ indicate the lower bounds and u
 We call those $p_j$ as pivots, which mean that each machine would observe the first $p_i$ elements of $q_t$ at the round $j$.  
 
 % subsection calculation_the_bounds (end)
-
+\providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
 
 \subsection{Find the Threshold in Distributed Machines} % (fold)
 \label{ss:find_the_threshold_in_distributed_machines}
-The question now is to find the threshold $thr$ for pruning.  Since 
-TODO: Put this section here or after derived the bounds.
+The question now is to find the threshold $thr$ for pruning. In ~\cite{MsWave}, we directly send these bounds computed in each $M_i$ back to the server $P$.  However, it would make the transmission cost grow linearly with the number of total instances in these distributed machines and lead to expensive cost when our dataset is extremely huge.  As a result, we propose a method that could make the growth of the cost independent with the number of total instances.
+
+To be simplified, we could think this problem as following: given many distribued numbers $N_i$, we want to find the $k_{th}$ largest number among these $N_i$.  The $N_i$ here actually means the upper bounds at the machine $M_i$ in our framework.  Once we model this problem as this, we could solve it through modifying the work of ~\cite{PRP}.
+
+In ~\cite{PRP}, there are also many phases to find the $k$NN.  In the first phase, the server $P$ would send the whole query to every machine.  Then, in the following phases, it just focuses on finding the instances with the $k_{th}$ largest distance with the query.  To make it fit our problem, we can only use the phases of PRP except the first phase to find the $k_{th}$ largest upper bound as our threshold $thr$.  Its cost is linear to
+\[
+|M|\times \myfloor{\frac{k}{|M|}}=|M|+k,
+\] which is much lower than ~\cite{MsWave} when the number of total instances is very large.
+
+%we could estimate the total transmission cost for the single query as following
+%\[
+%	Cost = \sum^L_{i=1}{T_i\times ResSite_i}+\sum^L_{i=1}{2s_i}
+%\]  
+%where $T_i$ is the length $q_t$ which was sent , $ResSite_i$ is the number of residual machines, and $s_i$ is the number of residual candidates at the round $i$.
+
 
 % subsection find_the_threshold_in_distributed_machines (end)
 %==========================================================================================
@@ -288,16 +302,32 @@ TODO: Put this section here or after derived the bounds.
 
 The remaining problem is to decide how many dimensions (i.e. $s_j$) of $q_t$ we have to send from the server $P$ in each round $j$.  If we send too few dimensions, the bounds would be too loose to prune any candidates and we will spend much unnecessary cost in finding the thresholds.  On the other hand, if we send too many dimensions, although it could allow us to prune many candidates at once, it would send too many dimensions to some candidates which could be pruned by much fewer dimensions.  That would also lead to the waste the transmission cost.  Therefore, in this section, we propose a simple but effective method to decide how many dimensions of $q_t$ we should send from $P$ in each round.
 
-\subsection{Estimate the Transmission Cost} % (fold)
-\label{sub:estimate_the_transmission_cost}
 
-From the discussion above, we could notice that the decision of pivots is highly dependent with 
+\subsection{Estimate the Number of Residual Machines} % (fold)
+\label{ss:estimate_the_number_of_residual_machines}
+
+From the discussion above, we could notice that the decision of pivots is highly dependent on the transmission cost.  Therefore, if we could estimate the cost as a cost function of the pivots $p_j$, we could decide these pivots by optimizing this function.
+
+However, to estimate the cost, we need to know the number of residual candidates sites before sending those dimensions of $q_t$ in each round.  But it is almost impossible to know how many sites would be left after we send part of $q_t$ before we actually send the part of $q_t$.  Therefore, we estimate a vector called $EstResMach$ which $EstResMach[j]$ indicates our estimate of the number of residual machines after we send $q_t[1:j]$ to each local machine.  
+
+We use the following procedure to maintain this vector $EstResMach$:
+
+
+
+
+
+% subsection estimate_the_number_of_residual_machines (end)
+
+
+
+\subsection{Estimate the Transmission Cost} % (fold)
+\label{ss:estimate_the_transmission_cost}
+
 
 % subsection estimate_the_transmission_cost (end)
 
-
-\section{Coordinate Descent to Decide the Pivots} % (fold)
-\label{sub:coordinate_descent_to_decide_the_pivots}
+\subsection{Coordinate Descent to Decide the Pivots} % (fold)
+\label{ss:coordinate_descent_to_decide_the_pivots}
 
 % subsection coordinate_descent_to_find_the_pivots (end)
 

@@ -6,45 +6,47 @@ A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: related.aux
 A level-1 auxiliary file: method.aux
 The style file: unsrt.bst
-Database file #1: thesisbib.bib
-You've used 1 entry,
+Database file #1: r44.bib
+Warning--I didn't find a database entry for "maier2007plasmonics"
+You've used 3 entries,
             1791 wiz_defined-function locations,
-            454 strings with 3655 characters,
-and the built_in function-call counts, 166 in all, are:
-= -- 12
-> -- 4
+            468 strings with 4137 characters,
+and the built_in function-call counts, 526 in all, are:
+= -- 36
+> -- 39
 < -- 0
-+ -- 2
-- -- 1
-* -- 5
-:= -- 32
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 0
++ -- 14
+- -- 11
+* -- 29
+:= -- 105
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 3
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 10
-empty$ -- 20
-format.name$ -- 1
-if$ -- 36
+cite$ -- 3
+duplicate$ -- 24
+empty$ -- 43
+format.name$ -- 11
+if$ -- 107
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 8
-num.names$ -- 1
-pop$ -- 7
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 18
+num.names$ -- 3
+pop$ -- 9
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 2
+skip$ -- 10
 stack$ -- 0
 substring$ -- 0
-swap$ -- 1
+swap$ -- 3
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 1
-width$ -- 2
-write$ -- 12
+while$ -- 3
+width$ -- 4
+write$ -- 32
+(There was 1 warning)

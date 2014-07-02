@@ -1,8 +1,20 @@
 \begin{thebibliography}{1}
 
-\bibitem{maier2007plasmonics}
-S.A. Maier.
-\newblock {\em Plasmonics: fundamentals and applications}.
-\newblock Springer Verlag, 2007.
+\bibitem{LeeWave}
+Mi-Yen Yeh, Kun-Lung Wu, Philip~S. Yu, and Ming-Syan Chen.
+\newblock \textsc{LeeWave}: level-wise distribution of wavelet coefficients for
+  processing $k$nn queries over distributed streams.
+\newblock {\em Proc. VLDB Endow.}, 2008.
+
+\bibitem{MsWave}
+Jui-Pin Wang, Yu-Chen Lu, Mi-Yen Yeh, Shou-De Lin, and Phillip~B. Gibbons.
+\newblock Communication-efficient distributed multiple reference pattern
+  matching for m2m systems.
+\newblock {\em Proc. of IEEE ICDM}, 2013.
+
+\bibitem{PRP}
+Apostolos~N. Papadopoulos and Yannis Manolopoulos.
+\newblock Distributed processing of similarity queries.
+\newblock {\em Distributed and Parallel Databases}, 2001.
 
 \end{thebibliography}

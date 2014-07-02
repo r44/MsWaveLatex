@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  2 JUL 2014 14:52
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  2 JUL 2014 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1855,6 +1855,10 @@ Chapter 2.
 LaTeX Warning: Reference `c:thm' on page 7 undefined on input line 4.
 
 
+LaTeX Warning: Citation `maier2007plasmonics' on page 7 undefined on input line
+ 4.
+
+
 LaTeX Warning: Reference `c:exp' on page 7 undefined on input line 4.
 
 ) [7
@@ -1868,6 +1872,10 @@ LaTeX Warning: Reference `c:exp' on page 7 undefined on input line 4.
 Chapter 3.
 
 LaTeX Warning: Reference `c:thm' on page 8 undefined on input line 4.
+
+
+LaTeX Warning: Citation `maier2007plasmonics' on page 8 undefined on input line
+ 4.
 
 
 LaTeX Warning: Reference `c:exp' on page 8 undefined on input line 4.
@@ -1904,6 +1912,9 @@ LaTeX Warning: Reference `s:importance_selecting_function' on page 10 undefined
 LaTeX Warning: Reference `sub:reduce_the_norm_with_orthogonal_transformation' o
 n page 11 undefined on input line 56.
 
+
+LaTeX Warning: Reference `s:overall' on page 11 undefined on input line 61.
+
 [11]
 \c@Bounds=\count281
  [12]
@@ -1930,18 +1941,26 @@ L/lmm/m/it/12 LB\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) = []
 [] + [] [][]  + 2 \OMS/lmsy/m/n/12 ^^B [][]
  []
 
-[14] [15] [16] [17] [18]) [19] (./thesis.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
- [20
+[14] [15] [16] [17] [18] [19]) [20] (./thesis.bbl
+
+LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
+(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 5.
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 210.
+ [21
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
- (./thesis.aux (./start.aux)
-(./introduction.aux) (./related.aux) (./method.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 209.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 209.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 210.
+ (./thesis.aux (./start.aux) (./introduction.aux) (./related.aux)
+(./method.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 210.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 210.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
@@ -1949,15 +1968,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 210.
  ) 
 Here is how much of TeX's memory you used:
- 29416 strings out of 493938
- 561327 string characters out of 6148857
- 652434 words of memory out of 5000000
- 32220 multiletter control sequences out of 15000+600000
+ 29425 strings out of 493938
+ 561470 string characters out of 6148857
+ 652565 words of memory out of 5000000
+ 32229 multiletter control sequences out of 15000+600000
  49216 words of font info for 120 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,18n,60p,1437b,1208s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (36 pages).
+Output written on thesis.pdf (37 pages).
