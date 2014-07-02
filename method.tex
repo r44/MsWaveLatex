@@ -159,21 +159,43 @@ Because $w_d$ would give the larger penalty as $d$ increases, the elements in th
 
 \subsection{Optimize with Orthogonal Constraints} % (fold)
 \label{ss:optimize_with_orthogonal_constraints}
-haha
+
+Finally, we could introduce this concept of reducing the norms into our framework.  In the first phase, we solve the following optimization problem to learn an orthogonal matrix $W_i$ for each machine $Mi$.
+
+\begin{equation}
+\begin{aligned}
+& \underset{W}{\text{minimize}}
+& & F_i(W) \\
+& \text{subject to}
+& & W^{T}W=WW^{T}=I
+%& & W \leq b_i, \; i = 1, \ldots, m.
+\end{aligned}
+\end{equation}
+
+where 
 \begin{equation}\label{objective-F}
 	F_i(W)=\sum_{x \in X_i}{f(W;x)}\\
-	=\sum_{x \in X_i}{ \sum^D_{d=1} {w_d\times\hat{x}[d]^2} }\\
-	=\sum_{x \in X_i}{ \sum^D_{d=1} {w_d\times(W[d,:]x[d])^2} }
-\end{equation}
-haha
+	=\sum_{x \in X_i}{ \sum^D_{d=1} {d\times(W[d,:]x[d])^2} }
+\end{equation}.
+
+We solve this optimization problem with the help of the package ~~. 
 %http://optman.blogs.rice.edu/
 
+After we get the optimal $W^*_i$ for each $M_i$, we send these matrices back to the server $P$.  Since the learning of $W^*_i$ is independent with the queries in the future, we only have to go through the procedure of learning $W^*_i$ for once if $X_i$ doesn't change too much.
+
 % subsection optimize_with_orthogonal_constraints (end)
+
+\subsection{Reduce the Cost of Sending Matrices} % (fold)
+\label{ss:reduce_the_cost_of_sending_matrices}
+
+
+% subsection reduce_the_cost_of_sending_matrices (end)
+
 
 %==========================================================================================
 \section{Prune by the Bounds}
 \label{s:prune}
-In this section, we describe the method to prune the candidates by bounds.
+Now we start to discuss the second phase of our framework.  In this section, we talk about how to prune the candidates if we already have bounds.  Note that this mechanism is the most crucial part to achieve our goal to save the transmission cost.
 
 % subsection definition_of_bounds (end)
 
@@ -241,12 +263,14 @@ In each following round (i.e. $j>1$), $P$ sends the next $s_j$ dimensions of $q_
 {
 \begin{eqnarray}
 \lefteqn{LB_j(x,y) = LB_{j-1}(x,y)+\sum^{p_j}_{d=p_{j-1}+1}{(x[d]-y[d])^2}.} \label{eq:single-LB} \\
-\lefteqn{UB_j(x,y) = UB_{j-1}(x,y)+\sum^s_{d=1}{(x[d]-y[d])^2}} \notag \\
-& + & \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
+\lefteqn{UB_j(x,y) = LB_{j}(x,y)} \notag \\
+& + & \sum^D_{d=p_j+1}{x[d]^2}+\sum^D_{d=p_j+1}{y[d]^2} \notag \\
 & + & 2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:single-UB}
 \end{eqnarray}
 }
-where $p_j=\sum^j_{i=1}{s_i}$, $LB_j$ and $UB_j$ indicate the lower bounds and upper bounds at the iteration $j$ repectively.
+where $p_j=\sum^j_{i=1}{s_i}$, $LB_j$ and $UB_j$ indicate the lower bounds and upper bounds at the round $j$ repectively.
+
+We call those $p_j$ as pivots, which mean that each machine would observe the first $p_i$ elements of $q_t$ at the round $j$.  
 
 % subsection calculation_the_bounds (end)
 
@@ -258,11 +282,26 @@ TODO: Put this section here or after derived the bounds.
 
 % subsection find_the_threshold_in_distributed_machines (end)
 %==========================================================================================
+
+\section{Decide the Pivots} % (fold)
+\label{s:decide_the_pivots}
+
+The remaining problem is to decide how many dimensions (i.e. $s_j$) of $q_t$ we have to send from the server $P$ in each round $j$.  If we send too few dimensions, the bounds would be too loose to prune any candidates and we will spend much unnecessary cost in finding the thresholds.  On the other hand, if we send too many dimensions, although it could allow us to prune many candidates at once, it would send too many dimensions to some candidates which could be pruned by much fewer dimensions.  That would also lead to the waste the transmission cost.  Therefore, in this section, we propose a simple but effective method to decide how many dimensions of $q_t$ we should send from $P$ in each round.
+
+\subsection{Estimate the Transmission Cost} % (fold)
+\label{sub:estimate_the_transmission_cost}
+
+From the discussion above, we could notice that the decision of pivots is highly dependent with 
+
+% subsection estimate_the_transmission_cost (end)
+
+
 \section{Coordinate Descent to Decide the Pivots} % (fold)
 \label{sub:coordinate_descent_to_decide_the_pivots}
 
 % subsection coordinate_descent_to_find_the_pivots (end)
 
+% subsection decide_the_pivots (end)
 
 %==========================================================================================
 \section{Importance-Selecting Function and Overall Framework} % (fold)
