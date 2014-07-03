@@ -5,12 +5,13 @@ A level-1 auxiliary file: start.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: related.aux
 A level-1 auxiliary file: method.aux
+A level-1 auxiliary file: exp.aux
 The style file: unsrt.bst
 Database file #1: r44.bib
 Warning--I didn't find a database entry for "maier2007plasmonics"
 You've used 3 entries,
             1791 wiz_defined-function locations,
-            468 strings with 4137 characters,
+            469 strings with 4144 characters,
 and the built_in function-call counts, 526 in all, are:
 = -- 36
 > -- 39
