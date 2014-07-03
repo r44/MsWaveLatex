@@ -8,6 +8,15 @@ setup~
 \subsection{Frameworks for Comparison} % (fold)
 \label{sub:frameworks_for_comparison}
 
+
+\textsc{LeeWave},
+\emph{LeeWave},
+\emph{Naive},
+
+\emph{CP},
+\emph{PRP},
+\textsc{CP}
+
 % subsection frameworks_for_comparison (end)
 
 \subsection{Data Description} % (fold)
@@ -19,13 +28,33 @@ f2
 f3
 mvd,
 trh,
+\begin{table}[htpb]\begin{center}
+\caption{Summary for each dataset}
+\begin{tabular}{|l|l|l|}
+\hline
+%\multicolumn{3}{|c|}{Team sheet} \\
+%\hline
+Dataset & Feature & Num of Dimensions \\ \hline
+ANN & SIFT & 128 \\ \hline
+\multirow{2}{*}{Flickr} & Fea2 & 480 \\
+ & Fea3 & 480 \\ \hline
+\multirow{3}{*}{Midfielders} & MC & David Batty \\
+ & MC & Eirik Bakke \\
+ & MC & Jody Morris \\ \hline
+\multirow{2}{*}{Strikers} & ST & Alan Smith \\
+ & ST & Mark Viduka \\
+\hline
+\end{tabular}
+ \end{center}\end{table}
+
+
 % subsection data_description (end)
 % section experiment_setup (end)
 
 \section{Comparison Among all Frameworks} % (fold)
 \label{s:comparison_among_all_frameworks}
 
-$k=10$, $|Q|=1000$
+$k=10$, $|Q|=500$, $M=500,1000,1500,...$
 compare all diff frameworks for all data here. remember to add Mat cost.
 
 % subsection comparison_among_all_frameworks (end)

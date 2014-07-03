@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  3 JUL 2014 16:12
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  3 JUL 2014 18:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1932,24 +1932,36 @@ L/lmm/m/it/12 LB\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) = []
 [] + [] [][]  + 2 \OMS/lmsy/m/n/12 ^^B [][]
  []
 
-[14] [15] [16] [17] [18] [19]) [20]
+[14]
+Overfull \hbox (4.01901pt too wide) in paragraph at lines 190--191
+[]\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 37534
+4/ parameters-to-represent-degrees-of-
+ []
+
+
+Overfull \hbox (6.7026pt too wide) in paragraph at lines 192--193
+[]\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 28189
+/ freedoms-of-real-orthogonal-matrices 
+ []
+
+[15] [16] [17] [18] [19]) [20]
 \openout2 = `exp.aux'.
 
  (./exp.tex
 Chapter 5.
 
-LaTeX Warning: Reference `MsWave' on page 21 undefined on input line 38.
+LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
+(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 12.
 
 [21
 
 
 
-]) [22] (./thesis.bbl
+]
 
-LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
-(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 5.
+LaTeX Warning: Reference `MsWave' on page 22 undefined on input line 67.
 
-)
+) [22] (./thesis.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
  [23
 
@@ -1957,8 +1969,8 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
- (./thesis.aux (./start.aux) (./introduction.aux) (./related.aux)
-(./method.aux) (./exp.aux))
+ (./thesis.aux (./start.aux) (./introduction.aux)
+(./related.aux) (./method.aux) (./exp.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 211.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 211.
 
