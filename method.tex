@@ -1,4 +1,4 @@
-\chapter{Methodology}
+`\chapter{Methodology}
 \label{c:method}
 
 HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:thm}, the theoretical background and definition of surface plasmon will be included~\cite{LeeWave}. Chapte~\ref{c:exp} contains description of experiment methods such as atomic force microscopy and scanning electron microscopy. 
@@ -15,11 +15,11 @@ In this section, we describe the overall framework of our work.  Then, we will g
 
 There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
 
-The first phase is an preprocessing procedure for the second phase. Its goal is to improve the performance of pruning in the second phase.  We will prove in the Sec \ref{ss:derivation_of_the_bounds} that this pruning power is highly correlated to the distribution of the norm of the feature vectors. As a result, each $M_i$ would learn an othorogal matrix $W_i$ for its $X_i$ to fit our desired distribution and then send each $W_i$ back to $P$.  We can notice that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we only need to do the first phase for once.  we give the details about how to learn $W_i$, how to send it back to $P$ in the Sec \ref{s:orthogonal}.
+The first phase is an preprocessing procedure for the second phase. Its goal is to improve the performance of pruning in the second phase.  We will prove in the section \ref{ss:derivation_of_the_bounds} that this pruning power is highly correlated to the distribution of the norm of the feature vectors. As a result, each $M_i$ would learn an othorogal matrix $W_i$ for its $X_i$ to fit our desired distribution and then send each $W_i$ back to $P$.  We can notice that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we only need to do the first phase for once.  we give the details about how to learn $W_i$, how to send it back to $P$ in the section \ref{s:orthogonal}.
 
 The second phase is the main procedure of our framework.  Note that $P$ have already got $W_i$ for each $X_i$ in the beginning of the second phase. For each coming query $q_t$, we iteratively prune some candidates which are impossible to be the $k$NN of $q_t$ to reduce the search space until there are only $k$ candidates left.
 
-To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we use a $Select$ function $S_i(q_t,j;\theta_t)$ to generate the values for trasmitting from $P$ to $M_i$, where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the Sec \ref{s:importance_selecting_function}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  With these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost from avoiding to consider the unnecessary candidates.
+To prune candidates iteratively, we divide the second phase into several rounds.  For each round $j$, we use a $Select$ function $S_i(q_t,j;\theta_t)$ to generate the values for trasmitting from $P$ to $M_i$, where $S_i$ is the importance-selecting function of $M_i$ and $\theta_t$ is its parameters for $q_t$.  (We put the details of $S_i$ at the section \ref{s:importance_selecting_function}.)  By these values, each $M_i$ could calculate the bounds between each candidate $x_l$ and $q_t$.  With these bounds, $P$ would be able to determine which candidates are definitely not our answer and then disregards them in the following rounds.  By these pruning, we could achieve the goal of saving transmission cost from avoiding to consider the unnecessary candidates.
 
 Note that we could use the square of the Euclidean distance instead of the origin Euclidean distance to find $k$NN as it is non-negative.  So we will use the former one in our framework.
 
@@ -53,12 +53,12 @@ Dist(x,y)=\sum^D_{d=1}{(x[d]-y[d])^2} \\
 where $W[d,:]$ is the $d_{th}$ row of $W$.
 \end{ProOfOrthogonal}
 
-We will use this important property in the Sec \ref{sub:reduce_the_norm_with_orthogonal_transformation}.
+We will use this important property in the section \ref{sub:reduce_the_norm_with_orthogonal_transformation}.
 
 %==========================================================================================
 \section{Enhance the Bounds by the Orthogonal Transformation}
 \label{s:ortho_bounds}
-In the Sec \ref{s:overall}, we mentioned that the first phase is an auxiliary step for the second phase.  After the introduction of the orthogonal transformation, we introduce this powerful tool into the first phase in our framework.
+In the section \ref{s:overview}, we mentioned that the first phase is an auxiliary step for the second phase.  After the introduction of the orthogonal transformation, we introduce this powerful tool into the first phase in our framework.
 
 \subsection{The Goal of the First Phase} % (fold)
 \label{ss:the_goal_of_the_first_phase}
@@ -68,7 +68,7 @@ Our goal in the first phase is to reduce the ranges of the bounds used in the se
 
 % TODO: put some graph to compare the long ranges of bounds with the short range.
 
-Suppose that we want to prune all candidates whose lower bounds are upper than a threshold $thr$.  In these figures, we could see that when the ranges of their bounds is short, more candidates would be pruned than those with long ranges of the bounds.  In other words, the shorter the range of the bound, the higher chance this candidate would be pruned if it is not our final answer of $k$NN.
+Suppose that we want to prune some candidates whose lower bounds are upper than a threshold $thr$.  In these figures, we could see that when the ranges of their bounds is short, more candidates would be pruned than those with long ranges of the bounds.  In other words, the shorter the range of the bound, the higher chance this candidate would be pruned if it is not our final answer of $k$NN.
 
 % subsection the_goal_of_the_first_phase (end)
 
@@ -88,7 +88,7 @@ LB(x,y)\leq Dist(x,y) \leq UB(x,y)
 \subsection{Relation Between the Norms and the Bounds} % (fold)
 \label{sub:relation_between_the_norms_and_the_bounds}
 
-To acheive the goal of reducing the length of the ranges of the bounds, we could look into the derivation of the bounds. Suppose there are two vectors $x,y\in \mathbb{R}^D$, but we could only observe the first $s$ dimensions of $x$ and $\sum^D_{d=s+1}{x[d]^2}$, which is the square of two norm of the unobserved part $x[s+1:D]$.  In the Sec \ref{ss:derivation_of_the_bounds}, we give the bounds as 
+To acheive the goal of reducing the length of the ranges of the bounds, we could look into the derivation of the bounds. Suppose there are two vectors $x,y\in \mathbb{R}^D$, but we could only observe the first $s$ dimensions of $x$ and $\sum^D_{d=s+1}{x[d]^2}$, which is the square of two norm of the unobserved part $x[s+1:D]$.  In the section \ref{ss:derivation_of_the_bounds}, we give the bounds as 
 {
 \begin{eqnarray*}
 \lefteqn{LB(x,y) = \sum^s_{d=1}{(x[d]-y[d])^2}.} \label{eq:single-LB-tmp} \\
@@ -116,7 +116,7 @@ To reduce the length of the ranges $Len$ for each $s$, we hope to make $\sum^D_{
 \subsection{Equivalent Bounds After Transformation} % (fold)
 \label{sub:equivalent_bounds_after_transformation}
 
-From the Sec \ref{ss:ortho_prop}, we know the distance of two vectors won't be changed after an orthogonal transformation.  Now we use this property to achieve our goal to reduce the length of the ranges $Len$ given $s$.
+From the section \ref{ss:ortho_prop}, we know the distance of two vectors won't be changed after an orthogonal transformation.  Now we use this property to achieve our goal to reduce the length of the ranges $Len$ given $s$.
 
 Given an orthogonal transformation $W\in\mathbb{R}^{D\times D}$, we have $Dist(x,y)=Dist(Wx,Wy)$.  This means that the bounds we derivated before could also be the bounds for $Dist(Wx,Wy)$.  That is,
 \[
@@ -129,21 +129,21 @@ This also means that we could use the same way to derivate the lower bounds and 
 LB(\hat{x},\hat{y})\leq Dist(x,y)=Dist(\hat{x},\hat{y}) \leq UB(\hat{x},\hat{y})
 \]
 
-So, we could use the bounds $LB(\hat{x},\hat{y}),UB(\hat{x},\hat{y})$ for $Dist(x,y$ and the length of range we want to reduce becomes
+So, we could use the bounds $LB(\hat{x},\hat{y}),UB(\hat{x},\hat{y})$ for $Dist(x,y)$ and the length of range we want to reduce becomes
 \[
 \hat{Len}(W) = UB(\hat{x},\hat{y}) - LB(\hat{x},\hat{y}) = \sum^D_{d=s+1}{\hat{x}[d]^2}+\sum^D_{d=s+1}{\hat{y}[d]^2} \notag \\
  +  2 \times \sqrt{\sum^D_{d=s+1}{\hat{x}[d]^2}\times \sum^D_{d=s+1}{\hat{y}[d]^2}.}\label{eq:len-range-hat}
 \]
 which becomes a function of $W$.
 
-As a result, instead of trying to reduce $\sum^D_{d=s+1}{y[d]^2}$ which is impossible as we mentioned in the Sec \ref{sub:relation_between_the_norms_and_the_bounds}, our goal becomes to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ with the help of $W$.
+As a result, instead of trying to reduce $\sum^D_{d=s+1}{y[d]^2}$ which is impossible as we mentioned in the section \ref{sub:relation_between_the_norms_and_the_bounds}, our goal becomes to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ with the help of $W$.
 
 % subsection equivalent_bounds_after_transformation (end)
 
 \subsection{Reduce the Norm with Orthogonal Transformation} % (fold)
 \label{ss:reduce_the_norm_with_orthogonal_transformation}
 
-For $y\in \mathbb{R}^{D\times 1}$ and $W\in\mathbb{R}^{D\times D}$, given $s$, we want to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ as much as possible.  However, since $s$ is unknown while deciding $W$ in the first phase of our framework, we have to handle all possible values which $s$ could be.  Moreover, since $\sum^D_{d=1}{\hat{y}[d]^2}$ is equal to $\sum^D_{d=s+1}{y[d]^2}$, which is independent with $W$, if the $\sum^D_{d=s+1}{\hat{y}[d]^2}$ decreases with some $W$, the term $\sum^s_{d=1}{\hat{y}[d]^2}$ must increase.  Here, we use a more general strategy to deal with these problems.
+For $y\in \mathbb{R}^{D\times 1}$ and $W\in\mathbb{R}^{D\times D}$, given $s$, we want to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ as much as possible.  However, since $s$ is unknown while deciding $W$ in the first phase of our framework, we have to handle all possible values which $s$ could be.  Moreover, since $\sum^D_{d=1}{\hat{y}[d]^2}$ is equal to $\sum^D_{d=1}{y[d]^2}$, which is independent with $W$, if the $\sum^D_{d=s+1}{\hat{y}[d]^2}$ decreases with some $W$, the term $\sum^s_{d=1}{\hat{y}[d]^2}$ must increase.  Here, we use a more general strategy to deal with these problems.
 
 We could look the term $\sum^D_{d=s+1}{\hat{y}[d]^2}$ from a different angle.  Actually, this term is the square norm of the latter part of the vector $\hat{y}$. Therefore, although $\sum^D_{d=1}{\hat{y}[d]^2}$ is a constant for $W$, we could reduce the square norm of the latter part by increasing the forward part of it.  In other words, we move the norm of the latter part of $y$ to its forward part.  To accomplish it, we design an objective function and then optimize this function to find our ideal $W$.
 
@@ -178,8 +178,10 @@ where
 	=\sum_{x \in X_i}{ \sum^D_{d=1} {d\times(W[d,:]x[d])^2} }
 \end{equation}.
 
-We solve this optimization problem with the help of the package ~~. 
-%http://optman.blogs.rice.edu/
+This is an optimization problem with constraints that its solution must be an orthogonal matrix.  We could solve it efficiently with the help of the package of ~\cite{Fopt} as long as we have its gradient. 
+
+Put the gradient, one line version.
+
 
 After we get the optimal $W^*_i$ for each $M_i$, we send these matrices back to the server $P$.  Since the learning of $W^*_i$ is independent with the queries in the future, we only have to go through the procedure of learning $W^*_i$ for once if $X_i$ doesn't change too much.
 
@@ -217,7 +219,7 @@ Here is an example of the pruning procedure.
 
 TODO: Draw the figure about pruning.
 
-We will talk about the details to generate these bounds and find the threshold in the Sec \ref{ss:find_the_threshold_in_distributed_machines}.
+We will talk about the details to generate these bounds and find the threshold in the section \ref{ss:find_the_threshold_in_distributed_machines}.
 
 % subsection prune_the_candidates (end)
 
@@ -235,7 +237,7 @@ However, if we could only observe the first $s$ dimensions of $x$, we could deco
 				=\sum^s_{d=1}{(x[d]-y[d])^2} + \sum^D_{d=s+1}{(x[d]-y[d])^2.}	
 \end{equation}
 
-Since the first component of \eqref{eq:Eu_decomp} is already known, all we need to do is to deal with the second term. Therefore, we further expand the second term as following:
+Since the first component of \eqref{eq:Eu_decomp} is already known, all we need to do is to deal with the second term. Therefore, we further expand the second term as below:
 \[
 \sum^D_{d=s+1}{(x[d]-y[d])^2}=\sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2}-\sum^D_{d=s+1}{2\times x[d]\times y[d].}
 \]
@@ -260,11 +262,11 @@ We could notice that the calculation of the bounds only needs the first $s$ dime
 
 \subsection{Calculation of the Bounds} % (fold)
 \label{sub:calculation_the_bounds}
-After derivation of the bounds, we describe the procedure of cacluating them in our framework.  
+After the derivation of the bounds, we describe the procedure of cacluating them in our framework.  
 
 For the query $q_t$, at the first round (i.e. $j=1$), $P$ sends the first $s_1$ dimensions of $q_t$ and $\sum^D_{d=s_1+1}{q_t[d]}^2$ to each $M_i$ .  With these values, each $M_i$ would able to calculate the lower bounds $LB(q_t,x)$ and upper bounds $UB(q_t,x)$ for each $x\in X_i$.  Then, after $P$ getting the $k_{th}$ smallest upper bounds as $thr$, we could run the pruning procedure.
 
-In each following round (i.e. $j>1$), $P$ sends the next $s_j$ dimensions of $q_t$ to each $M_i$ whose instances were not pruned completely.  These $M_i$ will update their bounds as following
+In each following round (i.e. $j>1$), $P$ sends the next $s_j$ dimensions of $q_t$ to each $M_i$ whose instances were not pruned completely.  These $M_i$ will update their bounds as follows:
 {
 \begin{eqnarray}
 \lefteqn{LB_j(x,y) = LB_{j-1}(x,y)+\sum^{p_j}_{d=p_{j-1}+1}{(x[d]-y[d])^2}.} \label{eq:single-LB} \\
@@ -285,11 +287,11 @@ We call those $p_j$ as pivots, which mean that each machine would observe the fi
 \label{ss:find_the_threshold_in_distributed_machines}
 The question now is to find the threshold $thr$ for pruning. In ~\cite{MsWave}, we directly send these bounds computed in each $M_i$ back to the server $P$.  However, it would make the transmission cost grow linearly with the number of total instances in these distributed machines and lead to expensive cost when our dataset is extremely huge.  As a result, we propose a method that could make the growth of the cost independent with the number of total instances.
 
-To be simplified, we could think this problem as following: given many distribued numbers $N_i$, we want to find the $k_{th}$ largest number among these $N_i$.  The $N_i$ here actually means the upper bounds at the machine $M_i$ in our framework.  Once we model this problem as this, we could solve it through modifying the work of ~\cite{PRP}.
+To be simplified, we could think this problem as follows: given many distribued numbers $N_i$, we want to find the $k_{th}$ largest number among these $N_i$.  The $N_i$ here actually means the upper bounds at the machine $M_i$ in our framework.  Once we model this problem as this, we could solve it through modifying the work of ~\cite{PRP}.
 
 In ~\cite{PRP}, there are also many phases to find the $k$NN.  In the first phase, the server $P$ would send the whole query to every machine.  Then, in the following phases, it just focuses on finding the instances with the $k_{th}$ largest distance with the query.  To make it fit our problem, we can only use the phases of PRP except the first phase to find the $k_{th}$ largest upper bound as our threshold $thr$.  Its cost is linear to
 \[
-|M|\times \myfloor{\frac{k}{|M|}}=|M|+k,
+|M|\times (\myfloor{\frac{k}{|M|}}+1)=|M|+k,
 \] which is much lower than ~\cite{MsWave} when the number of total instances is very large.
 
 %we could estimate the total transmission cost for the single query as following
@@ -313,7 +315,13 @@ The remaining problem is to decide how many dimensions (i.e. $s_j$) of $q_t$ we 
 
 From the discussion above, we could notice that the decision of pivots is highly dependent on the transmission cost.  Therefore, if we could estimate the cost as a cost function of the pivots $p_j$, we could decide these pivots by optimizing this function.
 
-However, to estimate the cost, we need to know the number of residual candidates sites before sending those dimensions of $q_t$ in each round.  But it is almost impossible to know how many sites would be left after we send part of $q_t$ before we actually send the part of $q_t$.  Therefore, we estimate a vector called $EstResMach$ which $EstResMach[j]$ indicates our estimate of the number of residual machines after we send $q_t[1:j]$ to each local machine.  
+However, to estimate the cost, we need to know the number of residual candidates sites before sending those dimensions of $q_t$ in each round.  But it is almost impossible to know how many sites would be left after we send part of $q_t$ before we actually send the part of $q_t$.  Therefore, we estimate a vector called $EstResMach \in\mathbb{R}^D$ where $EstResMach[j]$ indicates our estimate of the number of residual machines \emph{after} we send $q_t[1:j]$ to each local machine.  
+
+To allow $P$ to  estimate this vector $EstResMach$ without causing any more transmission cost, we use the history information from $q_1,...,q_t$.  Suppose that we just finish finding the answer for $q_t$, during the procedure, we would collect some such pairs of information $(index_j, ResMach_j)$ for some $j$ where $index_j$ means each candidate machine would observe the first $index_j$ dimensions of $q_t$ at the round $j$ and $ResMach_j$ indicates the number of residual machines after pruning by $q_t[1:index_j]$.  For those dimensions which are not in these pairs, we use linear interpolation to estimate their $ResMach$.  
+
+Here(fig?) is an example for the above procedure.
+
+
 
 We use the following procedure to maintain this vector $EstResMach$:
 
@@ -328,11 +336,39 @@ We use the following procedure to maintain this vector $EstResMach$:
 \subsection{Estimate the Transmission Cost} % (fold)
 \label{ss:estimate_the_transmission_cost}
 
+Once we have the vector $EstResMach$, we are ready to estimate the transmission cost \emph{before} sending the query.  For a query $q$, we could estimate its transmission cost in the round $j$ as follows,
+\[
+Cost_j = M_{p_{j-1}}\times s_j + PRP(M_{p_{j-1}})
+\]
+where $p_j=\sum^j_{i=1}{s_i}$ and $p_0=s_0=0$.
+
+Give some explanation.
+
+Replace EstResMach in to the cost.
+
+Therefore, we could write down this optimization problem to get the optimal pivots.
+
+However, there are too many variable to decide in this problem.  According to our experiments, the most crucial variable is the number of dimensions which will be sent in the first round, which is $s_0$ in the optimization problem.  The other $s_j$ is not that influence like $s_0$.  Therefore, we simplifiy this optimization problem as follows,
+
+\[
+final optimization.
+\]
+
+
 
 % subsection estimate_the_transmission_cost (end)
 
 \subsection{Coordinate Descent to Decide the Pivots} % (fold)
 \label{ss:coordinate_descent_to_decide_the_pivots}
+
+Now we have reduced the number of variables to only two variables: $StartD$ and $EachLenD$. To solve this optimization problem efficiently, we apply the Coordinate Descent method as follows for each query.
+
+algorthm?
+
+After solving the optimal $StartD$ and $EachLenD$ for this query, we are able to decide its pivots as below:
+\begin{equation}
+	p_j = StartD + (j-1)\times EachLenD	
+\end{equation}
 
 % subsection coordinate_descent_to_find_the_pivots (end)
 
@@ -351,4 +387,4 @@ In this section, we describe the overview of our framework.
 
 
 %\bibliographystyle{unsrt}
-%\bibliography{thesisbib}
+%\bibliography{thesisbib}'
