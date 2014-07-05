@@ -336,25 +336,43 @@ We use the following procedure to maintain this vector $EstResMach$:
 \subsection{Estimate the Transmission Cost} % (fold)
 \label{ss:estimate_the_transmission_cost}
 
-Once we have the vector $EstResMach$, we are ready to estimate the transmission cost \emph{before} sending the query.  For a query $q$, we could estimate its transmission cost in the round $j$ as follows,
+Once we have the vector $EstResMach$, we are ready to estimate the transmission cost \emph{before} sending the query.  For a query $q$, we could estimate its transmission cost in the first round 
 \[
-Cost_j = M_{p_{j-1}}\times s_j + PRP(M_{p_{j-1}})
+Cost_1 = TotalNumOfMach\times s_1 + Cost_{PRP}(TotalNumOfMach)
 \]
-where $p_j=\sum^j_{i=1}{s_i}$ and $p_0=s_0=0$.
+And for those round $j>1$ as follows,
+\[
+Cost_j = EstResMach[p_{j-1}]\times s_j + Cost_{PRP}(EstResMach[p_{j-1}])
+\]
+where $p_j=\sum^j_{i=1}{s_i}$.
 
 Give some explanation.
 
-Replace EstResMach in to the cost.
+Therefore, we could solve this optimization problem to get the optimal pivots that could get the minimal total cost.
 
-Therefore, we could write down this optimization problem to get the optimal pivots.
-
-However, there are too many variable to decide in this problem.  According to our experiments, the most crucial variable is the number of dimensions which will be sent in the first round, which is $s_0$ in the optimization problem.  The other $s_j$ is not that influence like $s_0$.  Therefore, we simplifiy this optimization problem as follows,
+However, there are too many variables to decide in this problem.  According to our experiments, the most crucial variable is the number of dimensions which will be sent in the first round, which is $s_1$ in this optimization problem.  The other $s_j$ don't have such huge influence like $s_1$.  Therefore, we make all $s_j$ be equal and then simplifiy this optimization problem as follows,
 
 \[
-final optimization.
+Cost_1 = TotalNumOfMach\times StartD + Cost_{PRP}(TotalNumOfMach)
 \]
+And for those round $j>1$,
+\[
+Cost_j = EstResMach[p_{j-1}]\times EachLenD + Cost_{PRP}(EstResMach[p_{j-1}])
+\]
+where $p_j=StartD + (j-1)\times EachLenD$.
 
+Thus, the final optimization becomes as below,
 
+\begin{equation}
+\begin{aligned}
+& \underset{StartD, EachLenD}{\text{minimize}}
+& & \sum_j{Cost_j(StartD,EachLenD)} \\
+& \text{subject to}
+& & StartD, EachLenD \in \mathbb{N}
+\end{aligned}
+\end{equation}
+
+where $p_j=StartD + (j-1)\times EachLenD$.
 
 % subsection estimate_the_transmission_cost (end)
 
@@ -369,6 +387,8 @@ After solving the optimal $StartD$ and $EachLenD$ for this query, we are able to
 \begin{equation}
 	p_j = StartD + (j-1)\times EachLenD	
 \end{equation}
+
+Since the vector $EstResMach$ would be updated for every new query, we will use Coordinate Descent to solve these pivots also for every new query.
 
 % subsection coordinate_descent_to_find_the_pivots (end)
 
