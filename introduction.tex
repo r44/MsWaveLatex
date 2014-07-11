@@ -1,20 +1,36 @@
 \chapter{Introduction}
 \label{c:intro}
 
-HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:thm}, the theoretical background and definition of surface plasmon will be included~\cite{maier2007plasmonics}. Chapte~\ref{c:exp} contains description of experiment methods such as atomic force microscopy and scanning electron microscopy. 
-
-
-% Motivation
+Due to the advance of technology, query by similarity for various kinds of datasets among distributed machines like mobile devices becomes an increasingly common and important task.  In this distributed environment where a large amount of local machines are involved in computation and storage, our goal in most case is to minimize the amount of transmission cost during finding the answer from these machines.  Therefore, this paper aims to generalize the current state-of-the-art on distributed pattern matching from only workable for ``time series''  datasets to more types of dataset such as ``images'' and ``music'' while significantly reducing the communication cost.
 
 % Scenario
+Consider the first scenario in which, through a program installed on mobile devices, a company about data mining could obtain some unusual and potentially profitable images and want to know quickly whether a similar image exsists in someone's cell phone or tabelet.  To do so, it is required to find the similar images among a large amount of distributed devices for the final answer.  Moreover, this company could construct a platform which allows users to search among the images of other cell phones as long as they also provide their images.  With this platform, each user could use their images to find the similar images from other cell phones.  On the other hand, beside of the images, this platform could also deal with other type of data like music.  
+
+Since this paper is generalized from the work \cite{LeeWave} called LeeWave and our work \cite{MsWave} called MsWave, our model could also apply to those scenarios such as the abnormal detection and work on the time series datasets. Although our discussions in the following chapters would focus on the problem of handling a single query and finding the $k$ nearest neighbors among these distribued devices, we could deal with multiple queries and the $k$ farthest neighbors like MsWave only with a little modifications.
+
+% Challenge
+However, to design a framework which could handle these scenarios would requires addressing some challanges.  First, our goal is to find the \emph{exact} $k$ nearest neighbors instead of approximate $k$ nearest neighbors.  So, we find the answer according to their exact similarity.  Second, the number of distributed devices could be very large. It would cause huge communication cost to get our answers from them.  Third, since there could be a large amount of users on that platform, we also have to handle a extremely long sequence of queries.  Forth, to achieve the cost saving in communication, we have to extract valuable information from queries to send to machines instead of the whole query.  It is a important question to define the valuable information and then discard impossible candidates only with the help of these information.  Finally, since in many situations there are bandwidth limitations and concerns of energy consumption as well as communication cost, it is crucial to design an framework that needs as little communication cost among distributed machines as possible.
 
 % Weakness of LeeWave.
+To compare our framework withe the state-of-the-art method LeeWave, we need to briefly talk about LeeWave here and give its details in the chapter 2.  The spirit of LeeWave is to pruning impossible candidaites by transforming the raw feature vector into an error tree like TODO with the help of the Haar wavelet transformation.  By the bounds derived from the error tree, LeeWave could prune impossible candidates only by sending partial query to local machines and thus achieve the goal of saving bandwidth.  However, 
+
+only work on time series
+
+Although LeeWave in \cite{LeeWave} is the state-of-the-art method to solve this problem in the time series datasets, it has several limitations.  To compare the 
 
 % Contribution
+We summarize our main contributions as follows:
+\begin{enumerate}
+	\item We propose a general communication-efficient framework which could find $k$NN and $k$FN instances  given multiple queries for various types of datasets which are distributed in a large amount of devices.
+	\item In the part of methodology, based on the ideas of upper bounds and lower bounds of similarity in \cite{LeeWave}, we derive new bounds with the help of the orthogonal transformation.  And these new bounds  enhance the power of pruning is the main source to achieve the goal of cost saving in communication. 
+	\item Since it would be expensive to find the threshold used in the pruning procedure if the number of total instances in these machines is large, we give a method that could make this cost be indenpendent of this number.
+	\item We propose a method to estimate the communication cost which allows us to dynamically adjust how much information we need to send for the current query according to the history of the past queries.
+	\item We conduct extensive experiments for various types of datasets to demonstrate that our model could achieve the goal of saving communication cost.
+\end{enumerate}
 
 \section{Thesis Overview}
 \label{s:ThesisOverview}
-In this section, we describe the overview of this thesis.
+We organize this paper as follows: In the chapter 2, we discuss about the related papers and their limitations.  Then, in the chapter 3, we propose the details of our framework. In the chapter 4, we provide the results of the experiments for the datasets of images, music, and time series.  Finally, in the chapter 5, we discuss the results and our future work.
 
 %\bibliographystyle{unsrt}
 %\bibliography{thesisbib}

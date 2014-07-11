@@ -6,16 +6,16 @@ Mi-Yen Yeh, Kun-Lung Wu, Philip~S. Yu, and Ming-Syan Chen.
   processing $k$nn queries over distributed streams.
 \newblock {\em Proc. VLDB Endow.}, 2008.
 
-\bibitem{Fopt}
-Zaiwen Wen and Wotao Yin.
-\newblock Optimization with orthogonality constraints.
-\newblock \url{http://optman.blogs.rice.edu/}, Aril 2012.
-
 \bibitem{MsWave}
 Jui-Pin Wang, Yu-Chen Lu, Mi-Yen Yeh, Shou-De Lin, and Phillip~B. Gibbons.
 \newblock Communication-efficient distributed multiple reference pattern
   matching for m2m systems.
 \newblock {\em Proc. of IEEE ICDM}, 2013.
+
+\bibitem{Fopt}
+Zaiwen Wen and Wotao Yin.
+\newblock Optimization with orthogonality constraints.
+\newblock \url{http://optman.blogs.rice.edu/}, Aril 2012.
 
 \bibitem{PRP}
 Apostolos~N. Papadopoulos and Yannis Manolopoulos.
