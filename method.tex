@@ -1,4 +1,4 @@
-`\chapter{Methodology}
+\chapter{Methodology}
 \label{c:method}
 
 HiHi Iam r44~. The organization of this thesis is as follows. In chapte~\ref{c:thm}, the theoretical background and definition of surface plasmon will be included~\cite{LeeWave}. Chapte~\ref{c:exp} contains description of experiment methods such as atomic force microscopy and scanning electron microscopy. 
@@ -99,11 +99,13 @@ To acheive the goal of reducing the length of the ranges of the bounds, we could
 }
 
 Therefore, we could get the length of the range by the substraction.
-\[
-Len = UB(x,y) - LB(x,y) = \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \notag \\
- +  2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:len-range}
-\]
-
+{
+\begin{eqnarray*}
+\lefteqn{Len = UB(x,y) - LB(x,y)}\\
+& = \sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2} \\
+& + 2 \times \sqrt{\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}.}\label{eq:len-range}
+\end{eqnarray*}
+}
 Since the term $\sum^D_{d=s+1}{x[d]^2}$ is given, all we could do is to reduce the length with the help of the $\sum^D_{d=s+1}{y[d]^2}$ term.  If we could reduce $\sum^D_{d=s+1}{y[d]^2}$, the term $\sum^D_{d=s+1}{x[d]^2}\times \sum^D_{d=s+1}{y[d]^2}$ would also decrease and then make $Len$ smaller.  Therefore, our goal now becomes to make the term $\sum^D_{d=s+1}{y[d]^2}$ as small as possible, which is the square norm of the vector $y[s+1:D]$.
 
 Note that the lower (upper) bounds is non-decreasing (non-increasing) as $s$ becomes larger and $LB(x,y)=UB(x,y)$ when $s=D$.  This means that $LB$ and $UB$ would be exactly equal to $\sum^D_{d=1}{(x[d]-y[d])^2}$ eventually.
@@ -130,10 +132,13 @@ LB(\hat{x},\hat{y})\leq Dist(x,y)=Dist(\hat{x},\hat{y}) \leq UB(\hat{x},\hat{y})
 \]
 
 So, we could use the bounds $LB(\hat{x},\hat{y}),UB(\hat{x},\hat{y})$ for $Dist(x,y)$ and the length of range we want to reduce becomes
-\[
-\hat{Len}(W) = UB(\hat{x},\hat{y}) - LB(\hat{x},\hat{y}) = \sum^D_{d=s+1}{\hat{x}[d]^2}+\sum^D_{d=s+1}{\hat{y}[d]^2} \notag \\
- +  2 \times \sqrt{\sum^D_{d=s+1}{\hat{x}[d]^2}\times \sum^D_{d=s+1}{\hat{y}[d]^2}.}\label{eq:len-range-hat}
-\]
+{
+\begin{eqnarray*}
+\lefteqn{\hat{Len}(W) = UB(\hat{x},\hat{y}) - LB(\hat{x},\hat{y})} \\
+& = \sum^D_{d=s+1}{\hat{x}[d]^2}+\sum^D_{d=s+1}{\hat{y}[d]^2} \notag \\
+& +  2 \times \sqrt{\sum^D_{d=s+1}{\hat{x}[d]^2}\times \sum^D_{d=s+1}{\hat{y}[d]^2}.}\label{eq:len-range-hat}
+\end{eqnarray*}
+}
 which becomes a function of $W$.
 
 As a result, instead of trying to reduce $\sum^D_{d=s+1}{y[d]^2}$ which is impossible as we mentioned in the section \ref{sub:relation_between_the_norms_and_the_bounds}, our goal becomes to reduce $\sum^D_{d=s+1}{\hat{y}[d]^2}$ with the help of $W$.
@@ -232,11 +237,12 @@ Suppose there are two vectors $x,y\in \mathbb{R}^D$, we know the square of their
 \end{equation}
 
 However, if we could only observe the first $s$ dimensions of $x$, we could decompose their distance as 
-\begin{equation}\label{eq:Eu_decomp}
-	Dist(x,y)=\sum^D_{d=1}{(x[d]-y[d])^2}\\
-				=\sum^s_{d=1}{(x[d]-y[d])^2} + \sum^D_{d=s+1}{(x[d]-y[d])^2.}	
-\end{equation}
-
+{
+\begin{eqnarray*}
+\lefteqn{Dist(x,y)=\sum^D_{d=1}{(x[d]-y[d])^2} } \\
+			& &	=\sum^s_{d=1}{(x[d]-y[d])^2} + \sum^D_{d=s+1}{(x[d]-y[d])^2.}	
+\end{eqnarray*}
+}
 Since the first component of \eqref{eq:Eu_decomp} is already known, all we need to do is to deal with the second term. Therefore, we further expand the second term as below:
 \[
 \sum^D_{d=s+1}{(x[d]-y[d])^2}=\sum^D_{d=s+1}{x[d]^2}+\sum^D_{d=s+1}{y[d]^2}-\sum^D_{d=s+1}{2\times x[d]\times y[d].}

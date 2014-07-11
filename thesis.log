@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  11 JUL 2014 17:27
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  11 JUL 2014 22:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1450,8 +1450,7 @@ Package: ulem 2012/05/18
 * line 377.
 *************************************************
 \l__xeCJK_fill_width_dim=\dimen260
-) (./thesis.aux (./start.aux) (./introduction.aux) (./related.aux)
-(./method.aux
+) (./thesis.aux (./introduction.aux) (./related.aux) (./method.aux
 
 LaTeX Warning: Label `eq:single-LB' multiply defined.
 
@@ -1780,127 +1779,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--190
 
 ]) (./thesis.toc [11
 
-]
-[12])
+])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [13] (./thesis.lof)
+
+[12] (./thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [14
+ [13
 
 ] (./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [15
+ [14
 
 ]
-\openout2 = `start.aux'.
+\openout2 = `introduction.aux'.
 
- (./start.tex
+ (./introduction.tex
 Chapter 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <24.88> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 1.
-LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/sl' in size <12> not ava
-ilable
-(Font)              Font shape `EU1/TimesNewRoman(0)/m/it' tried instead on inp
-ut line 7.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 13.
 [1
 
 
 
-]
-File: fig/tiger.jpeg Graphic file (type QTm)
- <use  "fig/tiger.jpeg" >
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 140.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 140.
-
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-[][]\EU1/TimesNewRoman(0)/m/n/10 Path of <APP_intermediates>: <ANDROID_ROOT>/ o
-ut/ target/ common/ obj/ APPS/ APP-
- []
-
-[2] [3] (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-) [4]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 266.
-
-[5]) [6]
-\openout2 = `introduction.aux'.
-
- (./introduction.tex
-Chapter 2.
-[7
-
-
-
-] [8]) [9]
+] [2]) [3]
 \openout2 = `related.aux'.
 
  (./related.tex
-Chapter 3.
-
-LaTeX Warning: Reference `c:thm' on page 10 undefined on input line 4.
-
-
-LaTeX Warning: Citation `maier2007plasmonics' on page 10 undefined on input lin
-e 4.
-
-) [10
+Chapter 2.
+) [4
 
 
 
 ]
 \openout2 = `method.aux'.
 
- (./method.tex [11
+ (./method.tex
+Chapter 3.
+
+LaTeX Warning: Reference `c:thm' on page 5 undefined on input line 4.
+
+[5
+
 
 
 ]
-Chapter 4.
 
-LaTeX Warning: Reference `c:thm' on page 12 undefined on input line 4.
-
-[12
-
-]
-
-LaTeX Warning: Reference `s:importance_selecting_function' on page 13 undefined
- on input line 22.
+LaTeX Warning: Reference `s:importance_selecting_function' on page 6 undefined 
+on input line 22.
 
 \c@Orthogonal=\count279
-[13]
+[6]
 \c@ProOfOrthogonal=\count280
 
 
 LaTeX Warning: Reference `sub:reduce_the_norm_with_orthogonal_transformation' o
-n page 14 undefined on input line 56.
+n page 7 undefined on input line 56.
 
-[14]
+[7]
 \c@Bounds=\count281
- [15]
-Overfull \hbox (12.02542pt too wide) in paragraph at lines 121--122
+ [8]
+Overfull \hbox (12.02542pt too wide) in paragraph at lines 123--124
 []\EU1/TimesNewRoman(0)/m/n/12 Given an orthogonal transformation $\OML/lmm/m/i
 t/12 W \OMS/lmsy/m/n/12 2 \U/msb/m/n/12 R[]$\EU1/TimesNewRoman(0)/m/n/12 , we h
 ave $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x; y\OT1/lmr/m/n/12
@@ -1909,59 +1851,60 @@ ave $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x; y\OT1/lmr/m/n/12
  []
 
 
-Overfull \hbox (9.99802pt too wide) in paragraph at lines 121--122
+Overfull \hbox (9.99802pt too wide) in paragraph at lines 123--124
 \EU1/TimesNewRoman(0)/m/n/12 This means that the bounds we derivated before cou
 ld also be the bounds for $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/
 12 Wx; Wy\OT1/lmr/m/n/12 )$\EU1/TimesNewRoman(0)/m/n/12 .
  []
 
-[16]
-Overfull \hbox (15.80257pt too wide) detected at line 136
-[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 W\OT1/lmr/m/n/12 ) = \OML/lmm/m/it/12 UB\OT
-1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) \OMS/lmsy/m/n/12 ^^@ \OM
-L/lmm/m/it/12 LB\OT1/lmr/m/n/12 ([]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ) = [] 
-[] + [] [][]  + 2 \OMS/lmsy/m/n/12 ^^B [][]
- []
-
-[17]
-Overfull \hbox (4.01901pt too wide) in paragraph at lines 192--193
+[9] [10]
+Overfull \hbox (4.01901pt too wide) in paragraph at lines 197--198
 []\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 37534
 4/ parameters-to-represent-degrees-of-
  []
 
-
-Overfull \hbox (6.7026pt too wide) in paragraph at lines 194--195
+[11]
+Overfull \hbox (6.7026pt too wide) in paragraph at lines 199--200
 []\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 28189
 / freedoms-of-real-orthogonal-matrices 
  []
 
-[18] [19] [20] [21] [22] [23]) [24] [25]
+[12]
+
+LaTeX Warning: Reference `eq:Eu_decomp' on page 13 undefined on input line 246.
+
+
+
+LaTeX Warning: Reference `eq:Eu_decomp' on page 13 undefined on input line 256.
+
+
+[13] [14] [15] [16] [17]) [18]
 \openout2 = `exp.aux'.
 
  (./exp.tex
-Chapter 5.
+Chapter 4.
 
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 (Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 12.
 
-[26
+[19
 
 
 
 ]
 
-LaTeX Warning: Reference `MsWave' on page 27 undefined on input line 67.
+LaTeX Warning: Reference `MsWave' on page 20 undefined on input line 67.
 
-) [27] (./thesis.bbl)
+) [20] (./thesis.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
- [28
+ [21
 
 
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
- (./thesis.aux (./start.aux) (./introduction.aux)
-(./related.aux) (./method.aux) (./exp.aux))
+ (./thesis.aux (./introduction.aux) (./related.aux)
+(./method.aux) (./exp.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 211.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 211.
 
@@ -1977,12 +1920,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 211.
  ) 
 Here is how much of TeX's memory you used:
- 29446 strings out of 493938
- 561925 string characters out of 6148857
- 654125 words of memory out of 5000000
- 32244 multiletter control sequences out of 15000+600000
- 49216 words of font info for 120 fonts, out of 8000000 for 9000
+ 29121 strings out of 493938
+ 557084 string characters out of 6148857
+ 608498 words of memory out of 5000000
+ 31959 multiletter control sequences out of 15000+600000
+ 25041 words of font info for 84 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 44i,18n,60p,1437b,1208s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,18n,52p,1437b,1208s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (45 pages).
+Output written on thesis.pdf (37 pages).

@@ -1,17 +1,15 @@
 This is BibTeX, Version 0.99d (TeX Live 2013)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
-A level-1 auxiliary file: start.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: related.aux
 A level-1 auxiliary file: method.aux
 A level-1 auxiliary file: exp.aux
 The style file: unsrt.bst
 Database file #1: r44.bib
-Warning--I didn't find a database entry for "maier2007plasmonics"
 You've used 4 entries,
             1791 wiz_defined-function locations,
-            476 strings with 4262 characters,
+            474 strings with 4234 characters,
 and the built_in function-call counts, 675 in all, are:
 = -- 48
 > -- 47
@@ -50,4 +48,3 @@ warning$ -- 0
 while$ -- 4
 width$ -- 5
 write$ -- 42
-(There was 1 warning)
