@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{LeeWave}
 Mi-Yen Yeh, Kun-Lung Wu, Philip~S. Yu, and Ming-Syan Chen.
@@ -12,6 +12,11 @@ Jui-Pin Wang, Yu-Chen Lu, Mi-Yen Yeh, Shou-De Lin, and Phillip~B. Gibbons.
   matching for m2m systems.
 \newblock {\em Proc. of IEEE ICDM}, 2013.
 
+\bibitem{PRP}
+Apostolos~N. Papadopoulos and Yannis Manolopoulos.
+\newblock Distributed processing of similarity queries.
+\newblock {\em Distributed and Parallel Databases}, 2001.
+
 \bibitem{SCAN}
 Sylvia Ratnasamy, Paul Francis, Mark Handley, and Richard Karp~Scott Shenker.
 \newblock A scalable content-addressable network.
@@ -24,6 +29,30 @@ Ion Stoica, Robert Morris, David Karger, M.~Frans Kaashoek, and Hari
   applications.
 \newblock {\em SIGCOMM}, 2001.
 
+\bibitem{PRING}
+Adina Crainiceanu, Prakash Linga, Ashwin Machanavajjhala, Johannes Gehrke, and
+  Jayavel Shanmugasundaram.
+\newblock P-ring: an efficient and robust p2p range index structure.
+\newblock {\em SIGMOD}, 2007.
+
+\bibitem{Mercury}
+Ashwin~R. Bharambe, Mukesh Agrawal, and Srinivasan Seshan.
+\newblock Mercury: Supporting scalable multi-attribute range queries.
+\newblock {\em SIGCOMM}, 2004.
+
+\bibitem{77}
+Erik Buchmann and Klemens Bohm.
+\newblock Efficient evaluation of nearest-neighbor queries in
+  content-addressable networks.
+\newblock {\em From Integrated Publication and Information Systems to Virtual
+  Information and Knowledge Environments}, 2005.
+
+\bibitem{SWAM}
+Farnoush Banaei-Kashani and Cyrus Shahabi.
+\newblock Swam: A family of access methods for similarity-search in
+  peer-to-peer data networks.
+\newblock {\em CIKM}, 2004.
+
 \bibitem{LSH}
 Parisa Haghani, Sebastian Michel, Philippe Cudre-Mauroux, and Karl Aberer.
 \newblock Lsh at large -- distributed knn search in high dimensions.
@@ -33,10 +62,5 @@ Parisa Haghani, Sebastian Michel, Philippe Cudre-Mauroux, and Karl Aberer.
 Zaiwen Wen and Wotao Yin.
 \newblock Optimization with orthogonality constraints.
 \newblock \url{http://optman.blogs.rice.edu/}, Aril 2012.
-
-\bibitem{PRP}
-Apostolos~N. Papadopoulos and Yannis Manolopoulos.
-\newblock Distributed processing of similarity queries.
-\newblock {\em Distributed and Parallel Databases}, 2001.
 
 \end{thebibliography}

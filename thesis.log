@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  12 JUL 2014 13:59
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  12 JUL 2014 21:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1452,6 +1452,12 @@ Package: ulem 2012/05/18
 \l__xeCJK_fill_width_dim=\dimen260
 ) (./thesis.aux (./introduction.aux) (./related.aux) (./method.aux
 
+LaTeX Warning: Label `fig:flow' multiply defined.
+
+
+LaTeX Warning: Label `fig:flow' multiply defined.
+
+
 LaTeX Warning: Label `eq:single-LB' multiply defined.
 
 
@@ -1779,22 +1785,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--190
 
 ]) (./thesis.toc [11
 
-])
+]
+[12])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
-
-[12] (./thesis.lof)
+ [13] (./thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [13
+ [14
 
 ] (./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [14
+ [15
 
 ]
 \openout2 = `introduction.aux'.
@@ -1810,39 +1816,47 @@ Chapter 1.
 
  (./related.tex
 Chapter 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
 [4
 
 
 
-]) [5]
+] [5]) [6]
 \openout2 = `method.aux'.
 
  (./method.tex
 Chapter 3.
 
-LaTeX Warning: Reference `c:thm' on page 6 undefined on input line 4.
+LaTeX Warning: Reference `c:thm' on page 7 undefined on input line 4.
 
-[6
+File: fig/flow.jpg Graphic file (type QTm)
+<use  "fig/flow.jpg" > [7
 
 
 
 ]
 
-LaTeX Warning: Reference `s:importance_selecting_function' on page 7 undefined 
-on input line 22.
+LaTeX Warning: Reference `s:importance_selecting_function' on page 8 undefined 
+on input line 28.
 
+[8]
 \c@Orthogonal=\count279
-[7]
 \c@ProOfOrthogonal=\count280
 
 
 LaTeX Warning: Reference `sub:reduce_the_norm_with_orthogonal_transformation' o
-n page 8 undefined on input line 56.
+n page 9 undefined on input line 62.
 
-[8]
+[9]
+File: fig/important.png Graphic file (type QTm)
+ <use  "fig/important.png" > [10]
 \c@Bounds=\count281
- [9]
-Overfull \hbox (12.02542pt too wide) in paragraph at lines 123--124
+ [11]
+Overfull \hbox (12.02542pt too wide) in paragraph at lines 132--133
 []\EU1/TimesNewRoman(0)/m/n/12 Given an orthogonal transformation $\OML/lmm/m/i
 t/12 W \OMS/lmsy/m/n/12 2 \U/msb/m/n/12 R[]$\EU1/TimesNewRoman(0)/m/n/12 , we h
 ave $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x; y\OT1/lmr/m/n/12
@@ -1851,34 +1865,35 @@ ave $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x; y\OT1/lmr/m/n/12
  []
 
 
-Overfull \hbox (9.99802pt too wide) in paragraph at lines 123--124
+Overfull \hbox (9.99802pt too wide) in paragraph at lines 132--133
 \EU1/TimesNewRoman(0)/m/n/12 This means that the bounds we derivated before cou
 ld also be the bounds for $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/
 12 Wx; Wy\OT1/lmr/m/n/12 )$\EU1/TimesNewRoman(0)/m/n/12 .
  []
 
-[10] [11]
-Overfull \hbox (4.01901pt too wide) in paragraph at lines 197--198
+[12] [13]
+Overfull \hbox (4.01901pt too wide) in paragraph at lines 203--204
 []\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 37534
 4/ parameters-to-represent-degrees-of-
  []
 
-[12]
-Overfull \hbox (6.7026pt too wide) in paragraph at lines 199--200
+[14]
+Overfull \hbox (6.7026pt too wide) in paragraph at lines 205--206
 []\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 28189
 / freedoms-of-real-orthogonal-matrices 
  []
 
-[13]
+File: fig/prune.png Graphic file (type QTm)
+<use  "fig/prune.png" > [15]
 
-LaTeX Warning: Reference `eq:Eu_decomp' on page 14 undefined on input line 246.
-
-
-
-LaTeX Warning: Reference `eq:Eu_decomp' on page 14 undefined on input line 256.
+LaTeX Warning: Reference `eq:Eu_decomp' on page 16 undefined on input line 251.
 
 
-[14] [15] [16] [17] [18]) [19]
+
+LaTeX Warning: Reference `eq:Eu_decomp' on page 16 undefined on input line 261.
+
+
+[16] [17] [18] [19] [20]) [21]
 \openout2 = `exp.aux'.
 
  (./exp.tex
@@ -1887,24 +1902,24 @@ Chapter 4.
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 (Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 12.
 
-[20
+[22
 
 
 
 ]
 
-LaTeX Warning: Reference `MsWave' on page 21 undefined on input line 67.
+LaTeX Warning: Reference `MsWave' on page 23 undefined on input line 59.
 
-) [21] (./thesis.bbl)
+) [23] (./thesis.bbl [24
+
+
+
+])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
- [22
-
-
-
-]
+ [25]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
- (./thesis.aux (./introduction.aux) (./related.aux)
-(./method.aux) (./exp.aux))
+ (./thesis.aux (./introduction.aux)
+(./related.aux) (./method.aux) (./exp.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 211.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 211.
 
@@ -1920,12 +1935,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 211.
  ) 
 Here is how much of TeX's memory you used:
- 29124 strings out of 493938
- 557102 string characters out of 6148857
- 608578 words of memory out of 5000000
- 31962 multiletter control sequences out of 15000+600000
+ 29145 strings out of 493938
+ 557332 string characters out of 6148857
+ 609623 words of memory out of 5000000
+ 31977 multiletter control sequences out of 15000+600000
  25041 words of font info for 84 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,18n,52p,1437b,1208s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (38 pages).
+Output written on thesis.pdf (42 pages).

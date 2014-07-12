@@ -13,7 +13,13 @@ There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server
 \label{s:overview}
 In this section, we describe the overall framework of our work.  Then, we will give the details about the framework in the following sections.
 
-There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
+\begin{figure}[htpb!]
+  \centering
+    \includegraphics[width=1.0\textwidth]{fig/flow.jpg}
+    \caption{\label{fig:flow}The overall flow of our framework.}
+\end{figure}
+
+Figure~\ref{fig:flow} is the overall flow on our framework.  There are two main phases in our framework.  For each $X_i$, the first phase only needs to be done for once.  On the other hand, we need to run the second phase for each new query $q_t$.
 
 The first phase is an preprocessing procedure for the second phase. Its goal is to improve the performance of pruning in the second phase.  We will prove in the section \ref{ss:derivation_of_the_bounds} that this pruning power is highly correlated to the distribution of the norm of the feature vectors. As a result, each $M_i$ would learn an othorogal matrix $W_i$ for its $X_i$ to fit our desired distribution and then send each $W_i$ back to $P$.  We can notice that this phase is only dependent on $X_i$ and independent of $q_t$.  Therefore, we only need to do the first phase for once.  we give the details about how to learn $W_i$, how to send it back to $P$ in the section \ref{s:orthogonal}.
 
@@ -63,19 +69,22 @@ In the section \ref{s:overview}, we mentioned that the first phase is an auxilia
 \subsection{The Goal of the First Phase} % (fold)
 \label{ss:the_goal_of_the_first_phase}
 
-Our goal in the first phase is to reduce the ranges of the bounds used in the second phase.  Since we will use a threshold to prune the impossible candidates according to their bounds in the The pruning procedure, the ranges of the bounds would be one of the most influential factor of the pruning power.
+Our goal in the first phase is to reduce the ranges of the bounds used in the second phase.  Since we will use a threshold to prune the impossible candidates according to their bounds in the pruning procedure, the ranges of the bounds would be one of the most influential factor of the pruning power. It is easy to understand that when the ranges of their bounds is short, more candidates would be pruned than those with long ranges of the bounds.  In other words, the shorter the range of the bound, the higher chance this candidate would be pruned if it is not our final answer of $k$NN.  
 
+Moreover, we would prove in the section~\ref{ss:reduce_the_norm_with_orthogonal_transformation} that to reduce the range of the bounds, the final goal of the first phase would become to learn an orthogonal transformation $W$ which could make each raw feature vector $x\in \mathbb{R}^D$ (the orange vector in the figure below) transformed to be $Wx$ (the red vector in the figure below) which would make the absolute values of elements in the forward part of the vector larger and those in the later part smaller.
+\begin{figure}[htpb!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{fig/important.png}
+    \caption{\label{fig:flow}The goal of the first phase.}
+\end{figure}
 
-% TODO: put some graph to compare the long ranges of bounds with the short range.
-
-Suppose that we want to prune some candidates whose lower bounds are upper than a threshold $thr$.  In these figures, we could see that when the ranges of their bounds is short, more candidates would be pruned than those with long ranges of the bounds.  In other words, the shorter the range of the bound, the higher chance this candidate would be pruned if it is not our final answer of $k$NN.
 
 % subsection the_goal_of_the_first_phase (end)
 
 \subsection{Definition of the Bounds} % (fold)
 \label{ss:definition_of_the_bounds}
 
-First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the square of the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN .
+First, we need to define the bounds for the pruning.  Recall that given a query $q_t$, our goal is to find its $k$NN in these distributed datasets $X_i$.  Intuitively, we need to calculate the square of the Euclidean distance $Dist(q_t,x), \forall x\in \cup_i X_i$.  However, to cacluate $Dist(q_t,x)$, we need to send the whole $q_t$ to the local machines or send the whole $x$ to $P$, which causes a huge transmission cost.  Therefore, instead of the exact value of Euclidean distances, our propsed framework uses bounds to find the $k$NN.
 
 \newtheorem{Bounds}{\bf Definition}
 \begin{Bounds}
@@ -183,23 +192,17 @@ where
 	=\sum_{x \in X_i}{ \sum^D_{d=1} {d\times(W[d,:]x[d])^2} }
 \end{equation}.
 
-This is an optimization problem with constraints that its solution must be an orthogonal matrix.  We could solve it efficiently with the help of the package of ~\cite{Fopt} as long as we have its gradient. 
-
-Put the gradient, one line version.
-
+This is an optimization problem with constraints that its solution must be an orthogonal matrix.  We could solve it efficiently with the help of the package from~\cite{Fopt} as long as we have its gradient. 
 
 After we get the optimal $W^*_i$ for each $M_i$, we send these matrices back to the server $P$.  Since the learning of $W^*_i$ is independent with the queries in the future, we only have to go through the procedure of learning $W^*_i$ for once if $X_i$ doesn't change too much.
 
 % subsection optimize_with_orthogonal_constraints (end)
 
 \subsection{Reduce the Cost of Sending Matrices} % (fold)
-
+\label{ss:reduce_the_cost_of_sending_matrices}
 http://math.stackexchange.com/questions/375344/parameters-to-represent-degrees-of-freedom-in-n-times-n-orthogonal-real-matric
 
 http://math.stackexchange.com/questions/28189/freedoms-of-real-orthogonal-matrices
-
-\label{ss:reduce_the_cost_of_sending_matrices}
-
 
 % subsection reduce_the_cost_of_sending_matrices (end)
 
@@ -218,11 +221,13 @@ For the query $q_t$, if we already know $LB(q_t,x)$ and $UB(q_t,x)$ $\forall x\i
 \[
 \{x |LB(q_t,x)>thr, \forall x \in \cup_i X_i\}
 \]
-where $thr$ is the $k_{th}$ largest $UB(q_t,x)$ $\forall x\in \cup_i X_i$.
+where $thr$ is the $k_{th}$ largest $UB(q_t,x)$ $\forall x\in \cup_i X_i$.  The following figure is an example of how we prune instances.
 
-Here is an example of the pruning procedure.
-
-TODO: Draw the figure about pruning.
+\begin{figure}[htpb!]
+  \centering
+    \includegraphics[width=1.0\textwidth]{fig/prune.png}
+    \caption{\label{fig:flow}The procedure of pruning impossible candidates.}
+\end{figure}
 
 We will talk about the details to generate these bounds and find the threshold in the section \ref{ss:find_the_threshold_in_distributed_machines}.
 
@@ -297,7 +302,7 @@ To be simplified, we could think this problem as follows: given many distribued 
 
 In ~\cite{PRP}, there are also many phases to find the $k$NN.  In the first phase, the server $P$ would send the whole query to every machine.  Then, in the following phases, it just focuses on finding the instances with the $k_{th}$ largest distance with the query.  To make it fit our problem, we can only use the phases of PRP except the first phase to find the $k_{th}$ largest upper bound as our threshold $thr$.  Its cost is linear to
 \[
-|M|\times (\myfloor{\frac{k}{|M|}}+1)=|M|+k,
+m\times (\myfloor{\frac{k}{|M|}}+1)=m+k,
 \] which is much lower than ~\cite{MsWave} when the number of total instances is very large.
 
 %we could estimate the total transmission cost for the single query as following

@@ -21,31 +21,23 @@ setup~
 
 \subsection{Data Description} % (fold)
 \label{ss:data_description}
-Put a table for summary.
-time,
-ann,
-f2
-f3
-mvd,
-trh,
+
 \begin{table}[htpb]\begin{center}
 \caption{Summary for each dataset}
-\begin{tabular}{|l|l|l|}
-\hline
-%\multicolumn{3}{|c|}{Team sheet} \\
-%\hline
-Dataset & Feature & Num of Dimensions \\ \hline
-ANN & SIFT & 128 \\ \hline
-\multirow{2}{*}{Flickr} & Fea2 & 480 \\
- & Fea3 & 480 \\ \hline
-\multirow{3}{*}{Midfielders} & MC & David Batty \\
- & MC & Eirik Bakke \\
- & MC & Jody Morris \\ \hline
-\multirow{2}{*}{Strikers} & ST & Alan Smith \\
- & ST & Mark Viduka \\
-\hline
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Type & Dataset & Feature & Num of Dimensions & Num of Instances\\ \hline \hline
+Time Series & Random Walk & $N(0,1)$ & 128 & $200\times 5000$\\ \hline
+\multirow{3}{*}{Image} & ANN & SIFT & 480 & $200\times 5000$\\ 
+\cline{2-5}
+ & \multirow{2}{*}{Flickr} & CSD & 480 & $500\times 2000$\\ 
+ & & SCD & 490 & $500\times 2000$\\ \hline
+ \multirow{2}{*}{Audio} & \multirow{2}{*}{Million Songs} & MVD & 480 & $500\times 1900$ \\ 
+ \cline{3-5}
+ & & TRH & 480 & $500\times 1900$\\ \hline
 \end{tabular}
- \end{center}\end{table}
+\end{center}\end{table}
+
 
 
 % subsection data_description (end)

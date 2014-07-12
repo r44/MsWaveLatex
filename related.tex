@@ -2,21 +2,41 @@
 \label{c:related}
 
 %Overall
-In this chapter, we talk about the other related works which could be applied to solve these 
+In this chapter, we talk about the works which are related to these scenarios. \\
+
 %CP
+\section{Concurrent Processing} % (fold)
+\label{s:concurrent_processing}
+Concurrent Processing (CP) \cite{PRP} is the baseline of this problem.  First, the server would send the whole query to every local machine.  Each machine calculates the distance between this query and every instance on it.  Then, every machine return the top $k$ instances with the lowest distance back to the server.  By these $m\times k$ instances, the server could know which $k$ instances are the $k$ nearest neighbors of the query.  We could easily notice that much communication cost is waste in this framework.
+% subsection concurrent_processing (end)
 
 %PRP
+\section{Probabilistic Processing} % (fold)
+\label{s:probabilistic_processing}
+\providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
+There is another method named Probabilistic Processing (PRP) in \cite{PRP} that we could take it as an improvement of CP. The most important characteristic of PRP is that it guarantee to find the answers in two rounds with less communication cost than CP.  In the first round, the server also sends the whole query to every local machines.  But, instead of return the top $k$ instances like CP does, each machine only return the top $\myfloor{\frac{k}{m}}+1$ instances back to the server where $m$ is the number of total local machines.  With these $m \times(\myfloor{\frac{k}{m}}+1)=k+m$ instances, the server could prune some machines which are impossible to obtain the final $k$ answers and then ask the other machines for the final answers in the second rounds.  Although PRP might able to prune some machines in the first round, it still spends too much cost in the second round.
+
+% subsection probabilistic_processing (end)
 
 %LeeWave
-Now let's talk about the state-of-the-art method, LeeWave, which is the starting point of our framework. The spirit of LeeWave is to iteratively pruning impossible candidaites until only $k$ instances left by transforming a raw feature vector into an error tree like TODO with the help of the Haar wavelet transformation. Although the total number of coefficients in an error tree would be equal to length of the raw feature vector, the coefficients at the upper levels would be more important than those in the lower levels.  The importance defined here is the chance to contibute more to the final Euclidean distance,  And it could also be observed from the way to calculate the Euclidean distance from the error trees, the higher level the coefficient is, the heavier weight it has to multiply.
+\section{LeeWave} % (fold)
+\label{s:leewave}
+Now let's talk about the state-of-the-art method, LeeWave \cite{LeeWave}, which is the starting point of our framework. The spirit of LeeWave is to iteratively pruning impossible candidaites until only $k$ instances left by transforming a raw feature vector into an error tree like TODO with the help of the Haar wavelet transformation. Although the total number of coefficients in an error tree would be equal to length of the raw feature vector, the coefficients at the upper levels would be more important than those in the lower levels.  The importance defined here is the chance to contibute more to the final Euclidean distance,  And it could also be observed from the way to calculate the Euclidean distance from the error trees, the higher level the coefficient is, the heavier weight it has to multiply.
 
 Once we have the importance of the coefficients, LeeWave sends coefficents according to their levels in the error tree transformed from the query $q$, from upside to down. In each round, LeeWave would send those coefficients in one level of the tree to each candidate machines.  Then, these machines would return some information that allows the server to compute the bounds between $q$ and the instances in these machines.  With the help of these bounds, the server could prune some instances that they are impossible to be the final answers.  If there are exactly $k$ instances left after pruning, then we just achive our goal to find the $k$NN/$k$FN.  Otherwise, the server would send the next level and repeat the pruning process until finding the answers or sending every level of this tree.
+% subsection leewave (end)
+
 %MsWave
+\section{MsWave} % (fold)
+\label{s:mswave}
+MsWave \cite{MsWave} is our previous work which is also extended from LeeWave but toward a different direction.  While the main contibution of this paper is to generalize the ideas of LeeWave to various types of datasets, the contribution of MsWave focus on how to modify the bounds in LeeWave for multiple queries and finding $k$ farthest neighbors.  We could say that LeeWave is a special case of MsWave for a single query only with some slightly difference.  Since the foundation of MsWave and this paper is the same, we could easily apply our all improvements in this paper to the scenarios in MsWave.  That is, we could also solve the cases of multiple queries and find $k$ farthest neighbors with our new bounds.  Because there are detailed discussions about the situation of multiple queries and differences between finding $k$NN and $k$FN, we only conduct the experiments for the case of a single query and finding $k$NN.
+% subsection mswave (end)
 
 %Misc
-Due to the population of the P2P paradigm \cite{SCAN, Chord}, there are some methods which use the distributed computing to do similarity search over a set of machines.  For example, (cite 8,7,6) are P2P approaches proposed for similarity search, but they are designed for one dimensional data, not high dimensional data.  SWAM (cite1) is a family of \emph{Small World Access Methods}, whose goal is to build a network topology which could collect peers with similar content.  However, in this framework, each peer could only obtain a single data, which is not suitable with our problem for a large amount of data.  VBI-tree and SkipIndex both rely on tree-based approaches that could not scale when the dimensions of data are high. \cite{LSH} leverage on LSH-based approaches for similarity search over structured P2P network for high dimensional data.  Nevertheless, it only provides the approximate results, not exactly solution.  But the biggest difference between these papers and our framework is the setting of the network.  While our 
-
-
+\section{Others} % (fold)
+\label{s:others}
+Due to the population of the P2P paradigm \cite{SCAN, Chord}, there are some methods which use the distributed computing to do similarity search over a set of machines.  For example, \cite{PRING,Mercury,77} are P2P approaches proposed for similarity search, but they are designed for one dimensional data, not high dimensional data.  SWAM \cite{SWAM} is a family of \emph{Small World Access Methods}, whose goal is to build a network topology which could collect peers with similar content.  However, in this framework, each peer could only obtain a single data, which is not suitable with our problem for a large amount of data.  VBI-tree and SkipIndex both rely on tree-based approaches that could not scale when the dimensions of data are high. \cite{LSH} leverage on LSH-based approaches for similarity search over structured P2P network for high dimensional data.  Nevertheless, it only provides the approximate results, not exactly solution.  But the biggest difference between these papers and our framework is the setting of the network.  While their framework apply on a more general P2P system, our setting is that every local machine is only able to communicate with a single server.
+% subsection others (end)
 
 %\bibliographystyle{unsrt}
 %\bibliography{thesisbib}

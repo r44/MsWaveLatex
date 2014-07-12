@@ -3,43 +3,48 @@
 \contentsline {chapter}{中文摘要}{ix}{chapter*.2}
 \contentsline {chapter}{Abstract}{x}{chapter*.3}
 \contentsline {chapter}{Contents}{xi}{chapter*.4}
-\contentsline {chapter}{List of Figures}{xiii}{chapter*.5}
-\contentsline {chapter}{List of Tables}{xiv}{chapter*.6}
+\contentsline {chapter}{List of Figures}{xiv}{chapter*.5}
+\contentsline {chapter}{List of Tables}{xv}{chapter*.6}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Thesis Overview}{3}{section.1.1}
 \contentsline {chapter}{\numberline {2}Related Works}{4}{chapter.2}
-\contentsline {chapter}{\numberline {3}Methodology}{6}{chapter.3}
-\contentsline {section}{\numberline {3.1}Problem Setup}{6}{section.3.1}
-\contentsline {section}{\numberline {3.2}Overview of Our Framework}{6}{section.3.2}
-\contentsline {section}{\numberline {3.3}Orthogonal Transformation}{7}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Definition of Ortohogonal Transformation}{8}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Property of Orthogonal Transformation}{8}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Enhance the Bounds by the Orthogonal Transformation}{8}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}The Goal of the First Phase}{8}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Definition of the Bounds}{9}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Relation Between the Norms and the Bounds}{9}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Equivalent Bounds After Transformation}{10}{subsection.3.4.4}
-\contentsline {subsection}{\numberline {3.4.5}Reduce the Norm with Orthogonal Transformation}{11}{subsection.3.4.5}
-\contentsline {subsection}{\numberline {3.4.6}Optimize with Orthogonal Constraints}{12}{subsection.3.4.6}
-\contentsline {subsection}{\numberline {3.4.7}Reduce the Cost of Sending Matrices}{13}{subsection.3.4.7}
-\contentsline {section}{\numberline {3.5}Prune by the Bounds}{13}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Prune the Candidates with the Bounds}{13}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Derivation of the Bounds}{13}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Calculation of the Bounds}{15}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Find the Threshold in Distributed Machines}{15}{subsection.3.5.4}
-\contentsline {section}{\numberline {3.6}Decide the Pivots}{16}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Estimate the Number of Residual Machines}{16}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}Estimate the Transmission Cost}{17}{subsection.3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}Coordinate Descent to Decide the Pivots}{18}{subsection.3.6.3}
-\contentsline {section}{\numberline {3.7}Importance-Selecting Function and Overall Framework}{19}{section.3.7}
-\contentsline {chapter}{\numberline {4}Experiment}{20}{chapter.4}
-\contentsline {section}{\numberline {4.1}Experiment Setup}{20}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Frameworks for Comparison}{20}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Data Description}{20}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Comparison Among all Frameworks}{21}{section.4.2}
-\contentsline {section}{\numberline {4.3}Comparison Among our Framework with Different Configurations}{21}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Influence of the Orthogonal Transformation}{21}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Influence of the Threshold-Finding Procedure}{21}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Influence of the Coordinate Descent for Deciding Pivots}{21}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Power of the Pruning Procedure}{21}{section.4.4}
-\contentsline {chapter}{Bibliography}{22}{section.4.4}
+\contentsline {section}{\numberline {2.1}Concurrent Processing}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Probabilistic Processing}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}LeeWave}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}MsWave}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}Others}{6}{section.2.5}
+\contentsline {chapter}{\numberline {3}Methodology}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem Setup}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Overview of Our Framework}{7}{section.3.2}
+\contentsline {section}{\numberline {3.3}Orthogonal Transformation}{9}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Definition of Ortohogonal Transformation}{9}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Property of Orthogonal Transformation}{9}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Enhance the Bounds by the Orthogonal Transformation}{10}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}The Goal of the First Phase}{10}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Definition of the Bounds}{11}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Relation Between the Norms and the Bounds}{11}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Equivalent Bounds After Transformation}{12}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Reduce the Norm with Orthogonal Transformation}{13}{subsection.3.4.5}
+\contentsline {subsection}{\numberline {3.4.6}Optimize with Orthogonal Constraints}{14}{subsection.3.4.6}
+\contentsline {subsection}{\numberline {3.4.7}Reduce the Cost of Sending Matrices}{15}{subsection.3.4.7}
+\contentsline {section}{\numberline {3.5}Prune by the Bounds}{15}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Prune the Candidates with the Bounds}{15}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Derivation of the Bounds}{16}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Calculation of the Bounds}{17}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Find the Threshold in Distributed Machines}{18}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Decide the Pivots}{18}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Estimate the Number of Residual Machines}{19}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Estimate the Transmission Cost}{20}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Coordinate Descent to Decide the Pivots}{21}{subsection.3.6.3}
+\contentsline {section}{\numberline {3.7}Importance-Selecting Function and Overall Framework}{21}{section.3.7}
+\contentsline {chapter}{\numberline {4}Experiment}{22}{chapter.4}
+\contentsline {section}{\numberline {4.1}Experiment Setup}{22}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Frameworks for Comparison}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Data Description}{22}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Comparison Among all Frameworks}{23}{section.4.2}
+\contentsline {section}{\numberline {4.3}Comparison Among our Framework with Different Configurations}{23}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Influence of the Orthogonal Transformation}{23}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Influence of the Threshold-Finding Procedure}{23}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Influence of the Coordinate Descent for Deciding Pivots}{23}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Power of the Pruning Procedure}{23}{section.4.4}
+\contentsline {chapter}{Bibliography}{24}{section.4.4}
