@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  11 JUL 2014 22:24
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  12 JUL 2014 13:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1810,38 +1810,38 @@ Chapter 1.
 
  (./related.tex
 Chapter 2.
-) [4
+[4
 
 
 
-]
+]) [5]
 \openout2 = `method.aux'.
 
  (./method.tex
 Chapter 3.
 
-LaTeX Warning: Reference `c:thm' on page 5 undefined on input line 4.
+LaTeX Warning: Reference `c:thm' on page 6 undefined on input line 4.
 
-[5
+[6
 
 
 
 ]
 
-LaTeX Warning: Reference `s:importance_selecting_function' on page 6 undefined 
+LaTeX Warning: Reference `s:importance_selecting_function' on page 7 undefined 
 on input line 22.
 
 \c@Orthogonal=\count279
-[6]
+[7]
 \c@ProOfOrthogonal=\count280
 
 
 LaTeX Warning: Reference `sub:reduce_the_norm_with_orthogonal_transformation' o
-n page 7 undefined on input line 56.
+n page 8 undefined on input line 56.
 
-[7]
+[8]
 \c@Bounds=\count281
- [8]
+ [9]
 Overfull \hbox (12.02542pt too wide) in paragraph at lines 123--124
 []\EU1/TimesNewRoman(0)/m/n/12 Given an orthogonal transformation $\OML/lmm/m/i
 t/12 W \OMS/lmsy/m/n/12 2 \U/msb/m/n/12 R[]$\EU1/TimesNewRoman(0)/m/n/12 , we h
@@ -1857,28 +1857,28 @@ ld also be the bounds for $\OML/lmm/m/it/12 Dist\OT1/lmr/m/n/12 (\OML/lmm/m/it/
 12 Wx; Wy\OT1/lmr/m/n/12 )$\EU1/TimesNewRoman(0)/m/n/12 .
  []
 
-[9] [10]
+[10] [11]
 Overfull \hbox (4.01901pt too wide) in paragraph at lines 197--198
 []\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 37534
 4/ parameters-to-represent-degrees-of-
  []
 
-[11]
+[12]
 Overfull \hbox (6.7026pt too wide) in paragraph at lines 199--200
 []\EU1/TimesNewRoman(0)/m/n/12 http:// math.stackexchange.com/ questions/ 28189
 / freedoms-of-real-orthogonal-matrices 
  []
 
-[12]
+[13]
 
-LaTeX Warning: Reference `eq:Eu_decomp' on page 13 undefined on input line 246.
-
-
-
-LaTeX Warning: Reference `eq:Eu_decomp' on page 13 undefined on input line 256.
+LaTeX Warning: Reference `eq:Eu_decomp' on page 14 undefined on input line 246.
 
 
-[13] [14] [15] [16] [17]) [18]
+
+LaTeX Warning: Reference `eq:Eu_decomp' on page 14 undefined on input line 256.
+
+
+[14] [15] [16] [17] [18]) [19]
 \openout2 = `exp.aux'.
 
  (./exp.tex
@@ -1887,17 +1887,17 @@ Chapter 4.
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 (Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 12.
 
-[19
+[20
 
 
 
 ]
 
-LaTeX Warning: Reference `MsWave' on page 20 undefined on input line 67.
+LaTeX Warning: Reference `MsWave' on page 21 undefined on input line 67.
 
-) [20] (./thesis.bbl)
+) [21] (./thesis.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
- [21
+ [22
 
 
 
@@ -1920,12 +1920,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 211.
  ) 
 Here is how much of TeX's memory you used:
- 29121 strings out of 493938
- 557084 string characters out of 6148857
- 608498 words of memory out of 5000000
- 31959 multiletter control sequences out of 15000+600000
+ 29124 strings out of 493938
+ 557102 string characters out of 6148857
+ 608578 words of memory out of 5000000
+ 31962 multiletter control sequences out of 15000+600000
  25041 words of font info for 84 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,18n,52p,1437b,1208s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (37 pages).
+Output written on thesis.pdf (38 pages).

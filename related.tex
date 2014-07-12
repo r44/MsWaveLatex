@@ -2,7 +2,7 @@
 \label{c:related}
 
 %Overall
-
+In this chapter, we talk about the other related works which could be applied to solve these 
 %CP
 
 %PRP
@@ -12,6 +12,10 @@ Now let's talk about the state-of-the-art method, LeeWave, which is the starting
 
 Once we have the importance of the coefficients, LeeWave sends coefficents according to their levels in the error tree transformed from the query $q$, from upside to down. In each round, LeeWave would send those coefficients in one level of the tree to each candidate machines.  Then, these machines would return some information that allows the server to compute the bounds between $q$ and the instances in these machines.  With the help of these bounds, the server could prune some instances that they are impossible to be the final answers.  If there are exactly $k$ instances left after pruning, then we just achive our goal to find the $k$NN/$k$FN.  Otherwise, the server would send the next level and repeat the pruning process until finding the answers or sending every level of this tree.
 %MsWave
+
+%Misc
+Due to the population of the P2P paradigm \cite{SCAN,Chord}, there are some methods which use the distributed computing to do similarity search over a set of machines.  For example, (cite 8,7,6) are P2P approaches proposed for similarity search, but they are either dedicated to one dimensional data or cannot be applied on high dimensional data.  SWAM (cite1) is a family of \emph{Small World Access Methods}, whose goal is to build a network topology which could collect peers with similar content.  However, in this framework, each peer could only obtain a single data, which is not suitable with our problem for a large amount of data.  VBI-tree and SkipIndex both rely on tree-based approaches that could not scale when the dimensions of data are high. \cite{LSH} leverage on LSH-based approaches for similarity search over structured P2P network for high dimensional data.  Nevertheless, it only provides the approximate results, not exactly solution. 
+
 
 %\bibliographystyle{unsrt}
 %\bibliography{thesisbib}

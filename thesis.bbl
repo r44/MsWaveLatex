@@ -12,6 +12,23 @@ Jui-Pin Wang, Yu-Chen Lu, Mi-Yen Yeh, Shou-De Lin, and Phillip~B. Gibbons.
   matching for m2m systems.
 \newblock {\em Proc. of IEEE ICDM}, 2013.
 
+\bibitem{SCAN}
+Sylvia Ratnasamy, Paul Francis, Mark Handley, and Richard Karp~Scott Shenker.
+\newblock A scalable content-addressable network.
+\newblock {\em SIGCOMM}, 2001.
+
+\bibitem{Chord}
+Ion Stoica, Robert Morris, David Karger, M.~Frans Kaashoek, and Hari
+  Balakrishnan.
+\newblock Chord: A scalable peer-to-peer lookup service for internet
+  applications.
+\newblock {\em SIGCOMM}, 2001.
+
+\bibitem{LSH}
+Parisa Haghani, Sebastian Michel, Philippe Cudre-Mauroux, and Karl Aberer.
+\newblock Lsh at large -- distributed knn search in high dimensions.
+\newblock {\em International Workshop on Web and Databases}, 2008.
+
 \bibitem{Fopt}
 Zaiwen Wen and Wotao Yin.
 \newblock Optimization with orthogonality constraints.
