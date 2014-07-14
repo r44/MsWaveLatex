@@ -200,9 +200,45 @@ After we get the optimal $W^*_i$ for each $M_i$, we send these matrices back to 
 
 \subsection{Reduce the Cost of Sending Matrices} % (fold)
 \label{ss:reduce_the_cost_of_sending_matrices}
-http://math.stackexchange.com/questions/375344/parameters-to-represent-degrees-of-freedom-in-n-times-n-orthogonal-real-matric
+%http://math.stackexchange.com/questions/375344/parameters-to-represent-degrees-of-freedom-in-n-times-n-orthogonal-real-matric
+%http://math.stackexchange.com/questions/28189/freedoms-of-real-orthogonal-matrices
 
-http://math.stackexchange.com/questions/28189/freedoms-of-real-orthogonal-matrices
+However, the cost to sending an orthogonal matrix $W\in\mathbb{R}^{D\times D}$ is $D\times D$, which is too expensive.  Therefore, in this section, we prove that we could reduce this cost to $\frac{D\times (D-1)}{2}$.
+
+First, we introduce a lemma which would be used in our proof.
+
+\newtheorem*{lemma}{Lemma}
+\begin{lemma}\normalfont
+ For all vector $\bold{x}=(x_1,x_2,\ldots,x_D)\in\mathbb{R}^D$, we could use a spherical coordinate system with a radial coordinate $r$ and $D-1$ angular coordinates $\phi_1, \phi_2, ..., \phi_{D-1}$ to represent it as
+\begin{itemize}
+	\item $x_1 = r cos(\phi_1)$
+	\item $x_2 = r sin(\phi_1)cos(\phi_2)$
+	\item $x_3 = r sin(\phi_1)sin(\phi_2)cos(\phi_3)$
+	\item ~\vdots
+	\item $x_{D-1} = r sin(\phi_1)\ldots sin(\phi_{D-2})cos(\phi_{D-1})$
+	\item $x_{D} = r sin(\phi_1)\ldots sin(\phi_{D-2})sin(\phi_{D-1})$
+\end{itemize}
+where $\phi_i\in[0,\pi],~\forall i=1,2,...,D-2$ and $\phi_{D-1}\in[0,2\pi)$. $\blacksquare$
+\end{lemma}
+
+Since these row vectors in $W$ are orthonomal vectors, their $r$ in this lemma is $1$, which allows us to represent an orthonomal vector in $\mathbb{R}^D$ with $D-1$ parameters ($\phi_1,\phi_2, ...,\phi_{D-1}$ in the lemma).  Moreover, 
+
+Now we are ready to give the proof by mathematical induction.
+
+\newtheorem*{half}{Theorem}
+\begin{half}\normalfont
+Given an orthogonal transformation $W\in\mathbb{R}^{D\times D}$, we could use $\frac{D\times (D-1)}{2}$ parameters to construct $W$.
+\end{half}
+
+\newtheorem*{mproof}{Proof}
+\begin{mproof}\normalfont
+Base case $d=2$: If $d=2$, we 
+ Given an orthogonal transformation $W\in\mathbb{R}^{D\times D}$, we could use $\frac{D\times (D-1)}{2}$ parameters to construct $W$.
+\begin{enumerate}
+	\item gaga
+	\item ff
+\end{enumerate}
+\end{mproof}$\blacksquare$
 
 % subsection reduce_the_cost_of_sending_matrices (end)
 

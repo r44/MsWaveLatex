@@ -63,4 +63,51 @@ Zaiwen Wen and Wotao Yin.
 \newblock Optimization with orthogonality constraints.
 \newblock \url{http://optman.blogs.rice.edu/}, Aril 2012.
 
+\bibitem{time}
+Thanawin Rakthanmanon, Bilson Campana, Abdullah Mueen, Gustavo Batista, Brandon
+  Westover, Qiang Zhu, Jesin Zakaria, and Eamonn Keogh.
+\newblock Searching and mining trillions of time series subsequences under
+  dynamic time warping.
+\newblock In {\em Proc. of ACM SIGKDD Int. Conf. on Knowledge Discovery and
+  Data Mining}, 2012.
+
+\bibitem{ANN}
+Herv{\'e} J{\'e}gou, Matthijs Douze, and Cordelia Schmid.
+\newblock Product quantization for nearest neighbor search.
+\newblock In {\em IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 2011.
+
+\bibitem{Flickr}
+Nitish Srivastava and Ruslan~R. Salakhutdinov.
+\newblock Multimodal learning with deep boltzmann machines.
+\newblock In {\em Neural Information Processing Systems}, 2012.
+
+\bibitem{Bertin-Mahieux2011}
+Thierry Bertin-Mahieux, Daniel~P.W. Ellis, Brian Whitman, and Paul Lamere.
+\newblock The million song dataset.
+\newblock In {\em {Proceedings of the 12th International Conference on Music
+  Information Retrieval ({ISMIR} 2011)}}, 2011.
+
+\bibitem{LID_05ismir}
+Thomas Lidy and Andreas Rauber.
+\newblock Evaluation of feature extractors and psycho-acoustic transformations
+  for music genre classification.
+\newblock In {\em Proceedings of the Sixth International Conference on Music
+  Information Retrieval (ISMIR 2005)}, pages 34--41, London, UK, September
+  11-15 2005.
+
+\bibitem{RAU_03jnmr}
+A.~Rauber, E.~Pampalk, and D.~Merkl.
+\newblock The {SOM}-enhanced {J}uke{B}ox: {O}rganization and visualization of
+  music collections based on perceptual models.
+\newblock {\em Journal of New Music Research}, 2003.
+
+\bibitem{RAU_01ecdl}
+A.~Rauber and M.~Fr\"uhwirth.
+\newblock Automatically analyzing and organizing music archives.
+\newblock In {\em Proceedings of the 5. European Conference on Research and
+  Advanced Technology for Digital Libraries (ECDL 2001)}, Springer Lecture
+  Notes in Computer Science, Darmstadt, Germany, Sept. 4-8 2001. Springer.
+\newblock \url{http://www.ifs.tuwien.ac.at/ifs/research/publications.html}.
+
 \end{thebibliography}
