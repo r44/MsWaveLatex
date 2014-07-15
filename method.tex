@@ -273,13 +273,13 @@ k + \frac{k\times (k-1)}{2} = \frac{k\times (k+1)}{2}
 
 
 %==========================================================================================
-\section{Prune by the Bounds}
+\section{Pruning by the Bounds}
 \label{s:prune}
 Now we start to discuss the second phase of our framework.  In this section, we talk about how to prune the candidates if we already have bounds.  Note that this mechanism is the most crucial part to achieve our goal to save the transmission cost.
 
 % subsection definition_of_bounds (end)
 
-\subsection{Prune the Candidates with the Bounds} % (fold)
+\subsection{Pruning the Candidates with the Bounds} % (fold)
 \label{ss:prune_the_candidates_with_the_bounds}
 
 For the query $q_t$, if we already know $LB(q_t,x)$ and $UB(q_t,x)$ $\forall x\in \cup_i X_i$, we could use the $k_{th}$ smallest upper bounds and directly prune those $x$ whose lower bounds are higher than this value $thr$. I.e., we want to prune
@@ -298,7 +298,7 @@ We will talk about the details to generate these bounds and find the threshold i
 
 % subsection prune_the_candidates (end)
 
-\subsection{Derivation of the Bounds} % (fold)
+\subsection{Derivation of our Bounds} % (fold)
 \label{ss:derivation_of_the_bounds}
 
 Suppose there are two vectors $x,y\in \mathbb{R}^D$, we know the square of their Euclidean distance is 
@@ -336,7 +336,7 @@ We could notice that the calculation of the bounds only needs the first $s$ dime
 
 % subsection derivation_of_bounds (end)
 
-\subsection{Calculation of the Bounds} % (fold)
+\subsection{Calculation of our Bounds} % (fold)
 \label{sub:calculation_the_bounds}
 After the derivation of the bounds, we describe the procedure of cacluating them in our framework.  
 
@@ -359,7 +359,7 @@ We call those $p_j$ as pivots, which mean that each machine would observe the fi
 \providecommand{\myceil}[1]{\left \lceil #1 \right \rceil }
 \providecommand{\myfloor}[1]{\left \lfloor #1 \right \rfloor }
 
-\subsection{Find the Threshold in Distributed Machines} % (fold)
+\subsection{Finding the Threshold in Distributed Machines} % (fold)
 \label{ss:find_the_threshold_in_distributed_machines}
 The question now is to find the threshold $thr$ for pruning. In ~\cite{MsWave}, we directly send these bounds computed in each $M_i$ back to the server $P$.  However, it would make the transmission cost grow linearly with the number of total instances in these distributed machines and lead to expensive cost when our dataset is extremely huge.  As a result, we propose a method that could make the growth of the cost independent with the number of total instances.
 
@@ -380,13 +380,13 @@ m\times (\myfloor{\frac{k}{|M|}}+1)=m+k,
 % subsection find_the_threshold_in_distributed_machines (end)
 %==========================================================================================
 
-\section{Decide the Pivots} % (fold)
+\section{Decision of the Pivots} % (fold)
 \label{s:decide_the_pivots}
 
 The remaining problem is to decide how many dimensions (i.e. $s_j$) of $q_t$ we have to send from the server $P$ in each round $j$.  If we send too few dimensions, the bounds would be too loose to prune any candidates and we will spend much unnecessary cost in finding the thresholds.  On the other hand, if we send too many dimensions, although it could allow us to prune many candidates at once, it would send too many dimensions to some candidates which could be pruned by much fewer dimensions.  That would also lead to the waste the transmission cost.  Therefore, in this section, we propose a simple but effective method to decide how many dimensions of $q_t$ we should send from $P$ in each round.
 
 
-\subsection{Estimate the Number of Residual Machines} % (fold)
+\subsection{Estimation of the Number of Residual Machines} % (fold)
 \label{ss:estimate_the_number_of_residual_machines}
 
 From the discussion above, we could notice that the decision of pivots is highly dependent on the transmission cost.  Therefore, if we could estimate the cost as a cost function of the pivots $p_j$, we could decide these pivots by optimizing this function.
@@ -409,7 +409,7 @@ We use the following procedure to maintain this vector $EstResMach$:
 
 
 
-\subsection{Estimate the Transmission Cost} % (fold)
+\subsection{Estimation of the Transmission Cost} % (fold)
 \label{ss:estimate_the_transmission_cost}
 
 Once we have the vector $EstResMach$, we are ready to estimate the transmission cost \emph{before} sending the query.  For a query $q$, we could estimate its transmission cost in the first round 
@@ -475,7 +475,49 @@ Since the vector $EstResMach$ would be updated for every new query, we will use 
 \label{s:importance_selecting_function_and_overall_framework}
 At each round $j$ for $q_t$, we need to decide what to send from $P$ to each $M_i$ and then calculate the bounds at $M_i$. 
 
+Note that we will find the $k$NN after all dimensions of $q_t$ are sent.....
+
+\begin{equation}
+\begin{aligned}
+& S_i(q_t,~j,~\theta_t; W_i) =~\hat{q_t}[p^t_{j-1}+1:p^t_j]\cup Meta \\
+\text{where} \\
+& \hat{q_t} = W_iq_t, \theta_t = (StartD_t, LenD_t) \\
+& p^t_j = min\{ D, StartD_t + LenD_t\times (j-1) \},~\forall j\geq 1,~\forall t \\
+& p^t_0 = 0,~\forall t\\
+& Meta = \sum^D_{d=StartD_t+1}{\hat{q}[d]^2}~~if~j=1\\
+& else = 0
+\end{aligned}
+\end{equation}
+
+
 In this section, we describe the overview of our framework.
+
+
+\begin{algorithm}
+  \caption{Second Phase}
+%  \KwIn{$r_i$, $Backgrd(T_i)$=${T_1,T_2,\ldots ,T_n}$ and similarity threshold $\theta_r$}
+  \KwIn{$q_t$}
+  \KwOut{$k$NN of $q_t$}
+  $con(r_i)= \Phi$\;
+  %\For{$j=1;j \le n;j \ne i$}
+  \While{there is a coming query $q_t$}
+  {
+    float $maxSim=0$\;
+    $r^{maxSim}=null$\;
+    \While{not end of $T_j$}
+    {
+      compute Jaro($r_i,r_m$)($r_m\in T_j$)\;
+      \If{$(Jaro(r_i,r_m) \ge \theta_r)\wedge (Jaro(r_i,r_m)\ge r^{maxSim})$}
+      {
+        replace $r^{maxSim}$ with $r_m$\;
+      }
+    }
+    $con(r_i)=con(r_i)\cup {r^{maxSim}}$\;
+  }
+  return $con(r_i)$\;
+\end{algorithm}
+
+
 
 % subsection importance_selecting_function (end)
 

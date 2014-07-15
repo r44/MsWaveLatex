@@ -27,30 +27,30 @@
 \contentsline {subsection}{\numberline {3.4.5}Reduce the Norm with Orthogonal Transformation}{13}{subsection.3.4.5}
 \contentsline {subsection}{\numberline {3.4.6}Optimize with Orthogonal Constraints}{14}{subsection.3.4.6}
 \contentsline {subsection}{\numberline {3.4.7}Reduce the Cost of Sending Matrices}{15}{subsection.3.4.7}
-\contentsline {section}{\numberline {3.5}Prune by the Bounds}{17}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Prune the Candidates with the Bounds}{17}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Derivation of the Bounds}{18}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Calculation of the Bounds}{19}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Find the Threshold in Distributed Machines}{19}{subsection.3.5.4}
-\contentsline {section}{\numberline {3.6}Decide the Pivots}{20}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Estimate the Number of Residual Machines}{21}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}Estimate the Transmission Cost}{21}{subsection.3.6.2}
+\contentsline {section}{\numberline {3.5}Pruning by the Bounds}{17}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Pruning the Candidates with the Bounds}{17}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Derivation of our Bounds}{18}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Calculation of our Bounds}{19}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Finding the Threshold in Distributed Machines}{19}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Decision of the Pivots}{20}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Estimation of the Number of Residual Machines}{21}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Estimation of the Transmission Cost}{21}{subsection.3.6.2}
 \contentsline {subsection}{\numberline {3.6.3}Coordinate Descent to Decide the Pivots}{23}{subsection.3.6.3}
 \contentsline {section}{\numberline {3.7}Importance-Selecting Function and Overall Framework}{23}{section.3.7}
-\contentsline {chapter}{\numberline {4}Experiment}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}Experiment Setup}{24}{section.4.1}
-\contentsline {section}{\numberline {4.2}Data Description}{24}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Time Series Data}{24}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Image Data}{25}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Audio Data}{25}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{25}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Frameworks for Comparison}{26}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{26}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Comparison Among our Framework with Different Configurations}{26}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Different Configurations for Comparison}{26}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{26}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Influence of the Orthogonal Transformation}{26}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Influence of the Threshold-Finding Procedure}{26}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Influence of the Coordinate Descent for Deciding Pivots}{27}{subsection.4.4.5}
-\contentsline {section}{\numberline {4.5}Power of the Pruning Procedure}{27}{section.4.5}
-\contentsline {chapter}{Bibliography}{28}{section.4.5}
+\contentsline {chapter}{\numberline {4}Experiment}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Experiment Setup}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Data Description}{25}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Time Series Data}{25}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Image Data}{26}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Audio Data}{26}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{26}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Frameworks for Comparison}{27}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{27}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Comparison Among our Framework with Different Configurations}{27}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Different Configurations for Comparison}{27}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{27}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Influence of the Orthogonal Transformation}{27}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Influence of the Threshold-Finding Procedure}{27}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Influence of the Coordinate Descent for Deciding Pivots}{28}{subsection.4.4.5}
+\contentsline {section}{\numberline {4.5}Power of the Pruning Procedure}{28}{section.4.5}
+\contentsline {chapter}{Bibliography}{29}{section.4.5}
