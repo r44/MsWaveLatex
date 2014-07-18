@@ -48,12 +48,7 @@
 \contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{27}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Frameworks for Comparison}{28}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{28}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Number of Queries for Amortizing the Cost of Matrices}{28}{section.4.4}
-\contentsline {section}{\numberline {4.5}Comparison Among our Framework with Different Configurations}{28}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Different Configurations for Comparison}{29}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Results of Different Configurations}{29}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Influence of the Orthogonal Transformation}{29}{subsection.4.5.3}
-\contentsline {subsection}{\numberline {4.5.4}Influence of the Threshold-Finding Procedure}{29}{subsection.4.5.4}
-\contentsline {subsection}{\numberline {4.5.5}Influence of the Coordinate Descent for Deciding Pivots}{29}{subsection.4.5.5}
-\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{29}{section.4.6}
-\contentsline {chapter}{Bibliography}{30}{section.4.6}
+\contentsline {section}{\numberline {4.4}Number of Queries for Amortizing the Cost of Matrices}{32}{section.4.4}
+\contentsline {section}{\numberline {4.5}Comparison Among our Framework with Different Configurations}{32}{section.4.5}
+\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{32}{section.4.6}
+\contentsline {chapter}{Bibliography}{33}{section.4.6}

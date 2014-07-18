@@ -1,8 +1,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The overall flow of our framework.}}{8}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces The goal of the first phase.}}{10}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The procedure of pruning impossible candidates.}}{17}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces The example of linear interpolation.}}{22}{figure.3.4}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The overall flow of our framework.\relax }}{8}{figure.caption.7}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The goal of the first phase.\relax }}{10}{figure.caption.8}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The procedure of pruning impossible candidates.\relax }}{17}{figure.caption.9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The example of linear interpolation.\relax }}{22}{figure.caption.10}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Time Series\relax }}{29}{figure.caption.14}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces ANN\relax }}{29}{figure.caption.15}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Flickr:\nobreakspace {}CSD\relax }}{29}{figure.caption.16}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Flickr:\nobreakspace {}SCD\relax }}{30}{figure.caption.17}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Million Song:\nobreakspace {}MVD\relax }}{30}{figure.caption.18}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Million Song:\nobreakspace {}TRH\relax }}{30}{figure.caption.19}

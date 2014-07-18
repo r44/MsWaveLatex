@@ -4,7 +4,7 @@
 \section{Experiment Setup} % (fold)
 \label{s:experiment_setup}
 
-In this section, we discuss the resluts of our experiments.  There are four parts in our experiments.  First, we compare our framework with other frameworks in the communication cost.  Second, since there are several stages of improvement in our framework, we discuss each of their influence to our final model.  Third, we consider the amortization of transmitting the orthogonal matrices.  Finally, we compare the power of pruning among different bounds.  For every experiment, we average the results of $100$ experiments by randomly picking our $100$ instances as the queries.
+In this section, we discuss the resluts of our experiments.  There are four parts in our experiments.  First, we compare our framework with other frameworks in the communication cost.  Second, since there are several stages of improvement in our framework, we discuss each of their influence to our final model.  Third, we consider the amortization of transmitting the orthogonal matrices.  Finally, we compare the power of pruning among different bounds.  For every experiment, we collect the results of $100$ experiments by randomly picking our $100$ instances as the queries.
 % section experiment_setup (end)
 
 \section{Data Description} % (fold)
@@ -21,6 +21,7 @@ Time Series & Random Walk & $N(0,1)$ & 128 & $200\times 5000$\\ \hline
 \multirow{3}{*}{Image} & ANN & SIFT & 128 & $200\times 5000$\\ 
 \cline{2-5}
  & \multirow{2}{*}{Flickr} & CSD & 256 & $500\times 2000$\\ 
+\cline{3-5}
  & & SCD & 256 & $500\times 2000$\\ \hline
  \multirow{2}{*}{Audio} & \multirow{2}{*}{Million Songs} & MVD & 480 & $500\times 1900$ \\ 
  \cline{3-5}
@@ -48,22 +49,13 @@ Here we use the audio data named Million Song Dataset from~\cite{Bertin-Mahieux2
 \section{Comparison Among all Frameworks} % (fold)
 \label{s:comparison_among_all_frameworks}
 
-$k=10$, $|Q|=500$, $M=500,1000,1500,...$
-compare all diff frameworks for all data here. remember to add Mat cost.
-
 \subsection{Frameworks for Comparison} % (fold)
 \label{ss:frameworks_for_comparison}
 
-We compare our framework with 
-\textsc{LeeWave},
-\emph{LeeWave},
-\emph{Naive},
+We compare our framework with those methods mentioned in the related work chapter.  From \cite{PRP}, we use CP and PRP but with slightly modifications. In the origin CP, every machine would return the top $k$ instances once receiving the query.  But there is a trivial improvement that every machine only return the \emph{distances} of these top $k$ instances.  Then, the server could know the distances of the $k$NN of this query and then ask those machines with answers to return those instances.  Although it is a slight modification, it could reduce the cost of CP a lot when the number of machines is large.  Also, we run LeeWave \cite{LeeWave} in these experiments for comparision.  We call our final framework as \"Main\" in the following figures.
 
-\emph{CP},
-\emph{PRP},
-\textsc{CP}
 
-Note that the cost of our framework here does not include the cost of sending the orthogonal matrices.  We will prove in the section ref that the total cost including the matrices could be amortized by enough queries and thus to achieve the cost here.  That is, we could see the cost of our framework here as the cost after amortized by enough queries.  Due to the time limitations, we didn't conduct enough number of queries to achieve the amortized results.
+Note that in the following experiments, the cost of our framework here does not include the cost of sending the orthogonal matrices.  We will prove in the section~\ref{s:number_of_queries_for_amortizing_the_cost_of_matrices} that the total cost including the matrices could be amortized by enough queries and thus to achieve the cost here.  That is, we could see the cost of our framework here as the cost after amortized by enough queries.  Due to the time limitations, we didn't conduct enough number of queries to achieve the amortized results for each dataset.
 
 
 % subsection frameworks_for_comparison (end)
@@ -71,34 +63,63 @@ Note that the cost of our framework here does not include the cost of sending th
 \subsection{Results of Different Frameworks} % (fold)
 \label{sub:results_of_different_fra}
 
-% subsection results_of_different_fra (end)
+The following figures are the results of our experiments.  The $x$ axis indicates the number of local machines while the $y$ axis is the total transmission cost of the 100 queries.  Since the differences among these are too large, we transform the $y$ axis to logarithmic scale.  
+
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/out/time.png}
+  \caption{Time Series}
+  \label{fig:out_time}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/out/ANN.png}
+  \caption{ANN}
+  \label{fig:out_ANN}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/out/f2.png}
+  \caption{Flickr:~CSD}
+  \label{fig:out_f2}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/out/f3.png}
+  \caption{Flickr:~SCD}
+  \label{fig:out_f3}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/out/mvd.png}
+  \caption{Million Song:~MVD}
+  \label{fig:out_mvd}
+\end{figure}
+
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/out/trh.png}
+  \caption{Million Song:~TRH}
+  \label{fig:out_trh}
+\end{figure}
+
+From these figures, we could see that our framework used the least transmission cost among all these frameworks for every dataset.  And these differences between our framework and each other framework increased as the number of local machines increased.  The reason is that when the number of local machines increases, there would be a higher chance to prune more local machines in the early round since the ratio of pruned machines doesn't change too much.  But the other frameworks would be more sensitive to the number of local machines.
+
+PRP and CP.
 
 
 
+We could also notice that LeeWave needs the largest transmission cost to finding the $k$NN for the $100$ queries for all datasets.  When the type of the dataset is time series (figure \ref{fig:out_time}), the different between LeeWave and other frameworks are smaller than other datasets since its pruning power is still effective for this type of dataset. For other types of datasets like images or audio, LeeWave almost could not prune any candidiate machines until the last round which would sent the whole query to each machine and thus used a large amount of transmission cost. 
+
+Even though the LeeWave could prune some candidates machines when the type of the dataset is time series, there is a big gap between it and CP, PRP.  The reason of the large transmission cost in LeeWave here is not the pruning power but its way to calculate the bounds.  In each round, after sending the coefficients in this level of the error tree, LeeWave requires every instances to return some metadata back for calculating the bounds at the server.  This causes one term in the transmission cost of LeeWave would grows linearly with the total number of instances in all local machines.  Since we conducted our experiments on the datasets with about one million instances, this term would be large enough to cover the saving from the pruning.  On the other hand, the transmission cost of CP and PRP is independent of the total number of instance but only dependent on the number of local machines and $k$.  Therefore, when the total instances is large, LeeWave could use more transmission cost than CP and PRP even when its pruning power still exists.
+
+
+% subsection results_of_different_fra (end)	
 % section comparison_among_all_frameworks (end)
-
-
-\section{Number of Queries for Amortizing the Cost of Matrices} % (fold)
-\label{s:number_of_queries_for_amortizing_the_cost_of_matrices}
-
-\begin{table}[htpb]\begin{center}
-\caption{Summary for each dataset}\label{table:datasets}
-\begin{tabular}{|c|c|c|c|c|}
-\hline 
-Type & Dataset & Feature & Num of Dimensions & Num of Instances\\ \hline \hline
-Time Series & Random Walk & $N(0,1)$ & 128 & $200\times 5000$\\ \hline
-\multirow{3}{*}{Image} & ANN & SIFT & 128 & $200\times 5000$\\ 
-\cline{2-5}
- & \multirow{2}{*}{Flickr} & CSD & 256 & $500\times 2000$\\ 
- & & SCD & 256 & $500\times 2000$\\ \hline
- \multirow{2}{*}{Audio} & \multirow{2}{*}{Million Songs} & MVD & 480 & $500\times 1900$ \\ 
- \cline{3-5}
- & & TRH & 480 & $500\times 1900$\\ \hline
-\end{tabular}
-\end{center}\end{table}
-
-
-% subsection number_of_queries_for_amortizing_the_cost_of_matrices (end)
 
 
 
@@ -107,40 +128,53 @@ Time Series & Random Walk & $N(0,1)$ & 128 & $200\times 5000$\\ \hline
 
 There are many stages of algorithms which lead to the final version of our framework.  Therefore, in this section, we would like to discuss the performance of our framwork with or without.
 
-From ~\ref{MsWave} to our framework, we have enhanced it
+From MsWave~\cite{MsWave} to our framework, we have enhanced it
 
-\subsection{Different Configurations for Comparison} % (fold)
-\label{sub:different_configurations_for_comparison}
 
-% subsection different_configurations_for_comparison (end)
+\subsection{Configurations for Comparison} % (fold)
+\label{sub:configurations_for_comparison}
 
+
+
+
+% subsection configurations_for_comparison (end)
 
 \subsection{Results of Different Configurations} % (fold)
-\label{sub:results_of_different_configs}
-
-% subsection results_of_different_fra (end)
+\label{sub:results_of_different_configurations}
 
 
 
-\subsection{Influence of the Orthogonal Transformation} % (fold)
-\label{ss:influence_of_the_orthogonal_transformation}
 
-NoW
+% subsection results_of_different_configurations (end)
+% section configurations_for_comparison (end)
 
-% subsection influence_of_the_orthogonal_transformation (end)
-\subsection{Influence of the Threshold-Finding Procedure} % (fold)
-\label{sub:influence_of_the_threshold_finding_procedure}
 
-NoPRP
 
-% subsection influence_of_the_threshold_finding_procedure (end)
-\subsection{Influence of the Coordinate Descent for Deciding Pivots} % (fold)
-\label{sub:influence_of_the_decision_of_pivots}
 
-NoCD
+\section{Number of Queries for Amortizing the Cost of Matrices} % (fold)
+\label{s:number_of_queries_for_amortizing_the_cost_of_matrices}
 
-% subsection influence_of_the_decision_of_pivots (end)
-% subsection comparison_among_our_framework_with_different_configurations (end)
+\begin{table}[htpb]\begin{center}
+\caption{Summary for each dataset}\label{table:datasets}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+Type & Dataset & Feature & Total Num of Instances & Num of Queries\\ \hline \hline
+Time Series & Random Walk & $N(0,1)$ & $1000000$ & $123$\\ \hline
+\multirow{3}{*}{Image} & ANN & SIFT & $1000000$ & $456$\\ 
+\cline{2-5}
+ & \multirow{2}{*}{Flickr} & CSD & $1000000$ & $789$\\ 
+ \cline{3-5}
+ & & SCD &  $1000000$ & $1$\\ \hline
+ \multirow{2}{*}{Audio} & \multirow{2}{*}{Million Songs} & MVD & $950000$ & $2$\\ 
+ \cline{3-5}
+ & & TRH & $950000$ & $5$\\ \hline
+\end{tabular}
+\end{center}\end{table}
+
+
+% subsection number_of_queries_for_amortizing_the_cost_of_matrices (end)
+
+
 
 \section{Power of the Pruning Procedure} % (fold)
 \label{s:power_of_the_pruning_procedure}
@@ -148,8 +182,6 @@ NoCD
 Comp among LeeWave, NoW, Main for ResSite.
 
 % subsection power_of_the_pruning_procedure (end)
-
-
 
 %\bibliographystyle{unsrt}
 %\bibliography{thesisbib}
