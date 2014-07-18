@@ -52,7 +52,9 @@
 \contentsline {subsection}{\numberline {4.4.1}Configurations for Comparison}{32}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{32}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}Number of Queries for Amortizing the Cost of Matrices}{35}{section.4.5}
-\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{36}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{36}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{36}{subsection.4.6.2}
-\contentsline {chapter}{Bibliography}{39}{figure.caption.32}
+\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{37}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{37}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{37}{subsection.4.6.2}
+\contentsline {chapter}{\numberline {5}Conclusions}{40}{chapter.5}
+\contentsline {chapter}{\numberline {6}Future Works}{41}{chapter.6}
+\contentsline {chapter}{Bibliography}{42}{chapter.6}

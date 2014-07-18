@@ -198,18 +198,42 @@ In these figures, we could see that although every algorithm could make our fram
 \section{Number of Queries for Amortizing the Cost of Matrices} % (fold)
 \label{s:number_of_queries_for_amortizing_the_cost_of_matrices}
 
-We mentioned in the section 
+In the beginning of this chapter, we mentioned that the cost of our final framework showed in the previous experiments didn't count the cost of sending those orthogonal martices.  The matrices cost from the first phase of our framework is as below. 
+\begin{equation}
+\begin{aligned}
+	Cost_{Matrix} & = m\times SingleMatrixCost \\
+                  & = m\times \frac{D\times (D-1)}{2}
+\end{aligned}
+\end{equation}
 
+where we have given the proof that we could use $\frac{D\times (D-1)}{2}$ parameters to represent an orthogonal matrix in the section \ref{ss:reduce_the_cost_of_sending_matrices}.
+
+
+Although it would cause a large cost, it only needs to be done for one time.  Therefore, we could amortize it to the cost of every query in the second phase.  If the number of queries is large enough, we could amortize the matrices cost to a very small ratio of the total transmission cost.  But due to the time limitation, we didn't conduct the experiments for a large number of queries, therefore, we estimate the number of queries we need as below.
+
+Given a small ratio (here we use $r_{ideal}=5\%$), we could estimate how many queries we need for amortizing the matrices cost to this ratio of the total transmission cost as below.  
 
 \begin{equation}
 \begin{aligned}
-	Cost = \sum^{\Vert Q\Vert}_{i=1}{Cost_i} \\
-	Cost_{Matrix} = m\times MatCost \\
-	Cost_{Total} = \sum_{t=1}^T{Cost_{our}(q_t)} + Cost_{Matrix} \\
-	Cost(i) = \frac{\sum_{t=1}^T{Cost_{our}(q_t)}}{T}\times i + Cost_{Matrix} \\
-	r(i)=\frac{Cost_{Matrix}}{Cost(i)}
+	Cost_{Total} & = & \sum_{t=1}^{\Vert Q\Vert}{Cost_{our}(q_t)} + Cost_{Matrix} \\
+	Cost(i) & = & \frac{\sum_{t=1}^{\Vert Q\Vert}{Cost_{our}(q_t)}}{{\Vert Q\Vert}}\times i + Cost_{Matrix} \\
 \end{aligned}
 \end{equation}
+
+In the equation above, we estimate the total cost of $i$ queries as $Cost_(i)$ by summing up the matrices cost and the average cost of the second phase in our past experiments multiplied by $i$.  In other words, we estimate the cost of the second phase for a single query as $\frac{\sum_{t=1}^{\Vert Q\Vert}{Cost_{our}(q_t)}}{{\Vert Q\Vert}}$. 
+
+Therefore, our goal becomes how many queries we need to make the ratio of $Cost_{Matrix}$ lower than $r_{ideal}$.  We could write it as the following problem:
+
+\begin{equation}\label{eq:amort}
+\begin{aligned}
+& \underset{i}{\text{minimize}}
+~~\frac{Cost_{Matrix}}{Cost(i)} < r_{ideal} \\
+& \text{where}~~i \in \mathbb{N}
+\end{aligned}
+\end{equation}
+
+It could be solved easily.
+
 
 \begin{table}[H]\begin{center}
 \caption{Number of queries to amortize the cost of matrices}\label{table:amortize}
@@ -227,6 +251,8 @@ Time Series & Random Walk & $N(0,1)$ & $1000000$ & $4655$\\ \hline
  & & TRH & $950000$ & $7076$\\ \hline
 \end{tabular}
 \end{center}\end{table}
+
+We solve~\eqref{eq:amort} for each dataset when the number of local machines reachs the maximal and $k=10$.  The results are put in the table \ref{table:amortize}.  From this table, we could find that although the matrices cost is large, we could amortize it to less than $5\%$ with a few thousands of queries.  For a dataset with one million of instances, the number of queries could be achieved easily.  
 
 
 % subsection number_of_queries_for_amortizing_the_cost_of_matrices (end)

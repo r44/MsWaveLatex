@@ -5,6 +5,7 @@ A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: related.aux
 A level-1 auxiliary file: method.aux
 A level-1 auxiliary file: exp.aux
+A level-1 auxiliary file: conclusions.aux
 The style file: unsrt.bst
 Database file #1: r44.bib
 I was expecting a `,' or a `}'---line 39 of file r44.bib
@@ -14,7 +15,7 @@ I was expecting a `,' or a `}'---line 39 of file r44.bib
 I'm skipping whatever remains of this entry
 You've used 18 entries,
             1791 wiz_defined-function locations,
-            553 strings with 7102 characters,
+            554 strings with 7117 characters,
 and the built_in function-call counts, 3364 in all, are:
 = -- 244
 > -- 222

@@ -1,0 +1,15 @@
+\chapter{Conclusions}
+\label{c:conclusions}
+
+Distributed similarity search becomes increasingly crucial as there are various types of datasets on the mobile devices today.  However, we need to deal with the huge transmisson cost while searching the answers among these distributed machines.  In this paper, we propose a two-phase framework which is able to use much less transmission cost to find our desired answers with the help of the orthogonal transformation.  We conduct experiments on various types of datasets to confirm the generalization of our framework.  From the results of these experiments, we could see that our framework could maintain its performance while facing very different kinds of data.
+
+\chapter{Future Works}
+\label{c:future}
+
+Although our framework outperforms other frameworks in the experiments, there are some directions which could further improve our framework.  
+
+First, the transmission cost of the first phase is still too much.  If we could reduce the matrices cost more, we could use less queries to amortize this cost.  We could compress these matrices and thus send them with less transmission cost.  After the server receives these matrices, they could be reconstructed back to orthogonal matrices by SVD.  However, the compression might be lossy.  And it would become a tradeoff between the performance of pruning and the transmission cost.
+
+The another direction would be the estimation of the transmission cost before sending a query.  Before estimating this cost, we have to estimate the number of residual machines like we mentioned in the section ~\ref{ss:estimate_the_number_of_residual_machines}.  In this paper, we use a simple linear interpolation to estimate those dimensions with empty value.  If we could estimate them more precisely, we could get a better pivots to send the query.
+
+Since our framework are comprised of several individual subproblems, its overall performance could be improved as long as any of the subproblem is solved by a better alorithm.

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  18 JUL 2014 21:14
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  19 JUL 2014 02:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1520,7 +1520,7 @@ Package: ulem 2012/05/18
 *************************************************
 \l__xeCJK_fill_width_dim=\dimen273
 ) (./thesis.aux (./introduction.aux) (./related.aux) (./method.aux) (./exp.aux)
-)
+(./conclusions.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
@@ -1542,7 +1542,8 @@ LaTeX Font Info:    ... okay on input line 131.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 131.
 
- (/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 131.
@@ -1896,11 +1897,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
  (./method.tex
 Chapter 3.
 File: fig/flow.jpg Graphic file (type QTm)
-<use  "fig/flow.jpg" >
-
-LaTeX Warning: Reference `s:orthogonal' on page 7 undefined on input line 23.
-
-[7
+<use  "fig/flow.jpg" > [7
 
 
 
@@ -2072,6 +2069,24 @@ File: exp/in/mvd.png Graphic file (type QTm)
 File: exp/in/trh.png Graphic file (type QTm)
  <use  "exp/in/trh.png" >
 [32] [33] [34] [35]
+Overfull \hbox (2.1036pt too wide) in paragraph at lines 225--226
+[]\EU1/TimesNewRoman(0)/m/n/12 Therefore, our goal becomes how many queries we 
+need to make the ratio of $\OML/lmm/m/it/12 Cost[]$
+ []
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 230.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 230.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 231.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 231.
+
+[36]
 File: exp/prune/time.png Graphic file (type QTm)
  <use  "exp/prune/time.png" >
 File: exp/prune/ANN.png Graphic file (type QTm)
@@ -2085,40 +2100,50 @@ File: exp/prune/mvd.png Graphic file (type QTm)
 
 <use  "exp/prune/mvd.png" >
 File: exp/prune/trh.png Graphic file (type QTm)
- <use  "exp/prune/trh.png" >) [36] [37] [38]
-(./thesis.bbl
+ <use  "exp/prune/trh.png" >) [37] [38] [39]
+\openout2 = `conclusions.aux'.
+
+
+(./conclusions.tex
+Chapter 5.
+[40
+
+
+
+]
+Chapter 6.
+) [41
+
+] (./thesis.bbl
 
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 (Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 5.
 
-[39
+[42
 
 
 
-] [40])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
- [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
+] [43])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
+ [44]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
  (./thesis.aux (./introduction.aux) (./related.aux)
-(./method.aux) (./exp.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 217.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 217.
+(./method.aux) (./exp.aux) (./conclusions.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 218.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 218.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
  ) 
 Here is how much of TeX's memory you used:
- 31560 strings out of 493938
- 595546 string characters out of 6148857
- 672208 words of memory out of 5000000
- 34365 multiletter control sequences out of 15000+600000
+ 31570 strings out of 493938
+ 595688 string characters out of 6148857
+ 673568 words of memory out of 5000000
+ 34368 multiletter control sequences out of 15000+600000
  33877 words of font info for 88 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,21n,52p,1437b,1209s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (58 pages).
+Output written on thesis.pdf (61 pages).
