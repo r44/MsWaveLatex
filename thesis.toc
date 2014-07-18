@@ -45,10 +45,14 @@
 \contentsline {subsection}{\numberline {4.2.1}Time Series Data}{26}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Image Data}{27}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Audio Data}{27}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{27}{section.4.3}
+\contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{28}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Frameworks for Comparison}{28}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{28}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Number of Queries for Amortizing the Cost of Matrices}{32}{section.4.4}
-\contentsline {section}{\numberline {4.5}Comparison Among our Framework with Different Configurations}{32}{section.4.5}
-\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{32}{section.4.6}
-\contentsline {chapter}{Bibliography}{33}{section.4.6}
+\contentsline {section}{\numberline {4.4}Comparison Among our Framework with Different Configurations}{32}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Configurations for Comparison}{32}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{35}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Number of Queries for Amortizing the Cost of Matrices}{35}{section.4.5}
+\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{35}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{35}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{35}{subsection.4.6.2}
+\contentsline {chapter}{Bibliography}{38}{figure.caption.32}
