@@ -68,49 +68,49 @@ The following figures are the results of our experiments.  The $x$ axis indicate
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/out/time.png}
-  \caption{Time Series}
+  \caption{Different Frameworks on Time Series}
   \label{fig:out_time}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/out/ANN.png}
-  \caption{ANN}
+  \caption{Different Frameworks on ANN}
   \label{fig:out_ANN}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/out/f2.png}
-  \caption{Flickr:~CSD}
+  \caption{Different Frameworks on Flickr:~CSD}
   \label{fig:out_f2}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/out/f3.png}
-  \caption{Flickr:~SCD}
+  \caption{Different Frameworks on Flickr:~SCD}
   \label{fig:out_f3}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/out/mvd.png}
-  \caption{Million Song:~MVD}
+  \caption{Different Frameworks on Million Song:~MVD}
   \label{fig:out_mvd}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/out/trh.png}
-  \caption{Million Song:~TRH}
+  \caption{Different Frameworks on Million Song:~TRH}
   \label{fig:out_trh}
 \end{figure}
 
 From these figures, we could see that our framework used the least transmission cost among all these frameworks for every dataset.  And these differences between our framework and each other framework increased as the number of local machines increased.  The reason is that when the number of local machines increases, there would be a higher chance to prune more local machines in the early round since the ratio of pruned machines doesn't change too much.  But the other frameworks would be more sensitive to the number of local machines.
 
-PRP and CP.
 
+The performance of CP and PRP are similar to each other in most dataset.  It is because when $k$ is much smaller than the number of total local machines, their procedure would be almost the same except the final stage.  For those cases where PRP is worse than CP, we could find that PRP would return too many instances in the final stage while CP would only return exact $k$ instances back to the server.  But these results would highly depend on the distribution of the instances among these local machines and could not be controled by the algorithms themself.
 
 
 We could also notice that LeeWave needs the largest transmission cost to finding the $k$NN for the $100$ queries for all datasets.  When the type of the dataset is time series (figure \ref{fig:out_time}), the different between LeeWave and other frameworks are smaller than other datasets since its pruning power is still effective for this type of dataset. For other types of datasets like images or audio, LeeWave almost could not prune any candidiate machines until the last round which would sent the whole query to each machine and thus used a large amount of transmission cost. 
@@ -145,58 +145,60 @@ There are many stages of algorithms which build the final version of our framewo
 \subsection{Results of Different Configurations} % (fold)
 \label{sub:results_of_different_configurations}
 
+
+We provide the results of the experiments to compare our framework with different configurations in the following figures. The meanings of their axises are same with those in the section \ref{sub:results_of_different_fra}.
+
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/in/time.png}
-  \caption{Time Series}
+  \caption{Different Configurations on Time Series}
   \label{fig:in_time}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/in/ANN.png}
-  \caption{ANN}
+  \caption{Different Configurations on ANN}
   \label{fig:in_ANN}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/in/f2.png}
-  \caption{Flickr:~CSD}
+  \caption{Different Configurations on Flickr:~CSD}
   \label{fig:in_f2}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/in/f3.png}
-  \caption{Flickr:~SCD}
+  \caption{Different Configurations on Flickr:~SCD}
   \label{fig:in_f3}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/in/mvd.png}
-  \caption{Million Song:~MVD}
+  \caption{Different Configurations on Million Song:~MVD}
   \label{fig:in_mvd}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/in/trh.png}
-  \caption{Million Song:~TRH}
+  \caption{Different Configurations on Million Song:~TRH}
   \label{fig:in_trh}
 \end{figure}
 
-
+In these figures, we could see that although every algorithm could make our framework better, their influences are very different to each other.  The algorithm which makes the largest difference with our final framework is PRP.  It is very obvious since we use PRP to find the threshold could make the transmission cost independent with the total number of instances.  This makes a big difference when the datasets here contain about one million instances.  The algortihm with the second big improvement is the orthogonal transformation.  This confirms our assumption that we could save transmission cost by improving the power of pruning with the help of the orthogonal transformation.  Finally, the algorithm of dynamically deciding the pivots with Coordinate Descent seems to have the least influence to our final framework in these figures.  However, it does contibute much to the saving of transmission even though not as significant as the others.  With the help of it, we don't have to worry about deciding the pivots for every dataset.
 
 % subsection results_of_different_configurations (end)
 % section configurations_for_comparison (end)
 
-
-
-
 \section{Number of Queries for Amortizing the Cost of Matrices} % (fold)
 \label{s:number_of_queries_for_amortizing_the_cost_of_matrices}
+
+We mentioned in the section 
 
 
 \begin{equation}
@@ -210,7 +212,7 @@ There are many stages of algorithms which build the final version of our framewo
 \end{equation}
 
 \begin{table}[H]\begin{center}
-\caption{Summary for each dataset}\label{table:datasets}
+\caption{Number of queries to amortize the cost of matrices}\label{table:amortize}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
 Type & Dataset & Feature & Total Num of Instances & Num of Queries\\ \hline \hline
@@ -249,42 +251,42 @@ Comp among LeeWave, NoW, Main for ResSite.
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/prune/time.png}
-  \caption{Time Series}
+  \caption{Pruning Results on Time Series}
   \label{fig:prune_time}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/prune/ANN.png}
-  \caption{ANN}
+  \caption{Pruning Results on ANN}
   \label{fig:prune_ANN}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/prune/f2.png}
-  \caption{Flickr:~CSD}
+  \caption{Pruning Results on Flickr:~CSD}
   \label{fig:prune_f2}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/prune/f3.png}
-  \caption{Flickr:~SCD}
+  \caption{Pruning Results on Flickr:~SCD}
   \label{fig:prune_f3}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/prune/mvd.png}
-  \caption{Million Song:~MVD}
+  \caption{Pruning Results on Million Song:~MVD}
   \label{fig:prune_mvd}
 \end{figure}
 
 \begin{figure}[htpb!]
   \centering
   \includegraphics[width=1.0\linewidth]{exp/prune/trh.png}
-  \caption{Million Song:~TRH}
+  \caption{Pruning Results on Million Song:~TRH}
   \label{fig:prune_trh}
 \end{figure}
 

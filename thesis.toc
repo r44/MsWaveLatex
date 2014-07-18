@@ -36,9 +36,9 @@
 \contentsline {subsection}{\numberline {3.6.1}Estimation of the Number of Residual Machines}{21}{subsection.3.6.1}
 \contentsline {subsection}{\numberline {3.6.2}Estimation of the Transmission Cost}{22}{subsection.3.6.2}
 \contentsline {subsection}{\numberline {3.6.3}Coordinate Descent to Decide the Pivots}{23}{subsection.3.6.3}
-\contentsline {section}{\numberline {3.7}Overall Framework}{24}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Importance-Selecting Function}{24}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}Overall Framework}{25}{subsection.3.7.2}
+\contentsline {section}{\numberline {3.7}Overall Framework}{23}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Importance-Selecting Function}{23}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Overall Framework}{24}{subsection.3.7.2}
 \contentsline {chapter}{\numberline {4}Experiment}{26}{chapter.4}
 \contentsline {section}{\numberline {4.1}Experiment Setup}{26}{section.4.1}
 \contentsline {section}{\numberline {4.2}Data Description}{26}{section.4.2}
@@ -50,9 +50,9 @@
 \contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{28}{subsection.4.3.2}
 \contentsline {section}{\numberline {4.4}Comparison Among our Framework with Different Configurations}{32}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Configurations for Comparison}{32}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{35}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{32}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}Number of Queries for Amortizing the Cost of Matrices}{35}{section.4.5}
-\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{35}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{35}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{35}{subsection.4.6.2}
-\contentsline {chapter}{Bibliography}{38}{figure.caption.32}
+\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{36}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{36}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{36}{subsection.4.6.2}
+\contentsline {chapter}{Bibliography}{39}{figure.caption.32}

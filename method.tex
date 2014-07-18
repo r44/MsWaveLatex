@@ -464,16 +464,10 @@ p_j=StartD + (j-1)\times EachLenD.
 \subsection{Coordinate Descent to Decide the Pivots} % (fold)
 \label{ss:coordinate_descent_to_decide_the_pivots}
 
-Now we have reduced the number of variables to only two variables: $StartD$ and $EachLenD$. To solve this optimization problem efficiently, we apply the Coordinate Descent method for each query as follows.
-
-algorthm?
-
-After solving the optimal $StartD$ and $EachLenD$ for this query, we are able to decide its pivots as below:
+Now we have reduced the number of variables to only two variables: $StartD$ and $EachLenD$. Since we need to solve this optimization problem for every new query, we apply the Coordinate Descent method to solve this for efficiency.  After solving the optimal $StartD$ and $EachLenD$ for this query, we are able to decide its pivots as below:
 \begin{equation}
 	p_j = StartD + (j-1)\times EachLenD	
 \end{equation}
-
-Since the vector $EstResMach$ would be updated for every new query, we will use Coordinate Descent to solve these pivots also for every new query.
 
 % subsection coordinate_descent_to_find_the_pivots (end)
 
