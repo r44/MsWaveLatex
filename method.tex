@@ -501,7 +501,12 @@ At each round $j$ for $q_t$, we would decide what values to send from $P$ to eac
 \end{aligned}
 \end{equation}
 
-Note that we will find the $k$NN after all dimensions of $q_t$ are sent.....
+Although we sent the dimensions of transformed query $\hat{q_t}$ instead of the original query $q_t$ to each local machine, the cost of sending the values of the importance-selecting function $S_t$ is the length of the original query $q_t$ plus one which is the norm of the latter part of $\hat{q_t}$ in the first round.  That is
+\[
+	\sum_j{S_i(q_t,~j,~\theta_t;~W_i)} = D + 1
+\]
+
+Note that this is the worst case, in our experiments, we could prune most candidates and thus don't need to send it until the last rounds.
 
 
 % subsection importance_selecting_function (end)

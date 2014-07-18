@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  16 JUL 2014 05:27
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  18 JUL 2014 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1487,8 +1487,11 @@ Package: ulem 2012/05/18
 * line 377.
 *************************************************
 \l__xeCJK_fill_width_dim=\dimen266
-) (./thesis.aux (./introduction.aux) (./related.aux) (./method.aux) (./exp.aux)
-)
+) (./thesis.aux (./introduction.aux) (./related.aux) (./method.aux) (./exp.aux
+
+LaTeX Warning: Label `table:datasets' multiply defined.
+
+))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
@@ -1973,15 +1976,25 @@ LaTeX Warning: Command \nobreakspace invalid in math mode on input line 499.
 LaTeX Warning: Command \nobreakspace invalid in math mode on input line 500.
 
 
-LaTeX Warning: Command \nobreakspace invalid in math mode on input line 559.
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 506.
 
 
-LaTeX Warning: Command \nobreakspace invalid in math mode on input line 559.
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 506.
 
 
-LaTeX Warning: Command \nobreakspace invalid in math mode on input line 559.
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 506.
 
-) [24] [25]
+[24]
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 564.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 564.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 564.
+
+) [25]
 \openout2 = `exp.aux'.
 
  (./exp.tex
@@ -1997,7 +2010,7 @@ LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 
 [27]
 
-LaTeX Warning: Reference `MsWave' on page 28 undefined on input line 88.
+LaTeX Warning: Reference `MsWave' on page 28 undefined on input line 110.
 
 [28]) [29] (./thesis.bbl [30
 
@@ -2018,13 +2031,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
- 30426 strings out of 493938
- 575202 string characters out of 6148857
- 654588 words of memory out of 5000000
- 33252 multiletter control sequences out of 15000+600000
+ 30427 strings out of 493938
+ 575259 string characters out of 6148857
+ 653063 words of memory out of 5000000
+ 33253 multiletter control sequences out of 15000+600000
  33877 words of font info for 88 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,21n,52p,1437b,1209s stack positions out of 5000i,500n,10000p,200000b,80000s

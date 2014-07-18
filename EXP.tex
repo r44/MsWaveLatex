@@ -78,6 +78,28 @@ Note that the cost of our framework here does not include the cost of sending th
 % section comparison_among_all_frameworks (end)
 
 
+\section{Number of Queries for Amortizing the Cost of Matrices} % (fold)
+\label{s:number_of_queries_for_amortizing_the_cost_of_matrices}
+
+\begin{table}[htpb]\begin{center}
+\caption{Summary for each dataset}\label{table:datasets}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Type & Dataset & Feature & Num of Dimensions & Num of Instances\\ \hline \hline
+Time Series & Random Walk & $N(0,1)$ & 128 & $200\times 5000$\\ \hline
+\multirow{3}{*}{Image} & ANN & SIFT & 128 & $200\times 5000$\\ 
+\cline{2-5}
+ & \multirow{2}{*}{Flickr} & CSD & 256 & $500\times 2000$\\ 
+ & & SCD & 256 & $500\times 2000$\\ \hline
+ \multirow{2}{*}{Audio} & \multirow{2}{*}{Million Songs} & MVD & 480 & $500\times 1900$ \\ 
+ \cline{3-5}
+ & & TRH & 480 & $500\times 1900$\\ \hline
+\end{tabular}
+\end{center}\end{table}
+
+
+% subsection number_of_queries_for_amortizing_the_cost_of_matrices (end)
+
 
 
 \section{Comparison Among our Framework with Different Configurations} % (fold)
