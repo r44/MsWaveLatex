@@ -55,6 +55,6 @@
 \contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{37}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{37}{subsection.4.6.1}
 \contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{37}{subsection.4.6.2}
-\contentsline {chapter}{\numberline {5}Conclusions}{40}{chapter.5}
-\contentsline {chapter}{\numberline {6}Future Works}{41}{chapter.6}
-\contentsline {chapter}{Bibliography}{42}{chapter.6}
+\contentsline {chapter}{\numberline {5}Conclusions}{42}{chapter.5}
+\contentsline {chapter}{\numberline {6}Future Works}{43}{chapter.6}
+\contentsline {chapter}{Bibliography}{44}{chapter.6}

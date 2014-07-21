@@ -381,7 +381,7 @@ To be simplified, we could think this problem as follows: given many distribued 
 
 In \cite{PRP}, there are also many phases to find the $k$NN.  In the first phase, the server $P$ would send the whole query to every machine.  Then, in the following phases, it just focuses on finding the instances with the $k_{th}$ largest distance with the query.  To make it fit our problem, we can only use the phases of PRP except the first phase to find the $k_{th}$ largest upper bound as our threshold $thr$.  Its cost is linear to
 \[
-m\times (\myfloor{\frac{k}{m}}+1)=m+k,
+m\times (\myfloor{\frac{k}{m}}+1),
 \] which is much lower than \cite{MsWave} when the number of total instances is very large.
 
 %we could estimate the total transmission cost for the single query as following

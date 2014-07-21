@@ -255,6 +255,18 @@ Time Series & Random Walk & $N(0,1)$ & $1000000$ & $4655$\\ \hline
 We solve~\eqref{eq:amort} for each dataset when the number of local machines reachs the maximal and $k=10$.  The results are put in the table \ref{table:amortize}.  From this table, we could find that although the matrices cost is large, we could amortize it to less than $5\%$ with a few thousands of queries.  For a dataset with one million of instances, the number of queries could be achieved easily.  
 
 
+\begin{figure}[htpb!]
+  \centering
+  \includegraphics[width=1.0\linewidth]{exp/AQ/ANN.png}
+  \caption{Pruning Results on Time Series}
+  \label{fig:AQ}
+\end{figure}
+
+From the figure~\ref{fig:AQ}, we could notice that $\frac{Cost_{Matrix}}{Cost(i)} < r_{ideal}$ decreases fast as the number of queries increases.  As our estimation, this ratio achieve $5\%$ when the number of queries reach about $2000$.
+
+
+
+
 % subsection number_of_queries_for_amortizing_the_cost_of_matrices (end)
 
 
@@ -262,24 +274,65 @@ We solve~\eqref{eq:amort} for each dataset when the number of local machines rea
 \section{Power of the Pruning Procedure} % (fold)
 \label{s:power_of_the_pruning_procedure}
 
-Comp among LeeWave, NoW, Main for ResSite.
-
-
 \subsection{Methods with Different Bounds} % (fold)
 \label{sub:methods_with_different_bounds}
+
+
+There are three different bounds which we could compare.  The first one is the bounds of LeeWave, which comes from the Haar wavelet transformation.  The second one is the bounds we derived in the section~\ref{ss:derivation_of_the_bounds}.  That is the method \emph{NoW} we mentioned above.  The final bounds is those improved by the orthogonal transformation.
+
 
 % subsection methods_with_different_bounds (end)
 
 
 \subsection{Results of Pruning} % (fold)
 \label{sub:results_of_pruning}
-	
-\begin{figure}[htpb!]
-  \centering
-  \includegraphics[width=1.0\linewidth]{exp/prune/time.png}
-  \caption{Pruning Results on Time Series}
-  \label{fig:prune_time}
-\end{figure}
+
+First, we compare the bounds we derived and the bounds of LeeWave.  Since the number of dimensions LeeWave sent in every round is restricted by the shape of the error tree, we could only compare the number of residual machines under these dimensions between LeeWave and our method.  For LeeWave, we just average the results of each query.  As for our method, we use our estimation for each dimension used in the section~\ref{ss:estimate_the_number_of_residual_machines} and pick those dimesions used in LeeWave.
+
+From the table~\ref{table:time} for time series dataset, we could see that although LeeWave could prune some local machines in the last few round, our method outperforms it by pruning machines earlier and more.  This improvement mainly comes from our tighter bounds that provide a more powerful pruning mechanism.
+
+\begin{table}[H]\begin{center}
+\caption{Time Series, Number of residual machines after sending some dimensions for 5000 machines}\label{table:time}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+Method \textbackslash Dim & 2 & 4 & 8 & 16 & 32 & 64 & 128\\ \hline \hline
+Ours & 4823.24 & 4469.71 & 3762.66 & 2344.46 & 540.14 & 69.11 & 9.99 \\ \hline
+LeeWave & 4999.84 & 4984.90 & 4895.18 & 3722.49 & 938.80 & 111.00 & 9.99 \\ \hline
+\end{tabular}
+\end{center}\end{table}
+
+However, for the other types of datasets, from these tables we could notice that LeeWave almost could not prune any local machine until the last round.  The reason is that since the bounds of LeeWave come from the Haar wavelet transformation, which is suitable for the time series feature, but not workable for the images and audio datasets from these experiments.  Although the power of pruning of our method would be different for different types of data, we could prune about half of total local machines after sending half of the query feature vector.  This allows us to avoid sending redundant information to unnecessary machines.
+
+
+\begin{table}[H]\begin{center}
+\caption{Flickr:CSD, Number of residual machines after sending some dimensions for 1000 machines}\label{table:f2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Method \textbackslash Dim & 2 & 4 & 8 & 16 & 32 & 64 & 128 & 256\\ \hline \hline
+Ours & 995.37 & 986.10 & 967.56 & 930.49 & 856.34 & 573.79 & 410.3 & 9.89 \\ \hline
+LeeWave & 1000 & 1000 & 1000 & 999.90 & 995.16 & 967.26 & 808.16 & 9.89 \\ \hline
+\end{tabular}
+\end{center}\end{table}
+
+
+\begin{table}[H]\begin{center}
+\caption{Million Songs: MVD, Number of residual machines after sending some dimensions for 800 machines}\label{table:mvd}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+Method \textbackslash Dim & 2 & 6 & 12 & 26 & 52 & 104 & 210 & 420\\ \hline \hline
+Ours & 799.41 & 797.05 & 793.5 & 785.23 & 769.87 & 739.14 & 467.74 & 12.77 \\ \hline
+LeeWave & 800 & 800 & 800 & 800 & 799.07 & 794.93 & 772.91 & 12.58 \\ \hline
+\end{tabular}
+\end{center}\end{table}
+
+
+Finally, let's discuss the pruning power with or without the help of the orthogonal transformation, which is our final method and \emph{NoW}.  We plot our estimation in the section~\ref{ss:estimate_the_number_of_residual_machines} and compare their estimation.  However, we found that for some datasets, these could not reflect the status of pruning for \emph{NoW} since the decision of the pivots are concentrated in the latter part of the vector.  As a result, we add another method named \emph{NoCDW} which is same with \emph{NoW} but intead of dynamically deciding the pivots, it sends $10\%$ of the vector for each round.  In the following figures, the red circles are our final method, the black ones are \emph{NoW}, and the green ones are \emph{NoCDW}.
+
+From the figure~\ref{fig:prune_ANN} and figure~\ref{fig:prune_trh}
+
+For all these figures except the figure~\ref{fig:prune_f3}, we could see that our method could prune most of the residual machines with about $50\%$ of the total dimensions.  From \emph{NoCDW}, we could find we have to send many dimensions to prune some machines without the orthogonal transformation.  This difference comes from the tightness of the bounds.  After optimizing with the orthogonal transformation, our method could use much tighter bounds to prune machines than the original bounds.  With the enhanced prunine power, our method could save much transmission cost.
+
+On the other hand, in the figure~\ref{fig:prune_ANN} and figure~\ref{fig:prune_trh}, the curve of \emph{NoW} is very different with \emph{NoCDW}.  The reason is that for these datasets, the pivots learnt from the estimation cost problem concentrate at the latter part of the vector, which leads to very poor estimation for residual machines for the earlier part of the vector.  So, its curve could not reflect the pruning power of the bounds without transformation.  This also implies the policy of sending $10\%$ total dimensions would not be the best policy for these datasets since the curve of \emph{NoW} is mcuh different with the one of \emph{NoCDW}.  For the other figures, we could see the curve of \emph{NoW} is similar with \emph{NoCDW}. This implies the $10\%$ policy would be fine for these datasets.  But since we could not know whether this policy would work for a dataset in advance, the best policy is to decide the pivots dynamically as we mentioned before.
 
 \begin{figure}[htpb!]
   \centering
