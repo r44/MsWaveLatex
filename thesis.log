@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  22 JUL 2014 00:38
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  23 JUL 2014 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1660,212 +1660,36 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 145.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 145.
-
-*************************************************
-* fontspec warning: "script-not-exist"
-* 
-* Font '標楷體' does not contain script 'CJK'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-*************************************************
-* fontspec warning: "icu-feature-not-exist-in-font"
-* 
-* OpenType feature 'Vertical=RotatedGlyphs' (+vrt2) not available for font
-* '標楷體' with script 'CJK' and language 'Default'.
-*************************************************
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family '標楷體(1)' created for font '標楷體' with options
-. [Mapping=tex-text,Script={CJK},Vertical={RotatedGlyphs},BoldFeatures={FakeBol
-d={4}},ItalicFeatures={FakeSlant={0.167}},BoldItalicFeatures={FakeBold={4},Fake
-Slant={0.167}},SlantedFeatures={FakeSlant={0.167}},BoldSlantedFeatures={FakeBol
-d={4},FakeSlant={0.167}},BoldFont={*},ItalicFont={*},BoldItalicFont={*},Slanted
-Font={*},BoldSlantedFont={*}].
-. 
-. This font family consists of the following shapes:
-. 
-. * 'normal' with NFSS spec.:
-. <->"標楷體/ICU:mapping=tex-text;vertical;"
-. 
-. * 'bold' with NFSS spec.:
-. <->"標楷體/ICU:mapping=tex-text;vertical;embolden=4;"
-. 
-. * 'italic' with NFSS spec.:
-. <->"標楷體/ICU:mapping=tex-text;vertical;slant=0.167;"
-. 
-. * 'sl/,FakeSlant={0.167}' with NFSS spec.:
-. <->"標楷體/ICU:mapping=tex-text;vertical;slant=0.167;"
-. 
-. * 'bold italic' with NFSS spec.:
-. <->"標楷體/ICU:mapping=tex-text;vertical;embolden=4;slant=0.167;"
-. 
-. * 'sl/,FakeBold={4},FakeSlant={0.167}' with NFSS spec.:
-. <->"標楷體/ICU:mapping=tex-text;vertical;embolden=4;slant=0.167;"
-.................................................
-
-Overfull \vbox (23.26108pt too high) has occurred while \output is active []
-
-
-[1]
-File: cert.pdf Graphic file (type QTm)
- <use  "cert.pdf"  page1>
-File: cert.pdf Graphic file (type QTm)
- <use  "cert.pdf"  page1>
-File: cert.pdf Graphic file (type QTm)
- <use  "cert.pdf"  page1>
-File: cert.pdf Graphic file (type QTm)
-
-<use  "cert.pdf"  page1>
-File: cert.pdf Graphic file (type QTm)
- <use  "cert.pdf"  page1> [1
-
-] (./acknowledgementsCH.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--4
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2--4
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-[2
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
-
- []
-
-
-Overfull \hbox (3.94221pt too wide) in paragraph at lines 40--41
-[]\EU1/標楷體(0)/m/n/12 方 程 式 編 輯 器：| [][]\EU1/TimesNewRoman(0)/m/n/12 Daum Equati
-on Editor[][] (Chrome App\EU1/標楷體(0)/m/n/12 ，|  必 須 使 用 \EU1/TimesNewRoman(0)/m
-/n/12 Google
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-
- []
-
-*************************************************
-* xeCJK warning: "CJKfamily-Unknown"
-* 
-* Unknown CJK family `\CJKttdefault' is being ignored.
-* 
-* Try to use `\setCJKmonofont[...]{...}' to define it.
-*************************************************
-[3]
-Overfull \hbox (5.28056pt too wide) in paragraph at lines 78--79
-\EU1/標楷體(0)/m/n/12 而 編 譯 時 則 需 要 對 有 附 參 考 文 獻 的[][]\EU1/TimesNewRoman(0)/m/n/1
-2 introduction.tex[][]\EU1/標楷體(0)/m/n/12 、| [][]\EU1/TimesNewRoman(0)/m/n/12 TH
-M.tex[][]\EU1/標楷體(0)/m/n/12 和[][]\EU1/TimesNewRoman(0)/m/n/12 EXP.tex[][]\EU1/標
-楷體(0)/m/n/12 各
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-[4] [5]
-Overfull \hbox (11.01845pt too wide) in paragraph at lines 132--132
- []\EU1/CourierNew(0)/m/n/12 %----------- Input your Figure chapter here  -----
-------  
- []
-
-[6]
-Overfull \hbox (13.41884pt too wide) in paragraph at lines 165--165
- []\EU1/CourierNew(0)/m/n/12 \RequirePackage[top=3cm,left=3cm,bottom=2cm,right=
-3cm] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--190
-
- []
-
-[7] [8]) (./abstractCH.tex [9
-
-]) (./abstractEN.tex
+(./abstractEN.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
  []
 
-[10
+[1
 
-]) (./thesis.toc [11
 
-] [12])
+]) (./thesis.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 6.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 6.
+ [2
+
+] [3])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [13] (./thesis.lof)
+ [4] (./thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [14
+ [5
 
 ] (./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [15
+ [6
 
 ]
 \openout2 = `introduction.aux'.
@@ -2118,11 +1942,7 @@ Chapter 5.
 
 
 
-]
-Chapter 6.
-) [43
-
-] (./thesis.bbl
+]) [43] (./thesis.bbl
 
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 (Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 5.
@@ -2131,12 +1951,20 @@ LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 
 
 
-] [45])
+]
+*************************************************
+* xeCJK warning: "CJKfamily-Unknown"
+* 
+* Unknown CJK family `\CJKttdefault' is being ignored.
+* 
+* Try to use `\setCJKmonofont[...]{...}' to define it.
+*************************************************
+[45])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
  [46]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
- (./thesis.aux (./introduction.aux) (./related.aux)
-(./method.aux) (./exp.aux) (./conclusions.aux))
+ (./thesis.aux (./introduction.aux) (./related.aux) (./method.aux)
+(./exp.aux) (./conclusions.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 218.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 218.
 
@@ -2146,12 +1974,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
  ) 
 Here is how much of TeX's memory you used:
- 31574 strings out of 493938
- 595716 string characters out of 6148857
- 673939 words of memory out of 5000000
- 34371 multiletter control sequences out of 15000+600000
- 33877 words of font info for 88 fonts, out of 8000000 for 9000
+ 31468 strings out of 493938
+ 592365 string characters out of 6148857
+ 673414 words of memory out of 5000000
+ 34279 multiletter control sequences out of 15000+600000
+ 33829 words of font info for 82 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 44i,21n,52p,1437b,1209s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,21n,50p,1437b,742s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (63 pages).
+Output written on thesis.pdf (53 pages).

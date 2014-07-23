@@ -5,7 +5,7 @@ In this chapter, we give the details about our framework.
 %==========================================================================================
 \section{Problem Setup}
 \label{s:probsetup}
-There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server $P$ and a dataset $X_i\subset\mathbb{R}^D$ on each local machine $M_i$, $\forall i=1,2,...,m$.  For each coming query $q_t$, we want to find its $k_{th}$ nearest neighborhood among these distributed datasets while reducing the transmission cost between $P$ and each $M_i$.
+There are a query set $Q={\{q_1,q_2,...,q_T\}}\subset\mathbb{R}^D$ at the server $P$ and a dataset $X_i\subset\mathbb{R}^D$ on each local machine $M_i$, $\forall i=1,2,...,m$ where the total number of instances in these machines is $N$.  For each coming query $q_t$, we want to find its $k_{th}$ nearest neighborhood among these distributed datasets while reducing the transmission cost between $P$ and each $M_i$.
 
 %==========================================================================================
 \section{Overview of Our Framework}
@@ -14,7 +14,7 @@ In this section, we describe an overview of our framework.  Then, we will give t
 
 \begin{figure}[htpb!]
   \centering
-    \includegraphics[width=1.0\textwidth]{fig/flow.jpg}
+    \includegraphics[width=0.75\textwidth]{fig/flow.jpg}
     \caption{\label{fig:overallflow}The overall flow of our framework.}
 \end{figure}
 

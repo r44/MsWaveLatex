@@ -1,28 +1,27 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The overall flow of our framework.\relax }}{8}{figure.caption.7}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces The goal of the first phase.\relax }}{10}{figure.caption.8}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The procedure of pruning impossible candidates.\relax }}{17}{figure.caption.9}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces The example of linear interpolation.\relax }}{22}{figure.caption.10}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The overall flow of our framework.\relax }}{8}{figure.caption.5}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The goal of the first phase.\relax }}{10}{figure.caption.6}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The procedure of pruning impossible candidates.\relax }}{17}{figure.caption.7}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The example of linear interpolation.\relax }}{22}{figure.caption.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Different Frameworks on Time Series\relax }}{29}{figure.caption.14}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Different Frameworks on ANN\relax }}{29}{figure.caption.15}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Different Frameworks on Flickr:\nobreakspace {}CSD\relax }}{29}{figure.caption.16}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Different Frameworks on Flickr:\nobreakspace {}SCD\relax }}{30}{figure.caption.17}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Different Frameworks on Million Song:\nobreakspace {}MVD\relax }}{30}{figure.caption.18}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Different Frameworks on Million Song:\nobreakspace {}TRH\relax }}{30}{figure.caption.19}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Different Configurations on Time Series\relax }}{33}{figure.caption.20}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Different Configurations on ANN\relax }}{33}{figure.caption.21}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Different Configurations on Flickr:\nobreakspace {}CSD\relax }}{33}{figure.caption.22}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Different Configurations on Flickr:\nobreakspace {}SCD\relax }}{34}{figure.caption.23}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Different Configurations on Million Song:\nobreakspace {}MVD\relax }}{34}{figure.caption.24}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Different Configurations on Million Song:\nobreakspace {}TRH\relax }}{34}{figure.caption.25}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Pruning Results on Time Series\relax }}{37}{figure.caption.27}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Pruning Results on ANN\relax }}{40}{figure.caption.31}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Pruning Results on Flickr:\nobreakspace {}CSD\relax }}{40}{figure.caption.32}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Pruning Results on Flickr:\nobreakspace {}SCD\relax }}{40}{figure.caption.33}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Pruning Results on Million Song:\nobreakspace {}MVD\relax }}{41}{figure.caption.34}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Pruning Results on Million Song:\nobreakspace {}TRH\relax }}{41}{figure.caption.35}
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Different Frameworks on Time Series\relax }}{29}{figure.caption.12}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Different Frameworks on ANN\relax }}{29}{figure.caption.13}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Different Frameworks on Flickr:\nobreakspace {}CSD\relax }}{29}{figure.caption.14}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Different Frameworks on Flickr:\nobreakspace {}SCD\relax }}{30}{figure.caption.15}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Different Frameworks on Million Song:\nobreakspace {}MVD\relax }}{30}{figure.caption.16}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Different Frameworks on Million Song:\nobreakspace {}TRH\relax }}{30}{figure.caption.17}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Different Configurations on Time Series\relax }}{33}{figure.caption.18}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Different Configurations on ANN\relax }}{33}{figure.caption.19}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Different Configurations on Flickr:\nobreakspace {}CSD\relax }}{33}{figure.caption.20}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Different Configurations on Flickr:\nobreakspace {}SCD\relax }}{34}{figure.caption.21}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Different Configurations on Million Song:\nobreakspace {}MVD\relax }}{34}{figure.caption.22}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Different Configurations on Million Song:\nobreakspace {}TRH\relax }}{34}{figure.caption.23}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Pruning Results on Time Series\relax }}{37}{figure.caption.25}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Pruning Results on ANN\relax }}{40}{figure.caption.29}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Pruning Results on Flickr:\nobreakspace {}CSD\relax }}{40}{figure.caption.30}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Pruning Results on Flickr:\nobreakspace {}SCD\relax }}{40}{figure.caption.31}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Pruning Results on Million Song:\nobreakspace {}MVD\relax }}{41}{figure.caption.32}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Pruning Results on Million Song:\nobreakspace {}TRH\relax }}{41}{figure.caption.33}
 \addvspace {10\p@ }
