@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  23 JUL 2014 16:57
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.6.17)  24 JUL 2014 02:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1670,9 +1670,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--6
 
 ]) (./thesis.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 6.
+(Font)              <12> on input line 7.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 6.
+(Font)              <6> on input line 7.
  [2
 
 ] [3])
@@ -1974,10 +1974,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
  ) 
 Here is how much of TeX's memory you used:
- 31468 strings out of 493938
- 592365 string characters out of 6148857
- 673414 words of memory out of 5000000
- 34279 multiletter control sequences out of 15000+600000
+ 31466 strings out of 493938
+ 592336 string characters out of 6148857
+ 673270 words of memory out of 5000000
+ 34277 multiletter control sequences out of 15000+600000
  33829 words of font info for 82 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  44i,21n,50p,1437b,742s stack positions out of 5000i,500n,10000p,200000b,80000s
