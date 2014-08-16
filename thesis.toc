@@ -1,9 +1,11 @@
-\contentsline {chapter}{Abstract}{i}{chapter*.1}
-\contentsline {chapter}{Contents}{ii}{chapter*.2}
-\contentsline {chapter}{List of Figures}{v}{chapter*.3}
-\contentsline {chapter}{List of Tables}{vi}{chapter*.4}
+\contentsline {chapter}{致謝}{i}{chapter*.1}
+\contentsline {chapter}{中文摘要}{ii}{chapter*.2}
+\contentsline {chapter}{Abstract}{iii}{chapter*.3}
+\contentsline {chapter}{Contents}{iv}{chapter*.4}
+\contentsline {chapter}{List of Figures}{vii}{chapter*.5}
+\contentsline {chapter}{List of Tables}{viii}{chapter*.6}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Related Works}{4}{chapter.2}
+\contentsline {chapter}{\numberline {2}Related Work}{4}{chapter.2}
 \contentsline {section}{\numberline {2.1}Concurrent Processing}{4}{section.2.1}
 \contentsline {section}{\numberline {2.2}Probabilistic Processing}{4}{section.2.2}
 \contentsline {section}{\numberline {2.3}LeeWave}{5}{section.2.3}
@@ -15,41 +17,41 @@
 \contentsline {section}{\numberline {3.3}First Phase}{9}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Definition of Ortohogonal Transformation}{9}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Property of Orthogonal Transformation}{9}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Enhance the Bounds by the Orthogonal Transformation}{10}{section.3.4}
+\contentsline {section}{\numberline {3.4}Enhance the Bounds by the Orthogonal Transformation}{9}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}The Goal of the First Phase}{10}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Definition of the Bounds}{11}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.2}Definition of the Bounds}{10}{subsection.3.4.2}
 \contentsline {subsection}{\numberline {3.4.3}Relation Between the Norms and the Bounds}{11}{subsection.3.4.3}
 \contentsline {subsection}{\numberline {3.4.4}Equivalent Bounds After Transformation}{12}{subsection.3.4.4}
 \contentsline {subsection}{\numberline {3.4.5}Reduction of the Norm with Orthogonal Transformation}{13}{subsection.3.4.5}
-\contentsline {subsection}{\numberline {3.4.6}Optimization over Orthogonal Constraints}{14}{subsection.3.4.6}
-\contentsline {subsection}{\numberline {3.4.7}Reduce the Cost of Sending Matrices}{15}{subsection.3.4.7}
-\contentsline {section}{\numberline {3.5}Second Phase}{17}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Pruning the Candidates with the Bounds}{17}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Derivation of our Bounds}{18}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Calculation of our Bounds}{19}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Finding the Threshold in Distributed Machines}{20}{subsection.3.5.4}
-\contentsline {section}{\numberline {3.6}Decision of the Pivots}{21}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Estimation of the Number of Residual Machines}{21}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}Estimation of the Transmission Cost}{22}{subsection.3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}Coordinate Descent to Decide the Pivots}{23}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.4.6}Optimization over Orthogonal Constraints}{13}{subsection.3.4.6}
+\contentsline {subsection}{\numberline {3.4.7}Reduce the Cost of Sending Matrices}{14}{subsection.3.4.7}
+\contentsline {section}{\numberline {3.5}Second Phase}{16}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Pruning the Candidates with the Bounds}{16}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Derivation of our Bounds}{17}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Calculation of our Bounds}{18}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Finding the Threshold in Distributed Machines}{19}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Decision of the Pivots}{20}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Estimation of the Number of Residual Machines}{20}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Estimation of the Transmission Cost}{21}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Coordinate Descent to Decide the Pivots}{22}{subsection.3.6.3}
 \contentsline {section}{\numberline {3.7}Overall Framework}{23}{section.3.7}
 \contentsline {subsection}{\numberline {3.7.1}Importance-Selecting Function}{23}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}Overall Framework}{24}{subsection.3.7.2}
-\contentsline {chapter}{\numberline {4}Experiment}{26}{chapter.4}
-\contentsline {section}{\numberline {4.1}Experiment Setup}{26}{section.4.1}
-\contentsline {section}{\numberline {4.2}Data Description}{26}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Time Series Data}{26}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Image Data}{27}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Audio Data}{27}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{28}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Frameworks for Comparison}{28}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{28}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Comparison Among our Framework with Different Configurations}{32}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Configurations for Comparison}{32}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{32}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Number of Queries for Amortizing the Cost of Matrices}{35}{section.4.5}
-\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{37}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{37}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{37}{subsection.4.6.2}
-\contentsline {chapter}{\numberline {5}Conclusions}{42}{chapter.5}
-\contentsline {chapter}{Bibliography}{44}{chapter.5}
+\contentsline {subsection}{\numberline {3.7.2}Overall Framework}{23}{subsection.3.7.2}
+\contentsline {chapter}{\numberline {4}Experiment}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Experiment Setup}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Data Description}{25}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Time Series Data}{25}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Image Data}{26}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Audio Data}{26}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Comparison Among all Frameworks}{26}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Frameworks for Comparison}{26}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Results of Different Frameworks}{27}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Comparison Among our Framework with Different Configurations}{31}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Configurations for Comparison}{31}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Results of Different Configurations}{31}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Number of Queries for Amortizing the Cost of Matrices}{34}{section.4.5}
+\contentsline {section}{\numberline {4.6}Power of the Pruning Procedure}{36}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Methods with Different Bounds}{36}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Results of Pruning}{36}{subsection.4.6.2}
+\contentsline {chapter}{\numberline {5}Conclusions}{41}{chapter.5}
+\contentsline {chapter}{Bibliography}{43}{chapter.5}
